@@ -26,7 +26,7 @@ my $name = shift @ARGV || 'index';
 
 $name =~ s{::}{/}g;
 $name =~ s{#}{/}g;
-$name .= '/index'
+$name .= '.html'
     if -d "$doc_dir/$name";
 
 # try by name
@@ -42,8 +42,7 @@ File::Find::find(
             return if $cand_dir{dirname($fn)};
             return unless $fn =~ m{/$name(?:\.|$)}i;
 	    if (-d $fn) {
-		push @cand, "$fn/index.html";
-		$cand_dir{$fn} = 1;
+            # no op
 	    } else {
 		push @cand, $fn;
 	    }
