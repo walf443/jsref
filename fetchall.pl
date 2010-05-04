@@ -6,6 +6,7 @@ use warnings;
 use File::Basename;
 use File::Slurp;
 use LWP::UserAgent;
+use URI::Encode;
 
 my $prefix = 'https://developer.mozilla.org/ja/Core_JavaScript_1.5_Reference';
 my @queue = ( 'index' );
@@ -27,7 +28,7 @@ while (my $fn = shift @queue) {
     if ( $res->is_success ) {
         $html = $res->content;
     }
-    while ( $html =~ s|(<a.*href=")$prefix/(.*?)"|$1 . handle_link($fn, $2) . ".html\""|eg ) {
+    while ( $html =~ s|(<a.*href=")$prefix(.*?)"|$1 . handle_link($fn, $2) . ".html\""|eg ) {
         # do
     }
     write_file("$BASEDIR/$fn.html", $html);
@@ -40,9 +41,17 @@ while (my $fn = shift @queue) {
 
 sub handle_link {
     my ($fn, $keyword) = @_;
-    warn $keyword;
-    if ( ! $fetched{$keyword} ) {
+    
+    my $relative = ( $fn =~ m{/} ) ? dirname($fn) . "/" : '';
+    $relative =~ s{[^/]+}{..}g;
+    return $relative . 'index' unless $keyword;
+
+    $keyword =~ s{#.*$}{};
+    $keyword = URI::Encode::uri_decode($keyword);
+    $keyword =~ s{^/}{};
+    if ( $keyword && ! $fetched{$keyword} ) {
         push @queue, $keyword;
     }
-    return $keyword;
+    return $relative . $keyword;
 }
+
