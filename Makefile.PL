@@ -1,19 +1,30 @@
 use inc::Module::Install;
-use Module::Install::ReadmeFromPod;
-use Module::Install::Repository;
-name 'App-Jsref';
-all_from 'lib/App/Jsref.pm';
-readme_from 'lib/App/Jsref.pm';
 
-# requires '';
+name 'jsref';
 
-tests 't/*.t';
-author_tests 'xt';
+abstract_from 'jsref';
+author_from 'jsref';
+license_from 'jsref';
+perl_version_from 'jsref';
+version_from 'jsref';
 
-build_requires 'Test::More';
-build_requires 'Test::LoadAllModules';
-build_requires 'Module::Install::ReadmeFromPod';
-use_test_base;
+readme_from 'jsref';
+distribution_type 'script';
+
+no_index directory => 'orig';
+
+requires_external_bin 'w3m';
+configure_requires 'Module::Install::ReadmeFromPod';
+configure_requires 'File::Slurp';
+requires 'File::ShareDir';
+
+install_script 'jsref';
+mkdir 'doc';
+install_share 'doc';
+
 auto_include;
-auto_set_repository;
+auto_install;
+
 WriteAll;
+
+do 'tidy.pl';
