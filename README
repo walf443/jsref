@@ -7,6 +7,11 @@ SYNOPSIS
       % jsref        # prints top page
       % jsref Array # prints Array docs
 
+INSTALL
+      % perl tidy.pl
+      % perl Makefile.PL
+      % make && make install
+
 AUTHOR
     Keiji Yoshimi
 
