@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=28830" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=28830" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>String - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 28830;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference/Global Objects/String';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link type="text/css" rel="stylesheet" href="https://developer.mozilla.org/deki/scripts/res/syntax/SyntaxHighlighter.css" /><script type="text/javascript" src="https://developer.mozilla.org/deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="https://developer.mozilla.org/deki/scripts/res/syntax/shBrushJScript.js"></script><link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference%2FGlobal+Objects%2FString" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li><a href="../index.html" class="deki-ns">Core JavaScript 1.5 Reference</a></li>
+<li><a href="../Global_Objects.html" class="deki-ns">Global Objects</a></li>
+<li class="last"><a href="../Global_Objects/String.html" class="deki-ns current">String</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Objects/String&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Objects/String&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Objects/String&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en/Core_JavaScript_1.5_Reference/Global_Objects/String" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15ReferenceGlobalObjectsString">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=28830" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>4.1.</span> <a href="#Character_access" rel="internal">Character access</a></li><li><span>4.2.</span> <a href="#Comparing_strings" rel="internal">Comparing strings</a></li></ol></li><li><span>5.</span> <a href="#Properties" rel="internal">Properties</a></li><li><span>6.</span> <a href="#Methods" rel="internal">Methods</a></li><li><span>7.</span> <a href="#String_instances" rel="internal">String instances</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>7.1.</span> <a href="#Properties_2" rel="internal">Properties</a></li><li><span>7.2.</span> <a href="#Methods_2" rel="internal">Methods</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>7.2.1.</span> <a href="#Methods_unrelated_to_HTML" rel="internal">Methods unrelated to HTML</a></li><li><span>7.2.2.</span> <a href="#HTML_wrapper_methods" rel="internal">HTML wrapper methods</a></li></ol></li></ol></li></ol></div>	<div class="suggestchannels">
+	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+    <a class="pageMoved" href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Functions/String&redirect=no">Redirected from en/Core JavaScript 1.5 Reference/Global Functions/String</a>        <h1 id="title">String</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>4.1.</span> <a href="#Character_access" rel="internal">Character access</a></li><li><span>4.2.</span> <a href="#Comparing_strings" rel="internal">Comparing strings</a></li></ol></li><li><span>5.</span> <a href="#Properties" rel="internal">Properties</a></li><li><span>6.</span> <a href="#Methods" rel="internal">Methods</a></li><li><span>7.</span> <a href="#String_instances" rel="internal">String instances</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>7.1.</span> <a href="#Properties_2" rel="internal">Properties</a></li><li><span>7.2.</span> <a href="#Methods_2" rel="internal">Methods</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>7.2.1.</span> <a href="#Methods_unrelated_to_HTML" rel="internal">Methods unrelated to HTML</a></li><li><span>7.2.2.</span> <a href="#HTML_wrapper_methods" rel="internal">HTML wrapper methods</a></li></ol></li></ol></li></ol></div></div><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"></span><h2 class="editable">Summary</h2>
+<p><code>String</code> is a global object that may be used to construct <code>String</code> instances.</p>
+</div><div id="section_2"><span id="Syntax"></span><h2 class="editable">Syntax</h2>
+<p><code>String(</code><code><em>[string]</em></code><code>)</code><br />
+<code>new String(<em>[string]</em>)</code></p>
+<p>String literals take the form:</p>
+<p><code>'<em>stringText</em>'</code><br />
+<code>&quot;<em>stringText</em>&quot;</code></p>
+</div><div id="section_3"><span id="Parameters"></span><h2 class="editable">Parameters</h2>
+<dl> <dt><code>string</code></dt> <dd>Any string.</dd>
+</dl>
+<dl> <dt><code>stringText</code></dt> <dd>Any series of characters that has been properly encoded.</dd>
+</dl>
+</div><div id="section_4"><span id="Description"></span><h2 class="editable">Description</h2>
+<p>String objects may be created by calling the constructor <code>new String()</code>. The <code>String</code> object wraps JavaScript's string primitive data type with the methods described below. The global function <code>String()</code> can also be called without <code>new</code> in front to create a primitive string. String literals in JavaScript are primitive strings.</p>
+<p>Because JavaScript automatically converts between string primitives and String objects, you can call any of the methods of the <code>String</code> object on a string primitive. JavaScript automatically converts the string primitive to a temporary <code>String</code> object, calls the method, then discards the temporary <code>String</code> object. For example, you can use the <code>String.length</code> property on a string primitive created from a string literal:</p>
+
+          <pre name="code" class="js">s_obj = new String(s_prim = s_also_prim = &quot;foo&quot;);
+
+s_obj.length;       // 3
+s_prim.length;      // 3
+s_also_prim.length; // 3
+'foo'.length;       // 3
+&quot;foo&quot;.length;       // 3</pre>
+        
+<p>(A string literal is denoted with single or double quotation marks.)</p>
+<p>String objects can be converted to primitive strings with the <a rel="internal" href="../Global_Objects/String/valueOf.html"><code>valueOf</code></a> method.</p>
+<p>String primitives and String objects give different results when evaluated as JavaScript. Primitives are treated as source code; String objects are treated as a character sequence object. For example:</p>
+
+          <pre name="code" class="js">s1 = &quot;2 + 2&quot;;               // creates a string primitive
+s2 = new String(&quot;2 + 2&quot;);   // creates a String object
+eval(s1);                   // returns the number 4
+eval(s2);                   // returns the string &quot;2 + 2&quot;
+eval(s2.valueOf());         // returns the number 4</pre>
+        
+<div id="section_5"><span id="Character_access"></span><h3 class="editable">Character access</h3>
+<p>There are two ways to access an individual character in a string. The first is the <a rel="internal" href="../Global_Objects/String/charAt.html"><code>charAt</code></a> method:</p>
+
+          <pre name="code" class="js">return 'cat'.charAt(1); // returns &quot;a&quot;</pre>
+        
+<p>The other way is to treat the string as an array, where each index corresponds to an individual character:</p>
+
+          <pre name="code" class="js">return 'cat'[1]; // returns &quot;a&quot;</pre>
+        
+<div class="note">The second way (treating the string as an array) is not part of ECMAScript; it's a JavaScript feature (and not supported in all browsers).</div>
+<p>In both cases, attempting to set an individual character won't work. Trying to set a character through <code>charAt</code> results in an error, while trying to set a character via indexing does not throw an error, but the string itself is unchanged.</p>
+</div><div id="section_6"><span id="Comparing_strings"></span><h3 class="editable">Comparing strings</h3>
+<p>C developers have the <code>strcmp()</code> function for comparing strings. In JavaScript, you just use the <a rel="internal" href="../Operators/Comparison_Operators.html">less-than and greater-than operators</a>:</p>
+
+          <pre name="code" class="js">var a = &quot;a&quot;;
+var b = &quot;b&quot;;
+if (a &lt; b) // true
+  print(a + &quot; is less than &quot; + b);
+else if (a &gt; b)
+  print(a + &quot; is greater than &quot; + b);
+else
+  print(a + &quot; and &quot; + b + &quot; are equal.&quot;);</pre>
+        
+<p>A similar result can be achieved using the <a rel="internal" href="../Global_Objects/String/localeCompare.html"><code>localeCompare</code></a> method inherited by <code>String</code> instances.</p>
+</div></div><div id="section_7"><span id="Properties"></span><h2 class="editable">Properties</h2>
+<p><span class="lang lang-en"> <small style="margin-left: 1em;"><em>For properties inherited by <code>String</code> instances, see <a rel="custom nofollow" href="../Global_Objects/String.html">Properties of String instances</a>.</em></small>
+
+</span> </p>
+<dl> <dt><a rel="internal" href="../Global_Objects/String/prototype.html"><code>prototype</code></a></dt> <dd>Allows the addition of properties to a String object.</dd>
+</dl>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="../Global_Objects/Function.html"><code>Function</code></a></span>:<br /><span style="font-size: smaller;"><a rel="internal" href="../Global_Objects/Function/Arity.html"><code>arity</code></a>, <a rel="internal" href="../Global_Objects/Function/Caller.html"><code>caller</code></a>, <a rel="internal" href="../Global_Objects/Function/Constructor.html"><code>constructor</code></a>, <a rel="internal" href="../Global_Objects/Function/Length.html"><code>length</code></a>, <a rel="internal" href="../Global_Objects/Function/Name.html"><code>name</code></a></span>
+</div></div></div><div id="section_8"><span id="Methods"></span><h2 class="editable">Methods</h2>
+<p><span class="lang lang-en"> <small style="margin-left: 1em;"><em>For methods inherited by <code>String</code> instances, see <a rel="custom nofollow" href="../Global_Objects/String.html">Methods of String instances</a>.</em></small>
+
+</span> </p>
+<dl> <dt><a rel="internal" href="../Global_Objects/String/fromCharCode.html"><code>fromCharCode</code></a></dt> <dd>Returns a string created by using the specified sequence of Unicode values.</dd>
+</dl>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="../Global_Objects/Function.html"><code>Function</code></a></span>:<br /><span style="font-size: smaller;"><a rel="internal" href="../Global_Objects/Function/Apply.html"><code>apply</code></a>, <a rel="internal" href="../Global_Objects/Function/Call.html"><code>call</code></a>, <a rel="internal" href="../Global_Objects/Function/ToSource.html"><code>toSource</code></a>, <a rel="internal" href="../Global_Objects/Function/ToString.html"><code>toString</code></a></span>
+</div></div></div><div id="section_9"><span id="String_instances"></span><h2 class="editable"><code>String</code> instances</h2>
+<div id="section_10"><span id="Properties_2"></span><h3 class="editable">Properties</h3>
+<p>
+<dl> <dt><a rel="internal" href="../Global_Objects/String/constructor.html"><code>constructor</code></a></dt> <dd>Specifies the function that creates an object's prototype.</dd> <dt><a rel="internal" href="../Global_Objects/String/length.html"><code>length</code></a></dt> <dd>Reflects the length of the string.</dd> <dt><em>N</em></dt> <dd><span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br /> Used to access the character in the <em>N</em>th position where <em>N</em> is a positive integer between 0 and one less than the value of <a rel="internal" href="../Global_Objects/String/length.html"><code>length</code></a>. These properties are read-only.</dd>
+</dl>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Properties inherited from  <a rel="internal" href="../Global_Objects/Object.html"><code>Object</code></a></span>:<br /><span style="font-size: smaller;"><a rel="internal" href="../Global_Objects/Object/Parent.html"><code>__parent__</code></a>, <a rel="internal" href="../Global_Objects/Object/Proto.html"><code>__proto__</code></a></span>
+</div></div>
+</p>
+</div><div id="section_11"><span id="Methods_2"></span><h3 class="editable">Methods</h3>
+<p>
+
+
+<span id="Methods_unrelated_to_HTML"></span><h4>Methods unrelated to HTML</h4>
+
+<dl> <dt><a rel="internal" href="../Global_Objects/String/charAt.html"><code>charAt</code></a></dt> <dd>Returns the character at the specified index.</dd> <dt><a rel="internal" href="../Global_Objects/String/charCodeAt.html"><code>charCodeAt</code></a></dt> <dd>Returns a number indicating the Unicode value of the character at the given index.</dd> <dt><a rel="internal" href="../Global_Objects/String/concat.html"><code>concat</code></a></dt> <dd>Combines the text of two strings and returns a new string.</dd> <dt><a rel="internal" href="../Global_Objects/String/indexOf.html"><code>indexOf</code></a></dt> <dd>Returns the index within the calling String object of the first occurrence of the specified value, or -1 if not found.</dd> <dt><a rel="internal" href="../Global_Objects/String/lastIndexOf.html"><code>lastIndexOf</code></a></dt> <dd>Returns the index within the calling String object of the last occurrence of the specified value, or -1 if not found.</dd> <dt><a rel="internal" href="../Global_Objects/String/localeCompare.html"><code>localeCompare</code></a></dt> <dd>Returns a number indicating whether a reference string comes before or after or is the same as the given string in sort order.</dd> <dt><a rel="internal" href="../Global_Objects/String/match.html"><code>match</code></a></dt> <dd>Used to match a regular expression against a string.</dd> <dt><a rel="internal" href="../Global_Objects/String/quote.html"><code>quote</code></a></dt> <dd><span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br /> Wraps the string in double quotes (&quot;<code>&quot;</code>&quot;).</dd> <dt><a rel="internal" href="../Global_Objects/String/replace.html"><code>replace</code></a></dt> <dd>Used to find a match between a regular expression and a string, and to replace the matched substring with a new substring.</dd> <dt><a rel="internal" href="../Global_Objects/String/search.html"><code>search</code></a></dt> <dd>Executes the search for a match between a regular expression and a specified string.</dd> <dt><a rel="internal" href="../Global_Objects/String/slice.html"><code>slice</code></a></dt> <dd>Extracts a section of a string and returns a new string.</dd> <dt><a rel="internal" href="../Global_Objects/String/split.html"><code>split</code></a></dt> <dd>Splits a String object into an array of strings by separating the string into substrings.</dd> <dt><a rel="internal" href="../Global_Objects/String/substr.html"><code>substr</code></a></dt> <dd>Returns the characters in a string beginning at the specified location through the specified number of characters.</dd> <dt><a rel="internal" href="../Global_Objects/String/substring.html"><code>substring</code></a></dt> <dd>Returns the characters in a string between two indexes into the string.</dd> <dt><a rel="internal" href="../Global_Objects/String/toLocaleLowerCase.html"><code>toLocaleLowerCase</code></a></dt> <dd>The characters within a string are converted to lower case while respecting the current locale. For most languages, this will return the same as <a rel="internal" href="../Global_Objects/String/toLowerCase.html"><code>toLowerCase</code></a>.</dd> <dt><a rel="internal" href="../Global_Objects/String/toLocaleUpperCase.html"><code>toLocaleUpperCase</code></a></dt> <dd>The characters within a string are converted to upper case while respecting the current locale. For most languages, this will return the same as <a rel="internal" href="../Global_Objects/String/toUpperCase.html"><code>toUpperCase</code></a>.</dd> <dt><a rel="internal" href="../Global_Objects/String/toLowerCase.html"><code>toLowerCase</code></a></dt> <dd>Returns the calling string value converted to lower case.</dd> <dt><a rel="internal" href="../Global_Objects/String/toSource.html"><code>toSource</code></a></dt> <dd><span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br /> Returns an object literal representing the specified object; you can use this value to create a new object. Overrides the <a rel="internal" href="../Global_Objects/Object/toSource.html"><code>Object.toSource</code></a> method.</dd> <dt><a rel="internal" href="../Global_Objects/String/toString.html"><code>toString</code></a></dt> <dd>Returns a string representing the specified object. Overrides the <a rel="internal" href="../Global_Objects/Object/toString.html"><code>Object.toString</code></a> method.</dd> <dt><a rel="internal" href="../Global_Objects/String/toUpperCase.html"><code>toUpperCase</code></a></dt> <dd>Returns the calling string value converted to uppercase.</dd> <dt><a class="internal" rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String/Trim"><code>trim</code></a></dt> <dd><!-- ENGLISH --> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); padding: 2px; background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap;">New in <a rel="internal" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span></span> <!-- OTHERS -->  <!-- GERMAN -->  <!-- SPANISH -->  <!-- FRENCH -->  <!-- JAPANESE -->  <!-- CHINESE -->  <!-- KOREAN -->  <!-- POLISH -->  <!-- PT -->  <!-- RUSSIAN -->  <!-- ADD NEW INLINE TEMPLATES HERE --><br /> Trims whitespace from the beginning and end of the string. Part of the ECMAScript 5 standard.</dd> <dt><a class="internal" rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String/TrimLeft"><code>trimLeft</code></a></dt> <dd><!-- ENGLISH --> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); padding: 2px; background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap;">New in <a rel="internal" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span></span> <!-- OTHERS -->  <!-- GERMAN -->  <!-- SPANISH -->  <!-- FRENCH -->  <!-- JAPANESE -->  <!-- CHINESE -->  <!-- KOREAN -->  <!-- POLISH -->  <!-- PT -->  <!-- RUSSIAN -->  <!-- ADD NEW INLINE TEMPLATES HERE --> <span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br /> Trims whitespace from the left side of the string.</dd> <dt><a class="internal" rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Global_Objects/String/TrimRight"><code>trimRight</code></a></dt> <dd><!-- ENGLISH --> <span class="lang lang-en"><span style="border: 1px solid rgb(129, 129, 81); padding: 2px; background-color: rgb(255, 255, 225); font-size: x-small; white-space: nowrap;">New in <a rel="internal" href="https://developer.mozilla.org/en/Firefox_3.5_for_developers">Firefox 3.5</a></span></span> <!-- OTHERS -->  <!-- GERMAN -->  <!-- SPANISH -->  <!-- FRENCH -->  <!-- JAPANESE -->  <!-- CHINESE -->  <!-- KOREAN -->  <!-- POLISH -->  <!-- PT -->  <!-- RUSSIAN -->  <!-- ADD NEW INLINE TEMPLATES HERE --> <span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     <br /> Trims whitespace from the right side of the string.</dd> <dt><a rel="internal" href="../Global_Objects/String/valueOf.html"><code>valueOf</code></a></dt> <dd>Returns the primitive value of the specified object. Overrides the <a rel="internal" href="../Global_Objects/Object/valueOf.html"><code>Object.valueOf</code></a> method.</dd>
+</dl>
+
+
+<span id="HTML_wrapper_methods"></span><h4>HTML wrapper methods</h4>
+
+<p><span class="lang lang-en">
+<div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p style="margin: 4px 0px 4px 0px;">Non-standard</p>
+</div>
+</span></p>
+<p> Each of the following methods returns a copy of the string wrapped inside the appropriate HTML tag.</p>
+<dl> <dt><a rel="internal" href="../Global_Objects/String/anchor.html"><code>anchor</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/struct/links.html#adef-name-A" title="http://www.w3.org/TR/html401/struct/links.html#adef-name-A" target="_blank"><code>&lt;a name=&quot;<em>name</em>&quot;&gt;</code></a> (hypertext target)</dd> <dt><a rel="internal" href="../Global_Objects/String/big.html"><code>big</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/graphics.html#edef-BIG" title="http://www.w3.org/TR/html401/present/graphics.html#edef-BIG" target="_blank"><code>&lt;big&gt;</code></a></dd> <dt><a rel="internal" href="../Global_Objects/String/blink.html"><code>blink</code></a></dt> <dd><code>&lt;blink&gt;</code></dd> <dt><a rel="internal" href="../Global_Objects/String/bold.html"><code>bold</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/graphics.html#edef-B" title="http://www.w3.org/TR/html401/present/graphics.html#edef-B" target="_blank"><code>&lt;b&gt;</code></a></dd> <dt><a rel="internal" href="../Global_Objects/String/fixed.html"><code>fixed</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/graphics.html#edef-TT" title="http://www.w3.org/TR/html401/present/graphics.html#edef-TT" target="_blank"><code>&lt;tt&gt;</code></a></dd> <dt><a rel="internal" href="../Global_Objects/String/fontcolor.html"><code>fontcolor</code></a></dt> <dd><code>&lt;font color=&quot;<em>color</em>&quot;&gt;</code></dd> <dt><a rel="internal" href="../Global_Objects/String/fontsize.html"><code>fontsize</code></a></dt> <dd><code>&lt;font size=&quot;<em>size</em>&quot;&gt;</code></dd> <dt><a rel="internal" href="../Global_Objects/String/italics.html"><code>italics</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/graphics.html#edef-I" title="http://www.w3.org/TR/html401/present/graphics.html#edef-I" target="_blank"><code>&lt;i&gt;</code></a></dd> <dt><a rel="internal" href="../Global_Objects/String/link.html"><code>link</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/struct/links.html#adef-href" title="http://www.w3.org/TR/html401/struct/links.html#adef-href" target="_blank"><code>&lt;a href=&quot;<em>url</em>&quot;&gt;</code></a> (link to URL)</dd> <dt><a rel="internal" href="../Global_Objects/String/small.html"><code>small</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/graphics.html#edef-SMALL" title="http://www.w3.org/TR/html401/present/graphics.html#edef-SMALL" target="_blank"><code>&lt;small&gt;</code></a>.</dd> <dt><a rel="internal" href="../Global_Objects/String/strike.html"><code>strike</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/present/graphics.html#edef-STRIKE" title="http://www.w3.org/TR/html401/present/graphics.html#edef-STRIKE" target="_blank"><code>&lt;strike&gt;</code></a></dd> <dt><a rel="internal" href="../Global_Objects/String/sub.html"><code>sub</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/struct/text.html#edef-SUB" title="http://www.w3.org/TR/html401/struct/text.html#edef-SUB" target="_blank"><code>&lt;sub&gt;</code></a></dd> <dt><a rel="internal" href="../Global_Objects/String/sup.html"><code>sup</code></a></dt> <dd><a class="external" rel="external nofollow" href="http://www.w3.org/TR/html401/struct/text.html#edef-SUP" title="http://www.w3.org/TR/html401/struct/text.html#edef-SUP" target="_blank"><code>&lt;sup&gt;</code></a></dd>
+</dl>
+<p>These methods are of limited use, as they provide only a subset of the available HTML tags and attributes.</p>
+<div>
+<div style="border: 1px solid rgb(204, 204, 204); margin: 10px 0px; padding: 0px 10px; background: rgb(238, 238, 238) none repeat scroll 0% 0%;">
+<span style="font-weight:bold;">Methods inherited from  <a rel="internal" href="../Global_Objects/Object.html"><code>Object</code></a></span>:<br /><span style="font-size: smaller;"><a rel="internal" href="../Global_Objects/Object/DefineGetter.html"><code>__defineGetter__</code></a>, <a rel="internal" href="../Global_Objects/Object/DefineSetter.html"><code>__defineSetter__</code></a>, <a rel="internal" href="../Global_Objects/Object/Eval.html"><code>eval</code></a>, <a rel="internal" href="../Global_Objects/Object/HasOwnProperty.html"><code>hasOwnProperty</code></a>, <a rel="internal" href="../Global_Objects/Object/IsPrototypeOf.html"><code>isPrototypeOf</code></a>, <a rel="internal" href="../Global_Objects/Object/LookupGetter.html"><code>__lookupGetter__</code></a>, <a rel="internal" href="../Global_Objects/Object/LookupSetter.html"><code>__lookupSetter__</code></a>, <a rel="internal" href="../Global_Objects/Object/NoSuchMethod.html"><code>__noSuchMethod__</code></a>, <a rel="internal" href="../Global_Objects/Object/PropertyIsEnumerable.html"><code>propertyIsEnumerable</code></a>, <a rel="internal" href="../Global_Objects/Object/ToLocaleString.html"><code>toLocaleString</code></a>, <a rel="internal" href="../Global_Objects/Object/Unwatch.html"><code>unwatch</code></a>, <a rel="internal" href="../Global_Objects/Object/Watch.html"><code>watch</code></a></span>
+</div></div>
+</p>
+<p></p></div></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="../Global_Objects/String.html">https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Objects/String</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/es/Referencia_de_JavaScript_1.5/Objetos_globales/String">Espa&ntilde;ol</a></li><li><a rel="internal" href="https://developer.mozilla.org/fr/R%c3%a9f%c3%a9rence_de_JavaScript_1.5_Core/Objets_globaux/String">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl/Dokumentacja_j%c4%99zyka_JavaScript_1.5/Obiekty/String">Polski</a></li><li><a rel="internal" href="https://developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String">日本語</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Objects/String&action=history" title="06:31, 12 Mar 2010">06:31, 12 Mar 2010</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"></div><div><a href="/index.php?title=Special:Tags&pageId=28830"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 45667;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=28830">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki02 in 1.84 secs. -->
+<!-- (GET)/deki/site/settings: 1.1471610069275 -->
+<!-- (GET)/deki/users/=Anonymous: 0.02083683013916 -->
+<!-- /deki/pages/39779/contents: 0.090167045593262 -->
+<!-- /deki/pages/39779: 0.0053470134735107 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.017098188400269 -->
+<!-- /deki/pages/29478/contents: 0.41684603691101 -->
+<!-- /deki/pages/29478: 0.037096977233887 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.011339902877808 -->
+<!-- (GET)/deki/pages/28830/info: 0.0049388408660889 -->
+<!-- /deki/pages/28830/security: 0.0086369514465332 -->
+<!-- (GET)/deki/pages/28830/tags: 0.0067980289459229 -->
+<!-- (GET)/deki/license: 0.0043249130249023 -->
+<!-- (GET)/deki/license: 0.0047578811645508 -->
+<!-- Total: 1.7753496170044-->
+<!-- Real: 1.7705917358398-->
+<script type="text/javascript">/*<![CDATA[*/$(function(){dp.SyntaxHighlighter.HighlightAll('code');});/*]]>*/</script>
+</body>
+</html>

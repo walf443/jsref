@@ -1,0 +1,348 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=28522" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=28522" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>for...in - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 28522;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference/Statements/for...in';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link type="text/css" rel="stylesheet" href="https://developer.mozilla.org/deki/scripts/res/syntax/SyntaxHighlighter.css" /><script type="text/javascript" src="https://developer.mozilla.org/deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="https://developer.mozilla.org/deki/scripts/res/syntax/shBrushJScript.js"></script><link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference%2FStatements%2Ffor...in" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li><a href="../index.html" class="deki-ns">Core JavaScript 1.5 Reference</a></li>
+<li><a href="../Statements.html" class="deki-ns">Statements</a></li>
+<li class="last"><a href="../Statements/for...in.html" class="deki-ns current">for...in</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for...in&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for...in&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for...in&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en/Core_JavaScript_1.5_Reference/Statements/for...in" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15ReferenceStatementsforin">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=28522" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a></li><li><span>5.</span> <a href="#Examples" rel="internal">Examples</a></li><li><span>6.</span> <a href="#See_also" rel="internal">See also</a></li></ol></div>	<div class="suggestchannels">
+	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+            <h1 id="title">for...in</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a></li><li><span>5.</span> <a href="#Examples" rel="internal">Examples</a></li><li><span>6.</span> <a href="#See_also" rel="internal">See also</a></li></ol></div></div><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"></span><h2 class="editable">Summary</h2>
+<p>Iterates a specified variable over all the properties of an object, in arbitrary order. For each distinct property, the specified statement is executed.</p>
+<table class="fullwidth-table"> <tbody> <tr> <td class="header" colspan="2">Statement</td> </tr> <tr> <td>Implemented in:</td> <td>JavaScript 1.0, NES 2.0</td> </tr> <tr> <td>ECMA Version:</td> <td>ECMA-262</td> </tr> </tbody>
+</table>
+</div><div id="section_2"><span id="Syntax"></span><h2 class="editable">Syntax</h2>
+<pre class="eval">
+for (<em>variable</em> in <em>object</em>)
+  <em>statement</em>
+</pre>
+</div><div id="section_3"><span id="Parameters"></span><h2 class="editable">Parameters</h2>
+<dl> <dt><code>variable</code></dt> <dd>Variable to iterate over every property. This variable is accessible outside the loop after the loop completes. If the variable was not declared with the optional <code>var</code> keyword, it is accessible before the loop starts from where it is declared, potentially outside any containing function.</dd>
+</dl>
+<dl> <dt><code>object</code></dt> <dd>Object for which the properties are iterated.</dd>
+</dl>
+<dl> <dt><code>statement</code></dt> <dd>A statement to execute for each property. To execute multiple statements within the loop, use a <a rel="internal" href="../Statements/block.html">block</a> statement (<code>{ ... }</code>) to group those statements.</dd>
+</dl>
+</div><div id="section_4"><span id="Description"></span><h2 class="editable">Description</h2>
+<p>A <code>for...in</code> loop does not iterate over built-in properties. These include all built-in methods of objects, such as <code><a rel="internal" href="../Global_Objects/String.html">String</a></code>'s <code><a rel="internal" href="../Global_Objects/String/indexOf.html">indexOf</a></code> method or <code><a rel="internal" href="../Global_Objects/Object.html">Object</a></code>'s <code><a rel="internal" href="../Global_Objects/Object/toString.html">toString</a></code> method. However, the loop will iterate over all user-defined properties (including any which overwrite built-in properties).</p>
+<p>A <code>for...in</code> loop iterates over the properties of an object in an arbitrary order (see the <a rel="internal" href="../Operators/Special_Operators/delete_Operator.html">delete operator</a> for more on why one cannot depend on the seeming orderliness of iteration, at least in a cross-browser setting). If a property is modified in one iteration and then visited at a later time, the value exposed by the loop will be its value at that later time. A property which is deleted before it has been visited will not then be visited later. Properties added to the object over which iteration is occurring may either be visited or omitted from iteration. In general it is best not to add, modify, or remove properties from the object during iteration, other than the property currently being visited; there is no guarantee whether or not an added property will be visited, whether a modified property will be visited before or after it is modified, or whether a deleted property will be visited before it is deleted.</p>
+<div class="note">
+<p>Although it may be tempting to use this as a way to iterate over an <a rel="internal" href="../Global_Objects/Array.html">Array</a>, this is a bad idea. The <code>for...in</code> statement iterates over user-defined properties in addition to the array elements, so if you modify the array's non-integer or non-positive properties (e.g. by adding a <code>&quot;foo&quot;</code> property to it or even by adding a method or property to <code>Array.prototype</code>), the <code>for...in</code> statement will return the name of your user-defined properties in addition to the numeric indexes. Also, because order of iteration is arbitrary, iterating over an array may not visit elements in numeric order. Thus it is better to use a traditional <a rel="internal" href="../Statements/for.html">for</a> loop with a numeric index when iterating over arrays. Similar arguments might be used against even using for...in at all (at least without <a class="internal" rel="internal" href="../Global_Objects/Object/propertyIsEnumerable.html">propertyIsEnumerable</a>() or <a class="internal" rel="internal" href="../Global_Objects/Object/hasOwnProperty.html">hasOwnProperty</a>() checks), since it will also iterate over Object.prototype (which, though usually discouraged, can, as in the case of Array.prototype, be usefully extended by the user where are no namespacing concerns caused by inclusion of other libraries which might not perform the above checks on such iterations and where they are aware of the effect such extension will have on their own use of iterators such as for...in).</p>
+</div>
+</div><div id="section_5"><span id="Examples"></span><h2 class="editable">Examples</h2>
+<p>The following function takes as its arguments an object and the object's name. It then iterates over all the object's properties and returns a string that lists the property names and their values.</p>
+
+          <pre name="code" class="js">function show_props(obj, objName) {
+   var result = &quot;&quot;;
+   for (var i in obj) {
+      result += objName + &quot;.&quot; + i + &quot; = &quot; + obj[i] + &quot;\n&quot;;
+   }
+   return result;
+}</pre>
+        
+</div><div id="section_6"><span id="See_also"></span><h2 class="editable">See also</h2>
+<ul> <li><a rel="internal" href="../Statements/for_each...in.html">for each...in</a> - similar to <code>for...in</code>, but iterates over the values of object's properties, rather than the property names themselves. (<a rel="internal" href="https://developer.mozilla.org/en/New_in_JavaScript_1.6">New in JavaScript 1.6</a>.)</li> <li><a rel="internal" href="../Statements/for.html">for</a></li> <li><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Iterators_and_Generators">Generator expressions</a> (uses the <code>for...in</code> syntax)</li>
+</ul>
+<p></p></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="../Statements/for...in.html">https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/for...in</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/es/Referencia_de_JavaScript_1.5/Sentencias/for...in">Espa&ntilde;ol</a></li><li><a rel="internal" href="https://developer.mozilla.org/fr/R%c3%a9f%c3%a9rence_de_JavaScript_1.5_Core/Instructions/for...in">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl/Dokumentacja_j%c4%99zyka_JavaScript_1.5/Polecenia/for...in">Polski</a></li><li><a rel="internal" href="https://developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/for...in">日本語</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for...in&action=history" title="00:17, 12 Mar 2010">00:17, 12 Mar 2010</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"></div><div><a href="/index.php?title=Special:Tags&pageId=28522"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 23450;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=28522">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki01 in 0.20 secs. -->
+<!-- (GET)/deki/site/settings: 0.0051059722900391 -->
+<!-- (GET)/deki/users/=Anonymous: 0.0083701610565186 -->
+<!-- /deki/pages/39779/contents: 0.028961896896362 -->
+<!-- /deki/pages/39779: 0.0028009414672852 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0075631141662598 -->
+<!-- /deki/pages/28522/contents: 0.042376041412354 -->
+<!-- /deki/pages/28522: 0.023760080337524 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0081701278686523 -->
+<!-- (GET)/deki/pages/28522/info: 0.0045590400695801 -->
+<!-- (GET)/deki/pages/28522/tags: 0.0053360462188721 -->
+<!-- (GET)/deki/license: 0.0043189525604248 -->
+<!-- (GET)/deki/license: 0.004209041595459 -->
+<!-- Total: 0.14553141593933-->
+<!-- Real: 0.14132237434387-->
+<script type="text/javascript">/*<![CDATA[*/$(function(){dp.SyntaxHighlighter.HighlightAll('code');});/*]]>*/</script>
+</body>
+</html>

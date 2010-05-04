@@ -1,0 +1,697 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=25471" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=25471" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>Core JavaScript 1.5 Reference/reorg - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 25471;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference//reorg';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference%2F%2Freorg" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li class="last"><a href="https://developer.mozilla.org/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg" class="deki-ns current">Core JavaScript 1.5 Reference/reorg</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/index.php?title=Talk:en/Core_JavaScript_1.5_Reference%2F%2Freorg" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15Referencereorg">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=25471" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Comments" rel="internal"> Comments </a></li><li><span>2.</span> <a href="#Reference" rel="internal"> Reference </a></li><li><span>3.</span> <a href="#Guide" rel="internal"> Guide </a></li></ol></div>	<div class="suggestchannels">
+<div>
+<h5>Discuss in IRC</h5>
+<ul class="suggestchannels">       <li><a class="link-irc" rel="external nofollow" href="irc://irc.mozilla.org/devmo" title="irc://irc.mozilla.org/devmo" target="_blank">#devmo</a></li>          
+</ul>
+</div>	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+    <a class="pageMoved" href="/index.php?title=En/Core_JavaScript_1.5_Reference/Reorg&redirect=no">Redirected from En/Core JavaScript 1.5 Reference/Reorg</a>        <h1 id="title">Core JavaScript 1.5 Reference/reorg</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Comments" rel="internal"> Comments </a></li><li><span>2.</span> <a href="#Reference" rel="internal"> Reference </a></li><li><span>3.</span> <a href="#Guide" rel="internal"> Guide </a></li></ol></div></div><div class="pageText" id="pageText"><p><a rel="internal" href="index.html">Core JavaScript 1.5 Reference</a> and <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide">Guide</a> reorganization plans.
+</p>
+<div id="section_1"><span id="Comments"></span><h3 class="editable"> Comments </h3>
+<p>This is mainly a list of planned moves for the JS Reference and Guide. In addition to moves, some pages of the Reference will be merged, and some information will be moved to the Guide. Some, but not all of such cases are marked below.
+</p><p>The moves will hopefully be done by a bot after an agreement is reached. Previous discussion can be found on devmo-general archives, in particular the thread &quot;JS Reference (and Guide) Reorganization&quot; from late October 2005.
+</p>
+</div><div id="section_2"><span id="Reference"></span><h3 class="editable"> Reference </h3>
+<pre class="eval"><a rel="internal" href="index.html">Core JavaScript 1.5 Reference</a>                                      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Reference" class="new ">JS:Reference</a>
+<a rel="internal" href="About.html">Core JavaScript 1.5 Reference:About</a>                                <i>tbd</i>
+<a rel="internal" href="About/Formatting_Conventions.html" class="new ">Core JavaScript 1.5 Reference:About:Formatting Conventions</a>         <i>tdb</i>
+<del><a rel="internal" href="Comments.html">Core JavaScript 1.5 Reference:Comments</a>                             <b>delete</b></del>
+<a rel="internal" href="Comments/comment.html">Core JavaScript 1.5 Reference:Comments:comment</a>                     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Comments" class="new ">JS:Comments</a>
+<a rel="internal" href="Deprecated_Features.html">Core JavaScript 1.5 Reference:Deprecated Features</a>                  <i>tbd</i>
+
+<a rel="internal" href="Functions.html">Core JavaScript 1.5 Reference:Functions</a>                            merge into <a rel="internal" href="https://developer.mozilla.org/en/JS/Function" class="new ">JS:Function</a>, clean up
+<a rel="internal" href="Functions/arguments.html">Core JavaScript 1.5 Reference:Functions:arguments</a>                  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function/arguments" class="new ">JS:Function:arguments</a>  
+                                                                   (perhaps without the &quot;Function:&quot; chunk?)
+<a rel="internal" href="Functions/arguments/callee.html">Core JavaScript 1.5 Reference:Functions:arguments:callee</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function/arguments.callee" class="new ">JS:Function:arguments.callee</a>
+<a rel="internal" href="Functions/arguments/caller.html">Core JavaScript 1.5 Reference:Functions:arguments:caller</a>           <i>tbd</i>
+<a rel="internal" href="Functions/arguments/length.html">Core JavaScript 1.5 Reference:Functions:arguments:length</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function/arguments.length" class="new ">JS:Function:arguments.length</a>
+<a rel="internal" href="Global_Functions.html">Core JavaScript 1.5 Reference:Global Functions</a>                     <i>tbd</i>
+<a rel="internal" href="Global_Functions/Date.html">Core JavaScript 1.5 Reference:Global Functions:Date</a>                merge into <a rel="internal" href="https://developer.mozilla.org/en/JS/Date" class="new ">JS:Date</a>
+<a rel="internal" href="Global_Functions/Number.html">Core JavaScript 1.5 Reference:Global Functions:Number</a>              merge into <a rel="internal" href="https://developer.mozilla.org/en/JS/Number" class="new ">JS:Number</a>
+<a rel="internal" href="Global_Functions/String.html">Core JavaScript 1.5 Reference:Global Functions:String</a>              merge into <a rel="internal" href="https://developer.mozilla.org/en/JS/String" class="new ">JS:String</a>
+<a rel="internal" href="Global_Functions/decodeURI.html">Core JavaScript 1.5 Reference:Global Functions:decodeURI</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/decodeURI" class="new ">JS:decodeURI</a>
+<a rel="internal" href="Global_Functions/decodeURIComponent.html">Core JavaScript 1.5 Reference:Global Functions:decodeURIComponent</a>  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/decodeURIComponent" class="new ">JS:decodeURIComponent</a>
+<a rel="internal" href="Global_Functions/encodeURI.html">Core JavaScript 1.5 Reference:Global Functions:encodeURI</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/encodeURI" class="new ">JS:encodeURI</a>
+<a rel="internal" href="Global_Functions/encodeURIComponent.html">Core JavaScript 1.5 Reference:Global Functions:encodeURIComponent</a>  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/encodeURIComponent" class="new ">JS:encodeURIComponent</a>
+<a rel="internal" href="Global_Functions/eval.html">Core JavaScript 1.5 Reference:Global Functions:eval</a>                -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/eval" class="new ">JS:eval</a>
+<a rel="internal" href="Global_Functions/isFinite.html">Core JavaScript 1.5 Reference:Global Functions:isFinite</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/isFinite" class="new ">JS:isFinite</a>
+<a rel="internal" href="Global_Functions/isNaN.html">Core JavaScript 1.5 Reference:Global Functions:isNaN</a>               -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/isNaN" class="new ">JS:isNaN</a>
+<a rel="internal" href="Global_Functions/parseFloat.html">Core JavaScript 1.5 Reference:Global Functions:parseFloat</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/parseFloat" class="new ">JS:parseFloat</a>
+<a rel="internal" href="Global_Functions/parseInt.html">Core JavaScript 1.5 Reference:Global Functions:parseInt</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/parseInt" class="new ">JS:parseInt</a>
+<a rel="internal" href="Global_Objects.html">Core JavaScript 1.5 Reference:Global Objects</a>                       <i>tbd</i>
+<a rel="internal" href="Global_Objects/Array.html">Core JavaScript 1.5 Reference:Global Objects:Array</a>                 -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array" class="new ">JS:Array</a>
+<a rel="internal" href="Global_Objects/Array/prototype.html">Core JavaScript 1.5 Reference:Global Objects:Array:prototype</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype" class="new ">JS:Array.prototype</a>
+<a rel="internal" href="Global_Objects/Array/concat.html">Core JavaScript 1.5 Reference:Global Objects:Array:concat</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.concat" class="new ">JS:Array.prototype.concat</a>
+<a rel="internal" href="Global_Objects/Array/constructor.html">Core JavaScript 1.5 Reference:Global Objects:Array:constructor</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.constructor" class="new ">JS:Array.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/Array/every.html">Core JavaScript 1.5 Reference:Global Objects:Array:every</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.every" class="new ">JS:Array.prototype.every</a>      
+<a rel="internal" href="Global_Objects/Array/filter.html">Core JavaScript 1.5 Reference:Global Objects:Array:filter</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.filter" class="new ">JS:Array.prototype.filter</a>     
+<a rel="internal" href="Global_Objects/Array/forEach.html">Core JavaScript 1.5 Reference:Global Objects:Array:forEach</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.forEach" class="new ">JS:Array.prototype.forEach</a>    
+<a rel="internal" href="Global_Objects/Array/index.html">Core JavaScript 1.5 Reference:Global Objects:Array:index</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array/index" class="new ">JS:Array:index</a> (with a redirect from .prototype.index?)
+<a rel="internal" href="Global_Objects/Array/indexOf.html">Core JavaScript 1.5 Reference:Global Objects:Array:indexOf</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.indexOf" class="new ">JS:Array.prototype.indexOf</a>    
+<a rel="internal" href="Global_Objects/Array/input.html">Core JavaScript 1.5 Reference:Global Objects:Array:input</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array/input" class="new ">JS:Array:input</a>      
+<a rel="internal" href="Global_Objects/Array/join.html">Core JavaScript 1.5 Reference:Global Objects:Array:join</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.join" class="new ">JS:Array.prototype.join</a>       
+<a rel="internal" href="Global_Objects/Array/lastIndexOf.html">Core JavaScript 1.5 Reference:Global Objects:Array:lastIndexOf</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.lastIndexOf" class="new ">JS:Array.prototype.lastIndexOf</a>
+<a rel="internal" href="Global_Objects/Array/length.html">Core JavaScript 1.5 Reference:Global Objects:Array:length</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.length" class="new ">JS:Array.prototype.length</a>     
+<a rel="internal" href="Global_Objects/Array/map.html">Core JavaScript 1.5 Reference:Global Objects:Array:map</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.map" class="new ">JS:Array.prototype.map</a>        
+<a rel="internal" href="Global_Objects/Array/pop.html">Core JavaScript 1.5 Reference:Global Objects:Array:pop</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.pop" class="new ">JS:Array.prototype.pop</a>        
+<a rel="internal" href="Global_Objects/Array/push.html">Core JavaScript 1.5 Reference:Global Objects:Array:push</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.push" class="new ">JS:Array.prototype.push</a>       
+<a rel="internal" href="Global_Objects/Array/reverse.html">Core JavaScript 1.5 Reference:Global Objects:Array:reverse</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.reverse" class="new ">JS:Array.prototype.reverse</a>    
+<a rel="internal" href="Global_Objects/Array/shift.html">Core JavaScript 1.5 Reference:Global Objects:Array:shift</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.shift" class="new ">JS:Array.prototype.shift</a>      
+<a rel="internal" href="Global_Objects/Array/slice.html">Core JavaScript 1.5 Reference:Global Objects:Array:slice</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.slice" class="new ">JS:Array.prototype.slice</a>      
+<a rel="internal" href="Global_Objects/Array/some.html">Core JavaScript 1.5 Reference:Global Objects:Array:some</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.some" class="new ">JS:Array.prototype.some</a>       
+<a rel="internal" href="Global_Objects/Array/sort.html">Core JavaScript 1.5 Reference:Global Objects:Array:sort</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.sort" class="new ">JS:Array.prototype.sort</a>       
+<a rel="internal" href="Global_Objects/Array/splice.html">Core JavaScript 1.5 Reference:Global Objects:Array:splice</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.splice" class="new ">JS:Array.prototype.splice</a>     
+<a rel="internal" href="Global_Objects/Array/toSource.html">Core JavaScript 1.5 Reference:Global Objects:Array:toSource</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.toSource" class="new ">JS:Array.prototype.toSource</a>   
+<a rel="internal" href="Global_Objects/Array/toString.html">Core JavaScript 1.5 Reference:Global Objects:Array:toString</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.toString" class="new ">JS:Array.prototype.toString</a>   
+<a rel="internal" href="Global_Objects/Array/unshift.html">Core JavaScript 1.5 Reference:Global Objects:Array:unshift</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.unshift" class="new ">JS:Array.prototype.unshift</a>    
+<a rel="internal" href="Global_Objects/Array/valueOf.html">Core JavaScript 1.5 Reference:Global Objects:Array:valueOf</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Array.prototype.valueOf" class="new ">JS:Array.prototype.valueOf</a>    
+<a rel="internal" href="Global_Objects/Boolean.html">Core JavaScript 1.5 Reference:Global Objects:Boolean</a>               -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Boolean" class="new ">JS:Boolean</a>
+<a rel="internal" href="Global_Objects/Boolean/prototype.html">Core JavaScript 1.5 Reference:Global Objects:Boolean:prototype</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Boolean.prototype" class="new ">JS:Boolean.prototype</a>  
+<a rel="internal" href="Global_Objects/Boolean/constructor.html">Core JavaScript 1.5 Reference:Global Objects:Boolean:constructor</a>   -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Boolean.prototype.constructor" class="new ">JS:Boolean.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/Boolean/toSource.html">Core JavaScript 1.5 Reference:Global Objects:Boolean:toSource</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Boolean.prototype.toSource" class="new ">JS:Boolean.prototype.toSource</a>   
+<a rel="internal" href="Global_Objects/Boolean/toString.html">Core JavaScript 1.5 Reference:Global Objects:Boolean:toString</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Boolean.prototype.toString" class="new ">JS:Boolean.prototype.toString</a>   
+<a rel="internal" href="Global_Objects/Boolean/valueOf.html">Core JavaScript 1.5 Reference:Global Objects:Boolean:valueOf</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Boolean.prototype.valueOf" class="new ">JS:Boolean.prototype.valueOf</a>    
+<a rel="internal" href="Global_Objects/Date.html">Core JavaScript 1.5 Reference:Global Objects:Date</a>                  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date" class="new ">JS:Date</a>
+<a rel="internal" href="Global_Objects/Date/parse.html">Core JavaScript 1.5 Reference:Global Objects:Date:parse</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.parse" class="new ">JS:Date.parse</a>
+<a rel="internal" href="Global_Objects/Date/UTC.html">Core JavaScript 1.5 Reference:Global Objects:Date:UTC</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.UTC" class="new ">JS:Date.UTC</a>
+<a rel="internal" href="Global_Objects/Date/prototype.html">Core JavaScript 1.5 Reference:Global Objects:Date:prototype</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype" class="new ">JS:Date.prototype</a>
+<a rel="internal" href="Global_Objects/Date/constructor.html">Core JavaScript 1.5 Reference:Global Objects:Date:constructor</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.constructor" class="new ">JS:Date.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/Date/getDate.html">Core JavaScript 1.5 Reference:Global Objects:Date:getDate</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getDate" class="new ">JS:Date.prototype.getDate</a>          
+<a rel="internal" href="Global_Objects/Date/getDay.html">Core JavaScript 1.5 Reference:Global Objects:Date:getDay</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getDay" class="new ">JS:Date.prototype.getDay</a>           
+<a rel="internal" href="Global_Objects/Date/getFullYear.html">Core JavaScript 1.5 Reference:Global Objects:Date:getFullYear</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getFullYear" class="new ">JS:Date.prototype.getFullYear</a>      
+<a rel="internal" href="Global_Objects/Date/getHours.html">Core JavaScript 1.5 Reference:Global Objects:Date:getHours</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getHours" class="new ">JS:Date.prototype.getHours</a>         
+<a rel="internal" href="Global_Objects/Date/getMilliseconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:getMilliseconds</a>  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getMilliseconds" class="new ">JS:Date.prototype.getMilliseconds</a>  
+<a rel="internal" href="Global_Objects/Date/getMinutes.html">Core JavaScript 1.5 Reference:Global Objects:Date:getMinutes</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getMinutes" class="new ">JS:Date.prototype.getMinutes</a>       
+<a rel="internal" href="Global_Objects/Date/getMonth.html">Core JavaScript 1.5 Reference:Global Objects:Date:getMonth</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getMonth" class="new ">JS:Date.prototype.getMonth</a>         
+<a rel="internal" href="Global_Objects/Date/getSeconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:getSeconds</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getSeconds" class="new ">JS:Date.prototype.getSeconds</a>       
+<a rel="internal" href="Global_Objects/Date/getTime.html">Core JavaScript 1.5 Reference:Global Objects:Date:getTime</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getTime" class="new ">JS:Date.prototype.getTime</a>          
+<a rel="internal" href="Global_Objects/Date/getTimezoneOffset.html">Core JavaScript 1.5 Reference:Global Objects:Date:getTimezoneOffset</a>-&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getTimezoneOffset" class="new ">JS:Date.prototype.getTimezoneOffset</a>
+<a rel="internal" href="Global_Objects/Date/getUTCDate.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCDate</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCDate" class="new ">JS:Date.prototype.getUTCDate</a>       
+<a rel="internal" href="Global_Objects/Date/getUTCDay.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCDay</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCDay" class="new ">JS:Date.prototype.getUTCDay</a>        
+<a rel="internal" href="Global_Objects/Date/getUTCFullYear.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCFullYear</a>   -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCFullYear" class="new ">JS:Date.prototype.getUTCFullYear</a>   
+<a rel="internal" href="Global_Objects/Date/getUTCHours.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCHours</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCHours" class="new ">JS:Date.prototype.getUTCHours</a>      
+<a rel="internal" href="Global_Objects/Date/getUTCMilliseconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCMilliseconds</a> -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCMilliseconds" class="new ">JS:Date.prototype.getUTCMilliseconds</a>
+<a rel="internal" href="Global_Objects/Date/getUTCMinutes.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCMinutes</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCMinutes" class="new ">JS:Date.prototype.getUTCMinutes</a>    
+<a rel="internal" href="Global_Objects/Date/getUTCMonth.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCMonth</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCMonth" class="new ">JS:Date.prototype.getUTCMonth</a>      
+<a rel="internal" href="Global_Objects/Date/getUTCSeconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:getUTCSeconds</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getUTCSeconds" class="new ">JS:Date.prototype.getUTCSeconds</a>    
+<a rel="internal" href="Global_Objects/Date/getYear.html">Core JavaScript 1.5 Reference:Global Objects:Date:getYear</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.getYear" class="new ">JS:Date.prototype.getYear</a>          
+<a rel="internal" href="Global_Objects/Date/setDate.html">Core JavaScript 1.5 Reference:Global Objects:Date:setDate</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setDate" class="new ">JS:Date.prototype.setDate</a>          
+<a rel="internal" href="Global_Objects/Date/setFullYear.html">Core JavaScript 1.5 Reference:Global Objects:Date:setFullYear</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setFullYear" class="new ">JS:Date.prototype.setFullYear</a>      
+<a rel="internal" href="Global_Objects/Date/setHours.html">Core JavaScript 1.5 Reference:Global Objects:Date:setHours</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setHours" class="new ">JS:Date.prototype.setHours</a>         
+<a rel="internal" href="Global_Objects/Date/setMilliseconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:setMilliseconds</a>  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setMilliseconds" class="new ">JS:Date.prototype.setMilliseconds</a>  
+<a rel="internal" href="Global_Objects/Date/setMinutes.html">Core JavaScript 1.5 Reference:Global Objects:Date:setMinutes</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setMinutes" class="new ">JS:Date.prototype.setMinutes</a>       
+<a rel="internal" href="Global_Objects/Date/setMonth.html">Core JavaScript 1.5 Reference:Global Objects:Date:setMonth</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setMonth" class="new ">JS:Date.prototype.setMonth</a>         
+<a rel="internal" href="Global_Objects/Date/setSeconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:setSeconds</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setSeconds" class="new ">JS:Date.prototype.setSeconds</a>       
+<a rel="internal" href="Global_Objects/Date/setTime.html">Core JavaScript 1.5 Reference:Global Objects:Date:setTime</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setTime" class="new ">JS:Date.prototype.setTime</a>          
+<a rel="internal" href="Global_Objects/Date/setUTCDate.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCDate</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCDate" class="new ">JS:Date.prototype.setUTCDate</a>       
+<a rel="internal" href="Global_Objects/Date/setUTCFullYear.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCFullYear</a>   -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCFullYear" class="new ">JS:Date.prototype.setUTCFullYear</a>   
+<a rel="internal" href="Global_Objects/Date/setUTCHours.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCHours</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCHours" class="new ">JS:Date.prototype.setUTCHours</a>      
+<a rel="internal" href="Global_Objects/Date/setUTCMilliseconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCMilliseconds</a> -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCMilliseconds" class="new ">JS:Date.prototype.setUTCMilliseconds</a>
+<a rel="internal" href="Global_Objects/Date/setUTCMinutes.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCMinutes</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCMinutes" class="new ">JS:Date.prototype.setUTCMinutes</a>    
+<a rel="internal" href="Global_Objects/Date/setUTCMonth.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCMonth</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCMonth" class="new ">JS:Date.prototype.setUTCMonth</a>      
+<a rel="internal" href="Global_Objects/Date/setUTCSeconds.html">Core JavaScript 1.5 Reference:Global Objects:Date:setUTCSeconds</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setUTCSeconds" class="new ">JS:Date.prototype.setUTCSeconds</a>    
+<a rel="internal" href="Global_Objects/Date/setYear.html">Core JavaScript 1.5 Reference:Global Objects:Date:setYear</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.setYear" class="new ">JS:Date.prototype.setYear</a>          
+<a rel="internal" href="Global_Objects/Date/toGMTString.html">Core JavaScript 1.5 Reference:Global Objects:Date:toGMTString</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toGMTString" class="new ">JS:Date.prototype.toGMTString</a>      
+<a rel="internal" href="Global_Objects/Date/toLocaleDateString.html">Core JavaScript 1.5 Reference:Global Objects:Date:toLocaleDateString</a> -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toLocaleDateString" class="new ">JS:Date.prototype.toLocaleDateString</a>
+<a rel="internal" href="Global_Objects/Date/toLocaleString.html">Core JavaScript 1.5 Reference:Global Objects:Date:toLocaleString</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toLocaleString" class="new ">JS:Date.prototype.toLocaleString</a>    
+<a rel="internal" href="Global_Objects/Date/toLocaleTimeString.html">Core JavaScript 1.5 Reference:Global Objects:Date:toLocaleTimeString</a> -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toLocaleTimeString" class="new ">JS:Date.prototype.toLocaleTimeString</a>
+<a rel="internal" href="Global_Objects/Date/toSource.html">Core JavaScript 1.5 Reference:Global Objects:Date:toSource</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toSource" class="new ">JS:Date.prototype.toSource</a>     
+<a rel="internal" href="Global_Objects/Date/toString.html">Core JavaScript 1.5 Reference:Global Objects:Date:toString</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toString" class="new ">JS:Date.prototype.toString</a>   
+<a rel="internal" href="Global_Objects/Date/toUTCString.html">Core JavaScript 1.5 Reference:Global Objects:Date:toUTCString</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.toUTCString" class="new ">JS:Date.prototype.toUTCString</a>
+<a rel="internal" href="Global_Objects/Date/valueOf.html">Core JavaScript 1.5 Reference:Global Objects:Date:valueOf</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Date.prototype.valueOf" class="new ">JS:Date.prototype.valueOf</a>    
+<a rel="internal" href="Global_Objects/Error.html">Core JavaScript 1.5 Reference:Global Objects:Error</a>                 -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Error" class="new ">JS:Error</a>
+<a rel="internal" href="Global_Objects/Function.html">Core JavaScript 1.5 Reference:Global Objects:Function</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function" class="new ">JS:Function</a>
+<a rel="internal" href="Global_Objects/Function/prototype.html">Core JavaScript 1.5 Reference:Global Objects:Function:prototype</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype" class="new ">JS:Function.prototype</a>
+<a rel="internal" href="Global_Objects/Function/constructor.html">Core JavaScript 1.5 Reference:Global Objects:Function:constructor</a>  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.constructor" class="new ">JS:Function.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/Function/apply.html">Core JavaScript 1.5 Reference:Global Objects:Function:apply</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.apply" class="new ">JS:Function.prototype.apply</a>
+<a rel="internal" href="Global_Objects/Function/arguments.html">Core JavaScript 1.5 Reference:Global Objects:Function:arguments</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.arguments" class="new ">JS:Function.prototype.arguments</a>
+<a rel="internal" href="Global_Objects/Function/arity.html">Core JavaScript 1.5 Reference:Global Objects:Function:arity</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.arity" class="new ">JS:Function.prototype.arity</a>
+<a rel="internal" href="Global_Objects/Function/call.html">Core JavaScript 1.5 Reference:Global Objects:Function:call</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.call" class="new ">JS:Function.prototype.call</a>
+<a rel="internal" href="Global_Objects/Function/caller.html">Core JavaScript 1.5 Reference:Global Objects:Function:caller</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.caller" class="new ">JS:Function.prototype.caller</a>
+<a rel="internal" href="Global_Objects/Function/length.html">Core JavaScript 1.5 Reference:Global Objects:Function:length</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.length" class="new ">JS:Function.prototype.length</a>
+<a rel="internal" href="Global_Objects/Function/toSource.html">Core JavaScript 1.5 Reference:Global Objects:Function:toSource</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.toSource" class="new ">JS:Function.prototype.toSource</a>
+<a rel="internal" href="Global_Objects/Function/toString.html">Core JavaScript 1.5 Reference:Global Objects:Function:toString</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.toString" class="new ">JS:Function.prototype.toString</a>
+<a rel="internal" href="Global_Objects/Function/valueOf.html">Core JavaScript 1.5 Reference:Global Objects:Function:valueOf</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Function.prototype.valueOf" class="new ">JS:Function.prototype.valueOf</a>
+<a rel="internal" href="Global_Objects/JavaArray.html">Core JavaScript 1.5 Reference:Global Objects:JavaArray</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/JavaArray" class="new ">JS:JavaArray</a> <b>What's with JavaArray?</b>
+<a rel="internal" href="Global_Objects/JavaArray/length.html">Core JavaScript 1.5 Reference:Global Objects:JavaArray:length</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/JavaArray/length" class="new ">JS:JavaArray:length</a>
+<a rel="internal" href="Global_Objects/JavaArray/toString.html">Core JavaScript 1.5 Reference:Global Objects:JavaArray:toString</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/JavaArray/toString" class="new ">JS:JavaArray:toString</a>
+<a rel="internal" href="Global_Objects/JavaClass.html">Core JavaScript 1.5 Reference:Global Objects:JavaClass</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/JavaClass" class="new ">JS:JavaClass</a>
+<a rel="internal" href="Global_Objects/JavaObject.html">Core JavaScript 1.5 Reference:Global Objects:JavaObject</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/JavaObject" class="new ">JS:JavaObject</a>
+<a rel="internal" href="Global_Objects/JavaPackage.html">Core JavaScript 1.5 Reference:Global Objects:JavaPackage</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/JavaPackage" class="new ">JS:JavaPackage</a>
+<a rel="internal" href="Global_Objects/Math.html">Core JavaScript 1.5 Reference:Global Objects:Math</a>                  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math" class="new ">JS:Math</a>
+<a rel="internal" href="Global_Objects/Math/E.html">Core JavaScript 1.5 Reference:Global Objects:Math:E</a>                -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.E" class="new ">JS:Math.E</a>      
+<a rel="internal" href="Global_Objects/Math/LN10.html">Core JavaScript 1.5 Reference:Global Objects:Math:LN10</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.LN10" class="new ">JS:Math.LN10</a>   
+<a rel="internal" href="Global_Objects/Math/LN2.html">Core JavaScript 1.5 Reference:Global Objects:Math:LN2</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.LN2" class="new ">JS:Math.LN2</a>    
+<a rel="internal" href="Global_Objects/Math/LOG10E.html">Core JavaScript 1.5 Reference:Global Objects:Math:LOG10E</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.LOG10E" class="new ">JS:Math.LOG10E</a> 
+<a rel="internal" href="Global_Objects/Math/LOG2E.html">Core JavaScript 1.5 Reference:Global Objects:Math:LOG2E</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.LOG2E" class="new ">JS:Math.LOG2E</a>  
+<a rel="internal" href="Global_Objects/Math/PI.html">Core JavaScript 1.5 Reference:Global Objects:Math:PI</a>               -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.PI" class="new ">JS:Math.PI</a>     
+<a rel="internal" href="Global_Objects/Math/SQRT1_2.html">Core JavaScript 1.5 Reference:Global Objects:Math:SQRT1 2</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.SQRT1_2" class="new ">JS:Math.SQRT1 2</a>
+<a rel="internal" href="Global_Objects/Math/SQRT2.html">Core JavaScript 1.5 Reference:Global Objects:Math:SQRT2</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.SQRT2" class="new ">JS:Math.SQRT2</a>  
+<a rel="internal" href="Global_Objects/Math/abs.html">Core JavaScript 1.5 Reference:Global Objects:Math:abs</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.abs" class="new ">JS:Math.abs</a>    
+<a rel="internal" href="Global_Objects/Math/acos.html">Core JavaScript 1.5 Reference:Global Objects:Math:acos</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.acos" class="new ">JS:Math.acos</a>   
+<a rel="internal" href="Global_Objects/Math/asin.html">Core JavaScript 1.5 Reference:Global Objects:Math:asin</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.asin" class="new ">JS:Math.asin</a>   
+<a rel="internal" href="Global_Objects/Math/atan.html">Core JavaScript 1.5 Reference:Global Objects:Math:atan</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.atan" class="new ">JS:Math.atan</a>   
+<a rel="internal" href="Global_Objects/Math/atan2.html">Core JavaScript 1.5 Reference:Global Objects:Math:atan2</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.atan2" class="new ">JS:Math.atan2</a>  
+<a rel="internal" href="Global_Objects/Math/ceil.html">Core JavaScript 1.5 Reference:Global Objects:Math:ceil</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.ceil" class="new ">JS:Math.ceil</a>   
+<a rel="internal" href="Global_Objects/Math/cos.html">Core JavaScript 1.5 Reference:Global Objects:Math:cos</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.cos" class="new ">JS:Math.cos</a>    
+<a rel="internal" href="Global_Objects/Math/exp.html">Core JavaScript 1.5 Reference:Global Objects:Math:exp</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.exp" class="new ">JS:Math.exp</a>    
+<a rel="internal" href="Global_Objects/Math/floor.html">Core JavaScript 1.5 Reference:Global Objects:Math:floor</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.floor" class="new ">JS:Math.floor</a>  
+<a rel="internal" href="Global_Objects/Math/log.html">Core JavaScript 1.5 Reference:Global Objects:Math:log</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.log" class="new ">JS:Math.log</a>    
+<a rel="internal" href="Global_Objects/Math/max.html">Core JavaScript 1.5 Reference:Global Objects:Math:max</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.max" class="new ">JS:Math.max</a>    
+<a rel="internal" href="Global_Objects/Math/min.html">Core JavaScript 1.5 Reference:Global Objects:Math:min</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.min" class="new ">JS:Math.min</a>    
+<a rel="internal" href="Global_Objects/Math/pow.html">Core JavaScript 1.5 Reference:Global Objects:Math:pow</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.pow" class="new ">JS:Math.pow</a>    
+<a rel="internal" href="Global_Objects/Math/random.html">Core JavaScript 1.5 Reference:Global Objects:Math:random</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.random" class="new ">JS:Math.random</a> 
+<a rel="internal" href="Global_Objects/Math/round.html">Core JavaScript 1.5 Reference:Global Objects:Math:round</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.round" class="new ">JS:Math.round</a>  
+<a rel="internal" href="Global_Objects/Math/sin.html">Core JavaScript 1.5 Reference:Global Objects:Math:sin</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.sin" class="new ">JS:Math.sin</a>    
+<a rel="internal" href="Global_Objects/Math/sqrt.html">Core JavaScript 1.5 Reference:Global Objects:Math:sqrt</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.sqrt" class="new ">JS:Math.sqrt</a>   
+<a rel="internal" href="Global_Objects/Math/tan.html">Core JavaScript 1.5 Reference:Global Objects:Math:tan</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Math.tan" class="new ">JS:Math.tan</a>    
+<a rel="internal" href="Global_Objects/Number.html">Core JavaScript 1.5 Reference:Global Objects:Number</a>                -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Number" class="new ">JS:Number</a>
+<a rel="internal" href="Global_Objects/Number/MAX_VALUE.html">Core JavaScript 1.5 Reference:Global Objects:Number:MAX VALUE</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Number.MAX_VALUE" class="new ">JS:Number.MAX_VALUE</a>
+<a rel="internal" href="Global_Objects/Number/MIN_VALUE.html">Core JavaScript 1.5 Reference:Global Objects:Number:MIN VALUE</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Number.MIN_VALUE" class="new ">JS:Number.MIN_VALUE</a>
+<a rel="internal" href="Global_Objects/Number/NaN.html">Core JavaScript 1.5 Reference:Global Objects:Number:NaN</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Number.NaN" class="new ">JS:Number.NaN</a>
+<a rel="internal" href="Global_Objects/Number/constructor.html">Core JavaScript 1.5 Reference:Global Objects:Number:constructor</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS.Number.prototype.constructor" class="new ">JS.Number.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/Object.html">Core JavaScript 1.5 Reference:Global Objects:Object</a>                -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object" class="new ">JS:Object</a>
+<a rel="internal" href="Global_Objects/Object/prototype.html">Core JavaScript 1.5 Reference:Global Objects:Object:prototype</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype" class="new ">JS:Object.prototype</a>
+<a rel="internal" href="Global_Objects/Object/constructor.html">Core JavaScript 1.5 Reference:Global Objects:Object:constructor</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.constructor" class="new ">JS:Object.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/Object/eval.html">Core JavaScript 1.5 Reference:Global Objects:Object:eval</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.eval" class="new ">JS:Object.prototype.eval</a>, perhaps merge into <a rel="internal" href="https://developer.mozilla.org/en/JS/eval" class="new ">JS:eval</a>?
+<a rel="internal" href="Global_Objects/Object/isPrototypeOf.html">Core JavaScript 1.5 Reference:Global Objects:Object:isPrototypeOf</a>  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.isPrototypeOf" class="new ">JS:Object.prototype.isPrototypeOf</a>
+<a rel="internal" href="Global_Objects/Object/toLocaleString.html">Core JavaScript 1.5 Reference:Global Objects:Object:toLocaleString</a> -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.toLocaleString" class="new ">JS:Object.prototype.toLocaleString</a> 
+<a rel="internal" href="Global_Objects/Object/toSource.html">Core JavaScript 1.5 Reference:Global Objects:Object:toSource</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.toSource" class="new ">JS:Object.prototype.toSource</a>       
+<a rel="internal" href="Global_Objects/Object/toString.html">Core JavaScript 1.5 Reference:Global Objects:Object:toString</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.toString" class="new ">JS:Object.prototype.toString</a>       
+<a rel="internal" href="Global_Objects/Object/unwatch.html">Core JavaScript 1.5 Reference:Global Objects:Object:unwatch</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.unwatch" class="new ">JS:Object.prototype.unwatch</a>        
+<a rel="internal" href="Global_Objects/Object/valueOf.html">Core JavaScript 1.5 Reference:Global Objects:Object:valueOf</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.valueOf" class="new ">JS:Object.prototype.valueOf</a>        
+<a rel="internal" href="Global_Objects/Object/watch.html">Core JavaScript 1.5 Reference:Global Objects:Object:watch</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Object.prototype.watch" class="new ">JS:Object.prototype.watch</a>          
+<a rel="internal" href="Global_Objects/Packages.html">Core JavaScript 1.5 Reference:Global Objects:Packages</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages" class="new ">JS:Packages</a>       
+<a rel="internal" href="Global_Objects/Packages/className.html">Core JavaScript 1.5 Reference:Global Objects:Packages:className</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.className" class="new ">JS:Packages.className</a>
+<a rel="internal" href="Global_Objects/Packages/java.html">Core JavaScript 1.5 Reference:Global Objects:Packages:java</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.java" class="new ">JS:Packages.java</a>
+<a rel="internal" href="Global_Objects/Packages/netscape.html">Core JavaScript 1.5 Reference:Global Objects:Packages:netscape</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.netscape" class="new ">JS:Packages.netscape</a>
+<a rel="internal" href="Global_Objects/Packages/sun.html">Core JavaScript 1.5 Reference:Global Objects:Packages:sun</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.sun" class="new ">JS:Packages.sun</a>
+<a rel="internal" href="Global_Objects/RegExp.html">Core JavaScript 1.5 Reference:Global Objects:RegExp</a>                -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp" class="new ">JS:RegExp</a>
+<a rel="internal" href="Global_Objects/RegExp/constructor.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:constructor</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.constructor" class="new ">JS:RegExp.prototype.constructor</a>  
+<a rel="internal" href="Global_Objects/RegExp/exec.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:exec</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.exec" class="new ">JS:RegExp.prototype.exec</a>         
+<a rel="internal" href="Global_Objects/RegExp/global.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:global</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.global" class="new ">JS:RegExp.prototype.global</a>       
+<a rel="internal" href="Global_Objects/RegExp/ignoreCase.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:ignoreCase</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.ignoreCase" class="new ">JS:RegExp.prototype.ignoreCase</a>   
+<a rel="internal" href="Global_Objects/RegExp/lastIndex.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:lastIndex</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.lastIndex" class="new ">JS:RegExp.prototype.lastIndex</a>    
+<a rel="internal" href="Global_Objects/RegExp/multiline.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:multiline</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.multiline" class="new ">JS:RegExp.prototype.multiline</a>    
+<a rel="internal" href="Global_Objects/RegExp/prototype.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:prototype</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.prototype" class="new ">JS:RegExp.prototype.prototype</a>    
+<a rel="internal" href="Global_Objects/RegExp/source.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:source</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.source" class="new ">JS:RegExp.prototype.source</a>
+<a rel="internal" href="Global_Objects/RegExp/test.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:test</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.test" class="new ">JS:RegExp.prototype.test</a>         
+<a rel="internal" href="Global_Objects/RegExp/toSource.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:toSource</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.toSource" class="new ">JS:RegExp.prototype.toSource</a>     
+<a rel="internal" href="Global_Objects/RegExp/toString.html">Core JavaScript 1.5 Reference:Global Objects:RegExp:toString</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/RegExp.prototype.toString" class="new ">JS:RegExp.prototype.toString</a>     
+<a rel="internal" href="Global_Objects/String.html">Core JavaScript 1.5 Reference:Global Objects:String</a>                -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String" class="new ">JS:String</a>
+<a rel="internal" href="Global_Objects/String/prototype.html">Core JavaScript 1.5 Reference:Global Objects:String:prototype</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype" class="new ">JS:String.prototype</a>
+<a rel="internal" href="Global_Objects/String/constructor.html">Core JavaScript 1.5 Reference:Global Objects:String:constructor</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.constructor" class="new ">JS:String.prototype.constructor</a>
+<a rel="internal" href="Global_Objects/String/anchor.html">Core JavaScript 1.5 Reference:Global Objects:String:anchor</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.anchor" class="new ">JS:String.prototype.anchor</a>      
+<a rel="internal" href="Global_Objects/String/big.html">Core JavaScript 1.5 Reference:Global Objects:String:big</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.big" class="new ">JS:String.prototype.big</a>         
+<a rel="internal" href="Global_Objects/String/blink.html">Core JavaScript 1.5 Reference:Global Objects:String:blink</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.blink" class="new ">JS:String.prototype.blink</a>       
+<a rel="internal" href="Global_Objects/String/bold.html">Core JavaScript 1.5 Reference:Global Objects:String:bold</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.bold" class="new ">JS:String.prototype.bold</a>        
+<a rel="internal" href="Global_Objects/String/charAt.html">Core JavaScript 1.5 Reference:Global Objects:String:charAt</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.charAt" class="new ">JS:String.prototype.charAt</a>      
+<a rel="internal" href="Global_Objects/String/charCodeAt.html">Core JavaScript 1.5 Reference:Global Objects:String:charCodeAt</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.charCodeAt" class="new ">JS:String.prototype.charCodeAt</a>  
+<a rel="internal" href="Global_Objects/String/concat.html">Core JavaScript 1.5 Reference:Global Objects:String:concat</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.concat" class="new ">JS:String.prototype.concat</a>      
+<a rel="internal" href="Global_Objects/String/fixed.html">Core JavaScript 1.5 Reference:Global Objects:String:fixed</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.fixed" class="new ">JS:String.prototype.fixed</a>       
+<a rel="internal" href="Global_Objects/String/fontcolor.html">Core JavaScript 1.5 Reference:Global Objects:String:fontcolor</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.fontcolor" class="new ">JS:String.prototype.fontcolor</a>   
+<a rel="internal" href="Global_Objects/String/fontsize.html">Core JavaScript 1.5 Reference:Global Objects:String:fontsize</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.fontsize" class="new ">JS:String.prototype.fontsize</a>    
+<a rel="internal" href="Global_Objects/String/fromCharCode.html">Core JavaScript 1.5 Reference:Global Objects:String:fromCharCode</a>   -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.fromCharCode" class="new ">JS:String.prototype.fromCharCode</a>
+<a rel="internal" href="Global_Objects/String/indexOf.html">Core JavaScript 1.5 Reference:Global Objects:String:indexOf</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.indexOf" class="new ">JS:String.prototype.indexOf</a>     
+<a rel="internal" href="Global_Objects/String/italics.html">Core JavaScript 1.5 Reference:Global Objects:String:italics</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.italics" class="new ">JS:String.prototype.italics</a>     
+<a rel="internal" href="Global_Objects/String/lastIndexOf.html">Core JavaScript 1.5 Reference:Global Objects:String:lastIndexOf</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.lastIndexOf" class="new ">JS:String.prototype.lastIndexOf</a> 
+<a rel="internal" href="Global_Objects/String/length.html">Core JavaScript 1.5 Reference:Global Objects:String:length</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.length" class="new ">JS:String.prototype.length</a>      
+<a rel="internal" href="Global_Objects/String/link.html">Core JavaScript 1.5 Reference:Global Objects:String:link</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.link" class="new ">JS:String.prototype.link</a>        
+<a rel="internal" href="Global_Objects/String/match.html">Core JavaScript 1.5 Reference:Global Objects:String:match</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.match" class="new ">JS:String.prototype.match</a>       
+<a rel="internal" href="Global_Objects/String/replace.html">Core JavaScript 1.5 Reference:Global Objects:String:replace</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.replace" class="new ">JS:String.prototype.replace</a>     
+<a rel="internal" href="Global_Objects/String/search.html">Core JavaScript 1.5 Reference:Global Objects:String:search</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.search" class="new ">JS:String.prototype.search</a>      
+<a rel="internal" href="Global_Objects/String/slice.html">Core JavaScript 1.5 Reference:Global Objects:String:slice</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.slice" class="new ">JS:String.prototype.slice</a>       
+<a rel="internal" href="Global_Objects/String/small.html">Core JavaScript 1.5 Reference:Global Objects:String:small</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.small" class="new ">JS:String.prototype.small</a>       
+<a rel="internal" href="Global_Objects/String/split.html">Core JavaScript 1.5 Reference:Global Objects:String:split</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.split" class="new ">JS:String.prototype.split</a>       
+<a rel="internal" href="Global_Objects/String/strike.html">Core JavaScript 1.5 Reference:Global Objects:String:strike</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.strike" class="new ">JS:String.prototype.strike</a>      
+<a rel="internal" href="Global_Objects/String/sub.html">Core JavaScript 1.5 Reference:Global Objects:String:sub</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.sub" class="new ">JS:String.prototype.sub</a>         
+<a rel="internal" href="Global_Objects/String/substr.html">Core JavaScript 1.5 Reference:Global Objects:String:substr</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.substr" class="new ">JS:String.prototype.substr</a>      
+<a rel="internal" href="Global_Objects/String/substring.html">Core JavaScript 1.5 Reference:Global Objects:String:substring</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.substring" class="new ">JS:String.prototype.substring</a>   
+<a rel="internal" href="Global_Objects/String/sup.html">Core JavaScript 1.5 Reference:Global Objects:String:sup</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.sup" class="new ">JS:String.prototype.sup</a>         
+<a rel="internal" href="Global_Objects/String/toLowerCase.html">Core JavaScript 1.5 Reference:Global Objects:String:toLowerCase</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.toLowerCase" class="new ">JS:String.prototype.toLowerCase</a> 
+<a rel="internal" href="Global_Objects/String/toSource.html">Core JavaScript 1.5 Reference:Global Objects:String:toSource</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.toSource" class="new ">JS:String.prototype.toSource</a>    
+<a rel="internal" href="Global_Objects/String/toString.html">Core JavaScript 1.5 Reference:Global Objects:String:toString</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.toString" class="new ">JS:String.prototype.toString</a>    
+<a rel="internal" href="Global_Objects/String/toUpperCase.html">Core JavaScript 1.5 Reference:Global Objects:String:toUpperCase</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.toUpperCase" class="new ">JS:String.prototype.toUpperCase</a> 
+<a rel="internal" href="Global_Objects/String/valueOf.html">Core JavaScript 1.5 Reference:Global Objects:String:valueOf</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/String.prototype.valueOf" class="new ">JS:String.prototype.valueOf</a>
+<a rel="internal" href="Global_Objects/java.html">Core JavaScript 1.5 Reference:Global Objects:java</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/java" class="new ">JS:java</a>, then(?) merge with <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.java" class="new ">JS:Packages.java</a>
+<a rel="internal" href="Global_Objects/netscape.html">Core JavaScript 1.5 Reference:Global Objects:netscape</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/netscape" class="new ">JS:netscape</a>;     merge with <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.netscape" class="new ">JS:Packages.netscape</a>
+<a rel="internal" href="Global_Objects/sun.html">Core JavaScript 1.5 Reference:Global Objects:sun</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/sun" class="new ">JS:sun</a>;          merge with <a rel="internal" href="https://developer.mozilla.org/en/JS/Packages.sun" class="new ">JS:Packages.sun</a>
+<a rel="internal" href="Global_Properties.html">Core JavaScript 1.5 Reference:Global Properties</a>              <i>tbd</i>
+<a rel="internal" href="Global_Properties/Infinity.html">Core JavaScript 1.5 Reference:Global Properties:Infinity</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Infinity" class="new ">JS:Infinity</a>
+<a rel="internal" href="Global_Properties/NaN.html">Core JavaScript 1.5 Reference:Global Properties:NaN</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/NaN" class="new ">JS:NaN</a>
+<a rel="internal" href="Global_Properties/undefined.html">Core JavaScript 1.5 Reference:Global Properties:undefined</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/undefined" class="new ">JS:undefined</a>
+<a rel="internal" href="LiveConnect.html">Core JavaScript 1.5 Reference:LiveConnect</a>                    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/LiveConnect" class="new ">JS:LiveConnect</a>
+<a rel="internal" href="LiveConnect/JSException.html">Core JavaScript 1.5 Reference:LiveConnect:JSException</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/LiveConnect/JSException" class="new ">JS:LiveConnect:JSException</a>
+<a rel="internal" href="LiveConnect/JSObject.html">Core JavaScript 1.5 Reference:LiveConnect:JSObject</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/LiveConnect/JSObject" class="new ">JS:LiveConnect:JSObject</a>
+<a rel="internal" href="Operators.html">Core JavaScript 1.5 Reference:Operators</a>                      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Operators" class="new ">JS:Operators</a>
+<a rel="internal" href="Operators/Arithmetic_Operators.html">Core JavaScript 1.5 Reference:Operators:Arithmetic Operators</a>                      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Arithmetic_Operators" class="new ">JS:Arithmetic Operators</a> 
+<a rel="internal" href="Operators/Assignment_Operators.html">Core JavaScript 1.5 Reference:Operators:Assignment Operators</a>                      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Assignment_Operators" class="new ">JS:Assignment Operators</a> 
+<a rel="internal" href="Operators/Bitwise_Operators.html">Core JavaScript 1.5 Reference:Operators:Bitwise Operators</a>                         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Bitwise_Operators" class="new ">JS:Bitwise Operators</a>    
+<a rel="internal" href="Operators/Comparison_Operators.html">Core JavaScript 1.5 Reference:Operators:Comparison Operators</a>                      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Comparison_Operators" class="new ">JS:Comparison Operators</a> 
+<a rel="internal" href="Operators/Logical_Operators.html">Core JavaScript 1.5 Reference:Operators:Logical Operators</a>                         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Logical_Operators" class="new ">JS:Logical Operators</a>    
+<a rel="internal" href="Operators/Member_Operators.html">Core JavaScript 1.5 Reference:Operators:Member Operators</a>                          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Member_Operators" class="new ">JS:Member Operators</a>     
+<a rel="internal" href="Operators/Operator_Precedence.html">Core JavaScript 1.5 Reference:Operators:Operator Precedence</a>                       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Operator_Precedence" class="new ">JS:Operator Precedence</a>  
+<a rel="internal" href="Operators/String_Operators.html">Core JavaScript 1.5 Reference:Operators:String Operators</a>                          <i>tbd</i> merge to <a rel="internal" href="https://developer.mozilla.org/en/JS/String" class="new ">JS:String</a> or move to <a rel="internal" href="https://developer.mozilla.org/en/JS/String_Operators" class="new ">JS:String Operators</a>
+<del><a rel="internal" href="Operators/Special_Operators.html">Core JavaScript 1.5 Reference:Operators:Special Operators</a>                       redirected to <a rel="internal" href="Operators.html">Core JavaScript 1.5 Reference:Operators</a></del> 
+<a rel="internal" href="Operators/Special_Operators/Comma_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:Comma Operator</a>          -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Comma_Operator" class="new ">JS:Comma Operator</a>      
+<a rel="internal" href="Operators/Special_Operators/Conditional_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:Conditional Operator</a>    -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Conditional_Operator" class="new ">JS:Conditional Operator</a>
+<a rel="internal" href="Operators/Special_Operators/delete_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:delete Operator</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/delete_Operator" class="new ">JS:delete Operator</a>     
+<a rel="internal" href="Operators/Special_Operators/function_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:function Operator</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/function_Operator" class="new ">JS:function Operator</a>   
+<a rel="internal" href="Operators/Special_Operators/in_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:in Operator</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/in_Operator" class="new ">JS:in Operator</a>         
+<a rel="internal" href="Operators/Special_Operators/instanceof_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:instanceof Operator</a>     -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/instanceof_Operator" class="new ">JS:instanceof Operator</a> 
+<a rel="internal" href="Operators/Special_Operators/new_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:new Operator</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/new_Operator" class="new ">JS:new Operator</a>        
+<a rel="internal" href="Operators/Special_Operators/this_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:this Operator</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/this_Operator" class="new ">JS:this Operator</a>       
+<a rel="internal" href="Operators/Special_Operators/typeof_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:typeof Operator</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/typeof_Operator" class="new ">JS:typeof Operator</a>     
+<a rel="internal" href="Operators/Special_Operators/void_Operator.html">Core JavaScript 1.5 Reference:Operators:Special Operators:void Operator</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/void_Operator" class="new ">JS:void Operator</a>       
+<a rel="internal" href="Reserved_Words.html">Core JavaScript 1.5 Reference:Reserved Words</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Reserved_Words" class="new ">JS:Reserved Words</a>
+<a rel="internal" href="Statements.html">Core JavaScript 1.5 Reference:Statements</a>                  -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/Statements" class="new ">JS:Statements</a>
+<a rel="internal" href="Statements/block.html">Core JavaScript 1.5 Reference:Statements:block</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/block" class="new ">JS:block</a>
+<a rel="internal" href="Statements/break.html">Core JavaScript 1.5 Reference:Statements:break</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/break" class="new ">JS:break</a>
+<a rel="internal" href="Statements/const.html">Core JavaScript 1.5 Reference:Statements:const</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/const" class="new ">JS:const</a>
+<a rel="internal" href="Statements/continue.html">Core JavaScript 1.5 Reference:Statements:continue</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/continue" class="new ">JS:continue</a>
+<a rel="internal" href="Statements/do...while.html">Core JavaScript 1.5 Reference:Statements:do...while</a>       -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/do...while" class="new ">JS:do...while</a>
+<a rel="internal" href="Statements/export.html">Core JavaScript 1.5 Reference:Statements:export</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/export" class="new ">JS:export</a>
+<a rel="internal" href="Statements/for.html">Core JavaScript 1.5 Reference:Statements:for</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/for" class="new ">JS:for</a>
+<a rel="internal" href="Statements/for...in.html">Core JavaScript 1.5 Reference:Statements:for...in</a>         -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/for...in" class="new ">JS:for...in</a>
+<a rel="internal" href="Statements/function.html">Core JavaScript 1.5 Reference:Statements:function</a>         merge into <a rel="internal" href="https://developer.mozilla.org/en/JS/Function" class="new ">JS:Function</a>
+<a rel="internal" href="Statements/if...else.html">Core JavaScript 1.5 Reference:Statements:if...else</a>        -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/if...else" class="new ">JS:if...else</a>
+<a rel="internal" href="Statements/import.html">Core JavaScript 1.5 Reference:Statements:import</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/import" class="new ">JS:import</a>
+<a rel="internal" href="Statements/label.html">Core JavaScript 1.5 Reference:Statements:label</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/label" class="new ">JS:label</a>
+<a rel="internal" href="Statements/return.html">Core JavaScript 1.5 Reference:Statements:return</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/return" class="new ">JS:return</a>
+<a rel="internal" href="Statements/switch.html">Core JavaScript 1.5 Reference:Statements:switch</a>           -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/switch" class="new ">JS:switch</a>
+<a rel="internal" href="Statements/throw.html">Core JavaScript 1.5 Reference:Statements:throw</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/throw" class="new ">JS:throw</a>
+<a rel="internal" href="Statements/try...catch.html">Core JavaScript 1.5 Reference:Statements:try...catch</a>      -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/try...catch" class="new ">JS:try...catch</a>
+<a rel="internal" href="Statements/var.html">Core JavaScript 1.5 Reference:Statements:var</a>              -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/var" class="new ">JS:var</a>
+<a rel="internal" href="Statements/while.html">Core JavaScript 1.5 Reference:Statements:while</a>            -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/while" class="new ">JS:while</a>
+<a rel="internal" href="Statements/with.html">Core JavaScript 1.5 Reference:Statements:with</a>             -&gt; <a rel="internal" href="https://developer.mozilla.org/en/JS/with">JS:with</a>
+</pre>
+</div><div id="section_3"><span id="Guide"></span><h3 class="editable"> Guide </h3>
+<p>The guide's pages will also be eventually moved to pages with shorter names. There are at least two possible ways to do it:
+</p>
+<ol><li> just replace &quot;Core JavaScript 1.5 Guide&quot; with shorter &quot;JS:Guide&quot;
+</li><li> also &quot;flatten&quot; the names, so that they do not contain the location of the page in the guide's contents.
+</li></ol>
+<p>The latter variant leads to shorter page names, but breaks breadcrumbs in their current form. <a rel="internal" href="https://developer.mozilla.org/User:Nickolay" class="link-user ">I</a> think we should go with something like variant 2 after fixing breadcrumbs.
+</p><p>For pages that correspond to a page in the reference, we might want to use similar names (i.e. instead of <a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/isFinite_Function" class="new ">JS:Guide:isFinite Function</a> use <a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/isFinite" class="new ">JS:Guide:isFinite</a>).
+</p><p>Since we're renaming the pages anyway, we might want to change the names to have only the first word start with a capital (i.e. <a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Writing_a_regular_expression_pattern" class="new ">JS:Guide:Writing a regular expression pattern</a> instead of <a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Writing_a_Regular_Expression_Pattern" class="new ">JS:Guide:Writing a Regular Expression Pattern</a>).
+</p>
+<table class="fullwidth-table">
+<tr><th>Variant 1</th><th>Variant 2</th>
+</tr><tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide">JS:Guide</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide" class="new ">JS:Guide</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/About">JS:Guide:About</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/About" class="new ">JS:Guide:About</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/About/Core_Language_Features">JS:Guide:About:Core Language Features</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Core_Language_Features" class="new ">JS:Guide:Core Language Features</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Block_Statement">JS:Guide:Block Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Block_Statement" class="new ">JS:Guide:Block Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Calling_Functions">JS:Guide:Calling Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Calling_Functions" class="new ">JS:Guide:Calling Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Class-Based_vs._Prototype-Based_Languages">JS:Guide:Class-Based vs. Prototype-Based Languages</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Class-Based_vs._Prototype-Based_Languages" class="new ">JS:Guide:Class-Based vs. Prototype-Based Languages</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Conditional_Statements">JS:Guide:Conditional Statements</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Conditional_Statements" class="new ">JS:Guide:Conditional Statements</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Constants">JS:Guide:Constants</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Constants" class="new ">JS:Guide:Constants</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects">JS:Guide:Creating New Objects</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Creating_New_Objects" class="new ">JS:Guide:Creating New Objects</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Getters_and_Setters">JS:Guide:Creating New Objects:Defining Getters and Setters</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Defining_Getters_and_Setters" class="new ">JS:Guide:Defining Getters and Setters</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Methods">JS:Guide:Creating New Objects:Defining Methods</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Defining_Methods" class="new ">JS:Guide:Defining Methods</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Properties_for_an_Object_Type">JS:Guide:Creating New Objects:Defining Properties for an Object Type</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Defining_Properties_for_an_Object_Type" class="new ">JS:Guide:Defining Properties for an Object Type</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Deleting_Properties">JS:Guide:Creating New Objects:Deleting Properties</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Deleting_Properties" class="new ">JS:Guide:Deleting Properties</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Indexing_Object_Properties">JS:Guide:Creating New Objects:Indexing Object Properties</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Indexing_Object_Properties" class="new ">JS:Guide:Indexing Object Properties</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_Object_Initializers">JS:Guide:Creating New Objects:Using Object Initializers</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Using_Object_Initializers" class="new ">JS:Guide:Using Object Initializers</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_a_Constructor_Function">JS:Guide:Creating New Objects:Using a Constructor Function</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Using_a_Constructor_Function" class="new ">JS:Guide:Using a Constructor Function</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_this_for_Object_References">JS:Guide:Creating New Objects:Using this for Object References</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Using_this_for_Object_References" class="new ">JS:Guide:Using this for Object References</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Creating_a_Regular_Expression">JS:Guide:Creating a Regular Expression</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Creating_a_Regular_Expression" class="new ">JS:Guide:Creating a Regular Expression</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Defining_Functions">JS:Guide:Defining Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Defining_Functions" class="new ">JS:Guide:Defining Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Details_of_the_Object_Model">JS:Guide:Details of the Object Model</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Details_of_the_Object_Model" class="new ">JS:Guide:Details of the Object Model</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Exception_Handling_Statements">JS:Guide:Exception Handling Statements</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Exception_Handling_Statements" class="new ">JS:Guide:Exception Handling Statements</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Exception_Handling_Statements/throw_Statement">JS:Guide:Exception Handling Statements:throw Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/throw_Statement" class="new ">JS:Guide:throw Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Exception_Handling_Statements/try...catch_Statement">JS:Guide:Exception Handling Statements:try...catch Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/try...catch_Statement" class="new ">JS:Guide:try...catch Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Expressions">JS:Guide:Expressions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Expressions" class="new ">JS:Guide:Expressions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Expressions_and_Operators">JS:Guide:Expressions and Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Expressions_and_Operators" class="new ">JS:Guide:Expressions and Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Functions">JS:Guide:Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Functions" class="new ">JS:Guide:Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/JavaScript_Overview">JS:Guide:JavaScript Overview</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/JavaScript_Overview" class="new ">JS:Guide:JavaScript Overview</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Literals">JS:Guide:Literals</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Literals" class="new ">JS:Guide:Literals</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview">JS:Guide:LiveConnect Overview</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/LiveConnect_Overview" class="new ">JS:Guide:LiveConnect Overview</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions">JS:Guide:LiveConnect Overview:Data Type Conversions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Data_Type_Conversions" class="new ">JS:Guide:Data Type Conversions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions/JavaScript_to_Java_Conversions">JS:Guide:LiveConnect Overview:Data Type Conversions:JavaScript to Java Conversions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/JavaScript_to_Java_Conversions" class="new ">JS:Guide:JavaScript to Java Conversions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions/Java_to_JavaScript_Conversions">JS:Guide:LiveConnect Overview:Data Type Conversions:Java to JavaScript Conversions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Java_to_JavaScript_Conversions" class="new ">JS:Guide:Java to JavaScript Conversions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/JavaScript_to_Java_Communication">JS:Guide:LiveConnect Overview:JavaScript to Java Communication</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/JavaScript_to_Java_Communication" class="new ">JS:Guide:JavaScript to Java Communication</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Java_to_JavaScript_Communication">JS:Guide:LiveConnect Overview:Java to JavaScript Communication</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Java_to_JavaScript_Communication" class="new ">JS:Guide:Java to JavaScript Communication</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Java_to_JavaScript_Communication/Using_the_LiveConnect_Classes">JS:Guide:LiveConnect Overview:Java to JavaScript Communication:Using the LiveConnect Classes</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Using_the_LiveConnect_Classes" class="new ">JS:Guide:Using the LiveConnect Classes</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Working_with_Wrappers">JS:Guide:LiveConnect Overview:Working with Wrappers</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Working_with_Wrappers" class="new ">JS:Guide:Working with Wrappers</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements">JS:Guide:Loop Statements</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Loop_Statements" class="new ">JS:Guide:Loop Statements</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/break_Statement">JS:Guide:Loop Statements:break Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/break_Statement" class="new ">JS:Guide:break Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/continue_Statement">JS:Guide:Loop Statements:continue Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/continue_Statement" class="new ">JS:Guide:continue Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/do...while_Statement">JS:Guide:Loop Statements:do...while Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/do...while_Statement" class="new ">JS:Guide:do...while Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/for_Statement">JS:Guide:Loop Statements:for Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/for_Statement" class="new ">JS:Guide:for Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/label_Statement">JS:Guide:Loop Statements:label Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/label_Statement" class="new ">JS:Guide:label Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Loop_Statements/while_Statement">JS:Guide:Loop Statements:while Statement</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/while_Statement" class="new ">JS:Guide:while Statement</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Object_Manipulation_Statements">JS:Guide:Object Manipulation Statements</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Object_Manipulation_Statements" class="new ">JS:Guide:Object Manipulation Statements</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Objects_and_Properties">JS:Guide:Objects and Properties</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Objects_and_Properties" class="new ">JS:Guide:Objects and Properties</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators">JS:Guide:Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Operators" class="new ">JS:Guide:Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/Arithmetic_Operators">JS:Guide:Operators:Arithmetic Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Arithmetic_Operators" class="new ">JS:Guide:Arithmetic Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/Assignment_Operators">JS:Guide:Operators:Assignment Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Assignment_Operators" class="new ">JS:Guide:Assignment Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/Bitwise_Operators">JS:Guide:Operators:Bitwise Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Bitwise_Operators" class="new ">JS:Guide:Bitwise Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/Comparison_Operators">JS:Guide:Operators:Comparison Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Comparison_Operators" class="new ">JS:Guide:Comparison Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/Logical_Operators">JS:Guide:Operators:Logical Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Logical_Operators" class="new ">JS:Guide:Logical Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/Special_Operators">JS:Guide:Operators:Special Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Special_Operators" class="new ">JS:Guide:Special Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Operators/String_Operators">JS:Guide:Operators:String Operators</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/String_Operators" class="new ">JS:Guide:String Operators</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects">JS:Guide:Predefined Core Objects</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Predefined_Core_Objects" class="new ">JS:Guide:Predefined Core Objects</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Array_Object">JS:Guide:Predefined Core Objects:Array Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Array_Object" class="new ">JS:Guide:Array Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Boolean_Object">JS:Guide:Predefined Core Objects:Boolean Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Boolean_Object" class="new ">JS:Guide:Boolean Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Date_Object">JS:Guide:Predefined Core Objects:Date Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Date_Object" class="new ">JS:Guide:Date Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Function_Object">JS:Guide:Predefined Core Objects:Function Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Function_Object" class="new ">JS:Guide:Function Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Math_Object">JS:Guide:Predefined Core Objects:Math Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Math_Object" class="new ">JS:Guide:Math Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Number_Object">JS:Guide:Predefined Core Objects:Number Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Number_Object" class="new ">JS:Guide:Number Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/RegExp_Object">JS:Guide:Predefined Core Objects:RegExp Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/RegExp_Object" class="new ">JS:Guide:RegExp Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/String_Object">JS:Guide:Predefined Core Objects:String Object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/String_Object" class="new ">JS:Guide:String Object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions">JS:Guide:Predefined Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Predefined_Functions" class="new ">JS:Guide:Predefined Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions/Number_and_String_Functions">JS:Guide:Predefined Functions:Number and String Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Number_and_String_Functions" class="new ">JS:Guide:Number and String Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions/escape_and_unescape_Functions">JS:Guide:Predefined Functions:escape and unescape Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/escape_and_unescape_Functions" class="new ">JS:Guide:escape and unescape Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions/eval_Function">JS:Guide:Predefined Functions:eval Function</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/eval_Function" class="new ">JS:Guide:eval Function</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions/isFinite_Function">JS:Guide:Predefined Functions:isFinite Function</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/isFinite_Function" class="new ">JS:Guide:isFinite Function</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions/isNaN_Function">JS:Guide:Predefined Functions:isNaN Function</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/isNaN_Function" class="new ">JS:Guide:isNaN Function</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Predefined_Functions/parseInt_and_parseFloat_Functions">JS:Guide:Predefined Functions:parseInt and parseFloat Functions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/parseInt_and_parseFloat_Functions" class="new ">JS:Guide:parseInt and parseFloat Functions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited">JS:Guide:Property Inheritance Revisited</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Property_Inheritance_Revisited" class="new ">JS:Guide:Property Inheritance Revisited</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Determining_Instance_Relationships">JS:Guide:Property Inheritance Revisited:Determining Instance Relationships</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Determining_Instance_Relationships" class="new ">JS:Guide:Determining Instance Relationships</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Global_Information_in_Constructors">JS:Guide:Property Inheritance Revisited:Global Information in Constructors</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Global_Information_in_Constructors" class="new ">JS:Guide:Global Information in Constructors</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Local_versus_Inherited_Values">JS:Guide:Property Inheritance Revisited:Local versus Inherited Values</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Local_versus_Inherited_Values" class="new ">JS:Guide:Local versus Inherited Values</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/No_Multiple_Inheritance">JS:Guide:Property Inheritance Revisited:No Multiple Inheritance</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/No_Multiple_Inheritance" class="new ">JS:Guide:No Multiple Inheritance</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Regular_Expressions">JS:Guide:Regular Expressions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Regular_Expressions" class="new ">JS:Guide:Regular Expressions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Comments">JS:Guide:Comments</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Comments" class="new ">JS:Guide:Comments</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Statements">JS:Guide:Statements</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Statements" class="new ">JS:Guide:Statements</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/The_Employee_Example">JS:Guide:The Employee Example</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/The_Employee_Example" class="new ">JS:Guide:The Employee Example</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/The_Employee_Example/Creating_the_Hierarchy">JS:Guide:The Employee Example:Creating the Hierarchy</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Creating_the_Hierarchy" class="new ">JS:Guide:Creating the Hierarchy</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/The_Employee_Example/More_Flexible_Constructors">JS:Guide:The Employee Example:More Flexible Constructors</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/More_Flexible_Constructors" class="new ">JS:Guide:More Flexible Constructors</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties">JS:Guide:The Employee Example:Object Properties</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Object_Properties" class="new ">JS:Guide:Object Properties</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties/Adding_Properties">JS:Guide:The Employee Example:Object Properties:Adding Properties</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Adding_Properties" class="new ">JS:Guide:Adding Properties</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties/Inheriting_Properties">JS:Guide:The Employee Example:Object Properties:Inheriting Properties</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Inheriting_Properties" class="new ">JS:Guide:Inheriting Properties</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Unicode">JS:Guide:Unicode</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Unicode" class="new ">JS:Guide:Unicode</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Using_the_arguments_object">JS:Guide:Using the arguments object</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Using_the_arguments_object" class="new ">JS:Guide:Using the arguments object</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Values">JS:Guide:Values</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Values" class="new ">JS:Guide:Values</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Variables">JS:Guide:Variables</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Variables" class="new ">JS:Guide:Variables</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Working_with_Objects">JS:Guide:Working with Objects</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Working_with_Objects" class="new ">JS:Guide:Working with Objects</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions">JS:Guide:Working with Regular Expressions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Working_with_Regular_Expressions" class="new ">JS:Guide:Working with Regular Expressions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Examples_of_Regular_Expressions">JS:Guide:Working with Regular Expressions:Examples of Regular Expressions</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Examples_of_Regular_Expressions" class="new ">JS:Guide:Examples of Regular Expressions</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Executing_a_Global_Search%2c_Ignoring_Case%2c_and_Considering_Multiline_Input">JS:Guide:Working with Regular Expressions:Executing a Global Search, Ignoring Case, and Considering Multiline Input</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Executing_a_Global_Search%2c_Ignoring_Case%2c_and_Considering_Multiline_Input" class="new ">JS:Guide:Executing a Global Search, Ignoring Case, and Considering Multiline Input</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Using_Parenthesized_Substring_Matches">JS:Guide:Working with Regular Expressions:Using Parenthesized Substring Matches</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Using_Parenthesized_Substring_Matches" class="new ">JS:Guide:Using Parenthesized Substring Matches</a></td></tr>
+<tr><td><a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Writing_a_Regular_Expression_Pattern">JS:Guide:Writing a Regular Expression Pattern</a></td><td><a rel="internal" href="https://developer.mozilla.org/en/JS/Guide/Writing_a_Regular_Expression_Pattern" class="new ">JS:Guide:Writing a Regular Expression Pattern</a></td></tr>
+</table>
+</div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="https://developer.mozilla.org/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg">https://developer.mozilla.org/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg</a>"</p>
+</div>
+	 				
+	 							
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference%2F%2Freorg&action=history" title="06:46, 30 Jan 2007">06:46, 30 Jan 2007</a> by <a href="/User:Sheppy" class="link-user" rel="internal">Sheppy</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"><a href="https://developer.mozilla.org/Special:Tags?tag=MDC+Project" title="MDC Project">MDC Project</a></div><div><a href="/index.php?title=Special:Tags&pageId=25471"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 133958;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=25471">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki02 in 0.86 secs. -->
+<!-- (GET)/deki/site/settings: 0.0056450366973877 -->
+<!-- (GET)/deki/users/=Anonymous: 0.008620023727417 -->
+<!-- /deki/pages/39779/contents: 0.050755977630615 -->
+<!-- /deki/pages/39779: 0.0037391185760498 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0096149444580078 -->
+<!-- /deki/pages/35375/contents: 0.61372590065002 -->
+<!-- /deki/pages/35375: 0.060588121414185 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0082559585571289 -->
+<!-- (GET)/deki/pages/25471/info: 0.0049619674682617 -->
+<!-- /deki/pages/25471/security: 0.0079560279846191 -->
+<!-- (GET)/deki/pages/25471/tags: 0.0058808326721191 -->
+<!-- (GET)/deki/license: 0.0044021606445312 -->
+<!-- (GET)/deki/license: 0.0039761066436768 -->
+<!-- Total: 0.78812217712402-->
+<!-- Real: 0.78414607048035-->
+
+</body>
+</html>

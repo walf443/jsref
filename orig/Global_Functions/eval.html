@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=29112" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=29112" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>eval - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 29112;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference/Global Functions/eval';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference%2FGlobal+Functions%2Feval" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li><a href="../index.html" class="deki-ns">Core JavaScript 1.5 Reference</a></li>
+<li><a href="../Global_Functions.html" class="deki-ns">Global Functions</a></li>
+<li class="last"><a href="../Global_Functions/eval.html" class="deki-ns current">eval</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Functions/eval&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Functions/eval&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Functions/eval&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en/Core_JavaScript_1.5_Reference/Global_Functions/eval" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15ReferenceGlobalFunctionseval">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=29112" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a></li><li><span>5.</span> <a href="#Don't_use_eval!" rel="internal">Don't use eval!</a></li><li><span>6.</span> <a href="#Parsing_JSON" rel="internal">Parsing JSON</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>6.1.</span> <a href="#Accessing_member_properties" rel="internal">Accessing member properties</a></li></ol></li><li><span>7.</span> <a href="#Cross-implementation_compatibility" rel="internal">Cross-implementation compatibility</a></li><li><span>8.</span> <a href="#Examples" rel="internal">Examples</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>8.1.</span> <a href="#Example.3a_Using_eval" rel="internal">Example: Using eval</a></li><li><span>8.2.</span> <a href="#Example.3a_Using_eval_to_evaluate_a_string_of_JavaScript_statements" rel="internal">Example: Using eval to evaluate a string of JavaScript statements</a></li></ol></li><li><span>9.</span> <a href="#Return_value" rel="internal">Return value</a></li><li><span>10.</span> <a href="#See_also" rel="internal">See also</a></li></ol></div>	<div class="suggestchannels">
+	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+            <h1 id="title">eval</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a></li><li><span>5.</span> <a href="#Don't_use_eval!" rel="internal">Don't use eval!</a></li><li><span>6.</span> <a href="#Parsing_JSON" rel="internal">Parsing JSON</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>6.1.</span> <a href="#Accessing_member_properties" rel="internal">Accessing member properties</a></li></ol></li><li><span>7.</span> <a href="#Cross-implementation_compatibility" rel="internal">Cross-implementation compatibility</a></li><li><span>8.</span> <a href="#Examples" rel="internal">Examples</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>8.1.</span> <a href="#Example.3a_Using_eval" rel="internal">Example: Using eval</a></li><li><span>8.2.</span> <a href="#Example.3a_Using_eval_to_evaluate_a_string_of_JavaScript_statements" rel="internal">Example: Using eval to evaluate a string of JavaScript statements</a></li></ol></li><li><span>9.</span> <a href="#Return_value" rel="internal">Return value</a></li><li><span>10.</span> <a href="#See_also" rel="internal">See also</a></li></ol></div></div><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"></span><h3 class="editable">Summary</h3>
+<p><strong>Core Function</strong></p>
+<p>Evaluates a string of JavaScript code without reference to a particular object.</p>
+</div><div id="section_2"><span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<p><code> eval(<em>string</em> [, <em>object</em>]) </code></p>
+</div><div id="section_3"><span id="Parameters"></span><h3 class="editable">Parameters</h3>
+<dl><dt> <code>string</code> </dt><dd> A string representing a JavaScript expression, statement, or sequence of statements. The expression can include variables and properties of existing objects. </dd><dt> <code>object</code> </dt><dd> <span class="lang lang-en"><span style="border: 1px solid rgb(255, 213, 153); background-color: rgb(255, 239, 217); font-size: x-small; white-space: nowrap; padding: 2px;">Non-standard</span></span>     &nbsp;<span class="lang lang-en"> <span style="border: 1px solid rgb(255, 153, 153); background-color: rgb(255, 219, 219); font-size: x-small; white-space: nowrap; padding: 2px;">Obsolete </span> </span>      <br />
+</dd><dd> An optional argument; if specified, the evaluation is restricted to the context of the specified object. </dd></dl>
+<div class="note"><strong>Note:</strong>&nbsp;The second argument of eval was removed. See 
+<span class="lang lang-*"><a rel="external nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=442333" title="https://bugzilla.mozilla.org/show_bug.cgi?id=442333" target="_blank" class=" link-https">bug 442333</a></span>.</div>
+</div><div id="section_4"><span id="Description"></span><h3 class="editable">Description</h3>
+<p><code>eval</code> is a top-level function and is not associated with any object.</p>
+<p>The argument of the <code>eval</code> function is a string. If the string represents an expression, <code>eval</code> evaluates the expression. If the argument represents one or more JavaScript statements, <code>eval</code> performs the statements. Do not call <code>eval</code> to evaluate an arithmetic expression; JavaScript evaluates arithmetic expressions automatically.</p>
+<p>If you construct an arithmetic expression as a string, you can use <code>eval</code> to evaluate it at a later time. For example, suppose you have a variable <code>x</code>. You can postpone evaluation of an expression involving <code>x</code> by assigning the string value of the expression, say &quot;<code>3 * x + 2</code>&quot;, to a variable, and then calling <code>eval</code> at a later point in your script.</p>
+<p>If the argument of <code>eval</code> is not a string, <code>eval</code> returns the argument unchanged. In the following example, the <code>String</code> constructor is specified, and <code>eval</code> returns a <code>String</code> object rather than evaluating the string.</p>
+<pre>eval(new String(&quot;2 + 2&quot;)); // returns a String object containing &quot;2 + 2&quot;
+eval(&quot;2 + 2&quot;);             // returns 4
+</pre>
+<p>You can work around this limitation in a generic fashion by using <code>toString</code>.</p>
+<pre>var expression = new String(&quot;2 + 2&quot;);
+eval(expression.toString());
+</pre>
+<p>You cannot indirectly use the <code>eval</code> function by invoking it via a name other than <code>eval</code>; if you do, a runtime error might occur. For example, you should not use the following code:</p>
+<pre>var x = 2;
+var y = 4;
+var myEval = eval;
+myEval(&quot;x + y&quot;);
+</pre>
+</div><div id="section_5"><span id="Don.27t_use_eval.21"></span><span id="Don't_use_eval!"></span><h3 class="editable">Don't use eval!</h3>
+<p><code>eval()</code> is a dangerous function, which executes the code it's passed with the privileges of the caller. If you run <code>eval()</code> with a string that could be affected by a malicious party, you may end up running malicious code on the user's machine with the permissions of your webpage / extension.</p>
+<p>There are safe alternatives to <code>eval()</code> for common use-cases.</p>
+</div><div id="section_6"><span id="Parsing_JSON"></span><h3 class="editable">Parsing JSON</h3>
+<p>See <a rel="internal" href="https://developer.mozilla.org/en/Downloading_JSON_and_JavaScript_in_extensions">Downloading JSON and JavaScript in extensions</a>.</p>
+<div id="section_7"><span id="Accessing_member_properties"></span><h4 class="editable">Accessing member properties</h4>
+<p>You should not use <code>eval</code> to convert property names into properties. Consider the following example. We don't know which property of the object we want to access. This can be done with eval:</p>
+<pre>
+var obj = { a: 20, b: 30 };
+var propname = getPropName();&nbsp; //returns &quot;a&quot; or &quot;b&quot;
+eval( &quot;var result = obj.&quot; + propname );
+</pre>
+<p>However <code>eval</code> is not necessary here. In fact, its use here is discouraged. Instead, use the <a rel="internal" href="../Operators/Member_Operators.html">member operators</a>, which are much faster and safer:</p>
+<pre>
+var obj = { a: 20, b: 30 };
+var propname = getPropName();&nbsp; //returns &quot;a&quot; or &quot;b&quot;
+var result = obj[ propname ];&nbsp; //&nbsp;&nbsp;obj[ &quot;a&quot; ] is the same as obj.a
+</pre>
+<p>&nbsp;</p>
+<p>&nbsp;</p></div></div><div id="section_8"><span id="Cross-implementation_compatibility"></span><h3 class="editable">Cross-implementation compatibility</h3>
+<p>It should be noted that the second optional parameter to <code>eval</code> is non-standard and not supported in all JavaScript implementations; at the time of this writing, for instance, <a rel="internal" href="https://developer.mozilla.org/en/Rhino">Rhino</a> doesn't support it, nor does Safari's JavaScriptCore.</p>
+<div class="note"><strong>Note:</strong>&nbsp;The second argument of eval was removed. See 
+<span class="lang lang-*"><a rel="external nofollow" href="https://bugzilla.mozilla.org/show_bug.cgi?id=457068" title="https://bugzilla.mozilla.org/show_bug.cgi?id=457068" target="_blank" class=" link-https">bug 457068</a></span>.<strong><br />
+</strong></div>
+<p>To maintain compatibility across implementations, it is recommended that the second parameter to <code>eval</code> not be used. To achieve the same effect, the <a rel="internal" href="../Statements/with.html">with statement</a> may be used. So rather than using</p>
+<pre class="eval">eval(<em>string</em>, <em>object</em>);
+</pre>
+<p>use</p>
+<pre class="eval">with (<em>object</em>) {
+  eval(<em>string</em>);
+}
+</pre>
+</div><div id="section_9"><span id="Examples"></span><h3 class="editable">Examples</h3>
+<p>The following examples display output using <code>document.write</code>. In server-side JavaScript, you can display the same output by calling the <code>write</code> function instead of using <code>document.write</code>.</p>
+<div id="section_10"><span id="Example:_Using_eval"></span><span id="Example.3a_Using_eval"></span><h4 class="editable">Example: Using <code>eval</code></h4>
+<p>In the following code, both of the statements containing <code>eval</code> return 42. The first evaluates the string &quot;<code>x + y + 1</code>&quot;; the second evaluates the string &quot;<code>42</code>&quot;.</p>
+<pre>var x = 2;
+var y = 39;
+var z = &quot;42&quot;;
+eval(&quot;x + y + 1&quot;); // returns 42
+eval(z);           // returns 42 
+</pre>
+</div><div id="section_11"><span id="Example:_Using_eval_to_evaluate_a_string_of_JavaScript_statements"></span><span id="Example.3a_Using_eval_to_evaluate_a_string_of_JavaScript_statements"></span><h4 class="editable">Example: Using <code>eval</code> to evaluate a string of JavaScript statements</h4>
+<p>The following example uses <code>eval</code> to evaluate the string <code>str</code>. This string consists of JavaScript statements that open an Alert dialog box and assign <code>z</code> a value of 42 if <code>x</code> is five, and assigns 0 to <code>z</code> otherwise. When the second statement is executed, <code>eval</code> will cause these statements to be performed, and it will also evaluate the set of statements and return the value that is assigned to <code>z</code>.</p>
+<pre>var x = 5;
+var str = &quot;if (x == 5) {alert('z is 42'); z = 42;} else z = 0; &quot;;
+document.write(&quot;&lt;P&gt;z is &quot;, eval(str));
+</pre>
+</div></div><div id="section_12"><span id="Return_value"></span><h3 class="editable">Return value</h3>
+<p><code>eval</code> returns the value of the last expression evaluated.</p>
+<pre>var str = &quot;if ( a ) { 1+1; } else { 1+2; }&quot;;
+var a = true;
+var b = eval(str);  // returns 2 
+alert(&quot;b is&nbsp;: &quot; + b);
+a = false;
+b = eval(str);  // returns 3
+alert(&quot;b is&nbsp;: &quot; + b);
+</pre>
+</div><div id="section_13"><span id="See_also"></span><h3 class="editable">See also</h3>
+<ul> <li><a rel="internal" href="../Operators/Member_Operators.html">member operators</a></li>
+</ul>
+<p></p></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="../Global_Functions/eval.html">https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Global_Functions/eval</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/es/Referencia_de_JavaScript_1.5/Funciones_globales/eval">Espa&ntilde;ol</a></li><li><a rel="internal" href="https://developer.mozilla.org/fr/R%c3%a9f%c3%a9rence_de_JavaScript_1.5_Core/Fonctions_globales/eval">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl/Dokumentacja_j%c4%99zyka_JavaScript_1.5/Funkcje/eval">Polski</a></li><li><a rel="internal" href="https://developer.mozilla.org/cn/JavaScript_1.5_%e6%a0%b8%e5%bf%83%e5%8f%82%e8%80%83/%e5%85%a8%e5%b1%80%e5%87%bd%e6%95%b0/eval">中文 (中国)</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Global_Functions/eval&action=history" title="11:47, 6 Jul 2009">11:47, 6 Jul 2009</a> by <a href="/User:jorh" class="link-user" rel="internal">jorh</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"></div><div><a href="/index.php?title=Special:Tags&pageId=29112"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 27294;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=29112">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki02 in 0.25 secs. -->
+<!-- (GET)/deki/site/settings: 0.004539966583252 -->
+<!-- (GET)/deki/users/=Anonymous: 0.0088667869567871 -->
+<!-- /deki/pages/39779/contents: 0.031430006027222 -->
+<!-- /deki/pages/39779: 0.0049459934234619 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0094239711761475 -->
+<!-- /deki/pages/29112/contents: 0.082340002059937 -->
+<!-- /deki/pages/29112: 0.025311946868896 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.010706901550293 -->
+<!-- (GET)/deki/pages/29112/info: 0.0055410861968994 -->
+<!-- (GET)/deki/pages/29112/tags: 0.0068249702453613 -->
+<!-- (GET)/deki/license: 0.0062909126281738 -->
+<!-- (GET)/deki/license: 0.0044009685516357 -->
+<!-- Total: 0.20062351226807-->
+<!-- Real: 0.19622254371643-->
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=27448" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=27448" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>for - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 27448;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference/Statements/for';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference%2FStatements%2Ffor" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li><a href="../index.html" class="deki-ns">Core JavaScript 1.5 Reference</a></li>
+<li><a href="../Statements.html" class="deki-ns">Statements</a></li>
+<li class="last"><a href="../Statements/for.html" class="deki-ns current">for</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en/Core_JavaScript_1.5_Reference/Statements/for" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15ReferenceStatementsfor">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=27448" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Examples" rel="internal">Examples&nbsp;</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>4.1.</span> <a href="#Example.3a_Using_for" rel="internal">Example: Using for</a></li></ol></li></ol></div>	<div class="suggestchannels">
+	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+            <h1 id="title">for</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Examples" rel="internal">Examples&nbsp;</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>4.1.</span> <a href="#Example.3a_Using_for" rel="internal">Example: Using for</a></li></ol></li></ol></div></div><div class="pageText" id="pageText">
+<p>&nbsp;</p>
+<div id="section_1"><span id="Summary"></span><h3 class="editable">Summary</h3>
+<p>Creates a loop that consists of three optional expressions, enclosed in parentheses and separated by semicolons, followed by a statement executed in the loop.</p>
+<table class="fullwidth-table"> <tbody> <tr> <td class="header" colspan="2">Statement</td> </tr> <tr> <td>Implemented in:</td> <td>JavaScript 1.0, NES 2.0</td> </tr> <tr> <td>ECMA Version:</td> <td>ECMA-262</td> </tr> </tbody>
+</table>
+</div><div id="section_2"><span id="Syntax"></span><h3 class="editable">Syntax</h3>
+<pre class="eval">for ([<em>initial-expression</em>]; [<em>condition</em>]; [<em>final-expression</em>])
+   <em>statement</em>
+</pre>
+</div><div id="section_3"><span id="Parameters"></span><h3 class="editable">Parameters</h3>
+<dl><dt><code>initial-expression</code>&nbsp; </dt><dd>An expression (including assignment expressions) or variable declaration. Typically used to initialize a counter variable. This expression may optionally declare new variables with the <code>var</code> keyword. These variables are not local to the loop, i.e. they are in the same scope the <code>for</code> loop is in. The result of this expression is discarded. </dd></dl><dl><dt><code>condition</code>&nbsp; </dt><dd>An expression to be evaluated before each loop iteration. If this expression evaluates to true, <code>statement</code> is executed. This conditional test is optional. If omitted, the condition always evaluates to true. If the expression evaluates to false, execution skips to the first expression following the <code>for</code> construct. </dd></dl><dl><dt><code>final-expression</code>&nbsp; </dt><dd>An expression to be evaluated at the end of each loop iteration. This occurs before the next evaluation of <code>condition</code>. Generally used to update or increment the counter variable. </dd></dl><dl><dt><code>statement</code>&nbsp; </dt><dd>A statement that is executed as long as the condition evaluates to true. To execute multiple statements within the loop, use a <a rel="internal" href="../Statements/block.html">block</a> statement (<code>{ ... }</code>) to group those statements. </dd></dl>
+</div><div id="section_4"><span id="Examples"></span><h3 class="editable">Examples&nbsp;</h3>
+<div id="section_5"><span id="Example:_Using_for"></span><span id="Example.3a_Using_for"></span><h4 class="editable">Example: Using <code>for</code></h4>
+<p>The following <code>for</code> statement starts by declaring the variable <code>i</code> and initializing it to <code>0</code>. It checks that <code>i</code> is less than nine, performs the two succeeding statements, and increments <code>i</code> by 1 after each pass through the loop.</p>
+<pre class="eval">for (var i = 0; i &lt; 9; i++) {
+   n += i;
+   myfunc(n);
+}</pre>
+<p><code>
+
+<span style="font-size: xx-small">
+<div style="line-height: normal"><font size="2">XHTML 1.1 Example for syntax</font></div>
+<div style="line-height: normal">&nbsp;</div>
+<div style="line-height: normal"><font size="2">for ([<em>initial-expression</em>]; [<em>condition</em>]; [<em>final-expression</em>])<br />
+</font></div>
+
+<div style="line-height: normal"><span style="font-family: Courier New"><font size="2">
+
+</font></span><span style="font-family: Courier New"><span style=""><font size="2">
+
+</font></span></span><span style="font-family: Courier New"><span style=""><font size="2">
+
+</font></span></span><span style="font-family: Verdana"><span style=""><span style=""><font size="2">
+<div style="line-height: normal"><span style="font-family: Verdana"><span style="font-size: x-small">&lt;!-- ?xml version='1.0' encoding='windows-1250'? --&gt; </span></span></div>
+</font></span></span></span><span style="font-family: Helvetica"><font size="2">
+
+
+</font></span><span style="font-family: Courier New"><span style=""><font size="2">
+
+</font></span></span><span style="font-family: Courier New"><span style=""><font size="2">
+
+</font></span></span><span style="font-family: Verdana"><span style=""><span style=""><font size="2">
+<div style="line-height: normal"><span style="font-family: Verdana"><span style="font-size: x-small">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;<a class=" external" rel="external nofollow" href="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" title="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" target="_blank">http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd</a>&quot;&gt;</span></span></div>
+</font></span></span></span><span style="font-family: Georgia"><font size="2">
+
+
+</font></span><span style="font-family: Courier New"><span style=""><font size="2">
+
+</font></span></span><span style="font-family: Courier New"><span style=""><font size="2">
+
+</font></span></span><span style="font-family: Verdana"><span style=""><span style=""><font size="2">
+<div style="line-height: normal"><span style="font-family: Verdana"><span style="font-size: x-small">&lt;html xmlns='<a class=" external" rel="external nofollow" href="http://www.w3.org/1999/xhtml" title="http://www.w3.org/1999/xhtml" target="_blank">http://www.w3.org/1999/xhtml</a>' xml:lang='sk'&gt; </span></span></div>
+</font></span></span></span><span style="font-family: Verdana"><font size="2">
+
+</font></span><font size="2">
+
+
+</font><span style="font-family: Verdana"><font size="2">
+
+</font></span><span style="font-family: Verdana"><span style=""><font size="2">
+<div style="line-height: normal"><span style="font-size: x-small">&lt;head&gt;&lt;title&gt;Testovacia str&aacute;nka&lt;/title&gt;&lt;/head&gt;</span></div>
+</font></span></span><span style="font-family: Courier New"><font size="2">
+
+
+</font></span><span style="font-family: Courier New"><font size="2">
+
+</font></span><span style="font-family: Verdana"><span style=""><font size="2">
+<div style="line-height: normal"><span style="font-family: Verdana"><span style="font-size: x-small">&lt;body&gt;&lt;div&gt;&lt;script type=&quot;text/javascript&quot;&gt;</span></span></div>
+</font></span></span><span style="font-family: Courier New"><font size="2">
+
+</font></span><font size="2">
+
+
+</font><span style="font-family: Verdana"><font size="2">
+<div style="line-height: normal"><span style="font-family: Verdana"><span style="font-size: x-small">//&lt;![CDATA[</span></span></div>
+</font></span><span style="font-family: Verdana"><font size="2">
+
+
+</font></span><span style="font-family: Verdana"><span style=""><font size="2">
+<div style="line-height: normal"><span style="font-size: x-small">for (var i=1;i&lt;10;i++) document.write(i+&quot; &quot;)</span></div>
+</font></span></span><span style="font-size: x-small"><font size="2">
+
+
+</font></span><span style="font-family: Verdana"><span style="font-size: x-small"><font size="2">
+
+</font></span></span><span style="font-family: Verdana"><span style=""><span style="font-size: x-small"><font size="2">
+<div style="line-height: normal"><span><span style=""><span style=""><span style=""><span style="">//]]&gt;&lt;/script&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</span></span></span></span></span></div>
+</font></span></span></span><font size="2">
+
+</font></div>
+<div style="line-height: normal">
+
+</div>
+<div style="line-height: normal"><span style="font-size: xx-small">&nbsp;
+<div style="line-height: normal"><font size="2">XHTML 1.1 Example for syntax</font></div>
+<div style="line-height: normal">&nbsp;</div>
+<div style="line-height: normal"><font size="2">for ([<em>initial-expression</em>]; [<em>condition</em>])<br />
+</font></div>
+</span>&nbsp;
+<div><font face="Calibri" size="2">&lt;!-- ?xml version='1.0' encoding='windows-1250'? --&gt; </font></div>
+<div><font face="Calibri" size="2">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;<a class=" external" rel="external nofollow" href="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" title="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" target="_blank">http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd</a>&quot;&gt;</font></div>
+<div><font face="Calibri" size="2">&lt;html xmlns='<a class=" external" rel="external nofollow" href="http://www.w3.org/1999/xhtml" title="http://www.w3.org/1999/xhtml" target="_blank">http://www.w3.org/1999/xhtml</a>' xml:lang='sk'&gt; </font></div>
+<div><font face="Calibri" size="2">&lt;head&gt;&lt;title&gt;Testovacia str&aacute;nka&lt;/title&gt;&lt;/head&gt;</font></div>
+<div><font face="Calibri" size="2">&lt;body&gt;&lt;div&gt;&lt;script type=&quot;text/javascript&quot;&gt;</font></div>
+<div><font face="Calibri" size="2">//&lt;![CDATA[</font></div>
+<div><font size="2"><font face="Calibri">var i=1;</font></font></div>
+<div><font face="Calibri" size="2">for (i;i&lt;10;) {document.write(i+&quot; &quot;);i++;}</font></div>
+<div><font face="Calibri" size="2">//]]&gt;&lt;/script&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</font></div>
+</div>
+<div style="line-height: normal">&nbsp;</div>
+<div style="line-height: normal">&nbsp;
+<div style="line-height: normal"><font size="2">XHTML 1.1 Example for syntax</font></div>
+<div style="line-height: normal">&nbsp;</div>
+<div style="line-height: normal"><font size="2">for ([<em>condition</em>])</font></div>
+
+
+</div>
+<div style="line-height: normal">
+<div><font face="Calibri" size="2">&lt;!-- ?xml version='1.0' encoding='windows-1250'? --&gt; </font></div>
+<div><font face="Calibri" size="2">&lt;!DOCTYPE html PUBLIC &quot;-//W3C//DTD XHTML 1.1//EN&quot; &quot;<a class=" external" rel="external nofollow" href="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" title="http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd" target="_blank">http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd</a>&quot;&gt;</font></div>
+<div><font face="Calibri" size="2">&lt;html xmlns='<a class=" external" rel="external nofollow" href="http://www.w3.org/1999/xhtml" title="http://www.w3.org/1999/xhtml" target="_blank">http://www.w3.org/1999/xhtml</a>' xml:lang='sk'&gt; </font></div>
+<div><font face="Calibri" size="2">&lt;head&gt;&lt;title&gt;Testovacia str&aacute;nka&lt;/title&gt;</font></div>
+<div><font face="Calibri" size="2">&lt;/head&gt;&lt;body&gt;&lt;div&gt;&lt;script type=&quot;text/javascript&quot;&gt;</font></div>
+<div><font face="Calibri" size="2">//&lt;![CDATA[</font></div>
+<div><font size="2"><font face="Calibri">var i=1;</font></font></div>
+<div><font face="Calibri" size="2">for (;i&lt;10;) {document.write(i+&quot; &quot;);i++;}</font></div>
+<div><font face="Calibri" size="2">//]]&gt;&lt;/script&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;</font></div>
+</div>
+
+
+</span>&nbsp;</code></p>
+<p>See also</p>
+<p><a rel="internal" href="../Statements/while.html">while</a>, <a rel="internal" href="../Statements/do...while.html">do...while</a>, <a rel="internal" href="../Statements/for...in.html">for...in</a></p>
+<p><br />
+</p>
+<p><br />
+</p>
+
+<p></p></div></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="../Statements/for.html">https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Statements/for</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/es/Referencia_de_JavaScript_1.5/Sentencias/for">Espa&ntilde;ol</a></li><li><a rel="internal" href="https://developer.mozilla.org/fr/R%c3%a9f%c3%a9rence_de_JavaScript_1.5_Core/Instructions/for">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl/Dokumentacja_j%c4%99zyka_JavaScript_1.5/Polecenia/for">Polski</a></li><li><a rel="internal" href="https://developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/for">日本語</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Statements/for&action=history" title="16:01, 4 May 2009">16:01, 4 May 2009</a> by <a href="/User:Matej_Lednar" class="link-user" rel="internal">Matej Lednar</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"></div><div><a href="/index.php?title=Special:Tags&pageId=27448"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 27335;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=27448">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki02 in 0.20 secs. -->
+<!-- (GET)/deki/site/settings: 0.0060150623321533 -->
+<!-- (GET)/deki/users/=Anonymous: 0.012408971786499 -->
+<!-- /deki/pages/39779/contents: 0.034664869308472 -->
+<!-- /deki/pages/39779: 0.002871036529541 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0086829662322998 -->
+<!-- /deki/pages/27448/contents: 0.040185928344727 -->
+<!-- /deki/pages/27448: 0.022477865219116 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0081038475036621 -->
+<!-- (GET)/deki/pages/27448/info: 0.0048389434814453 -->
+<!-- (GET)/deki/pages/27448/tags: 0.0051090717315674 -->
+<!-- (GET)/deki/license: 0.0039360523223877 -->
+<!-- (GET)/deki/license: 0.0044398307800293 -->
+<!-- Total: 0.1537344455719-->
+<!-- Real: 0.14929461479187-->
+
+</body>
+</html>

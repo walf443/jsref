@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=117" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=117" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>MDN - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 117;
+Deki.PageTitle = 'en';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <script src="https://www.google.com/jsapi" type="text/javascript"></script><script type="text/javascript">/*<![CDATA[*/google.load('feeds', '1');/*]]>*/</script><link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li class="last"><a href="https://developer.mozilla.org/en" class="deki-ns current">MDN</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-en">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=117" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Welcome_to_the_Mozilla_Developer_Network_(MDN)" rel="internal">Welcome to the Mozilla Developer Network (MDN)</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>1.1.</span> <a href="#Documentation" rel="internal">Documentation</a></li><li><span>1.2.</span> <a href="#Developer_tools" rel="internal">Developer tools</a></li><li><span>1.3.</span> <a href="#Quick_reference" rel="internal">Quick reference</a></li><li><span>1.4.</span> <a href="#Mozilla_technology" rel="internal">Mozilla technology</a></li><li><span>1.5.</span> <a href="#Feedback" rel="internal">Feedback</a></li></ol></li></ol></div>	<div class="suggestchannels">
+	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+            <h1 id="title">MDN</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Welcome_to_the_Mozilla_Developer_Network_(MDN)" rel="internal">Welcome to the Mozilla Developer Network (MDN)</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>1.1.</span> <a href="#Documentation" rel="internal">Documentation</a></li><li><span>1.2.</span> <a href="#Developer_tools" rel="internal">Developer tools</a></li><li><span>1.3.</span> <a href="#Quick_reference" rel="internal">Quick reference</a></li><li><span>1.4.</span> <a href="#Mozilla_technology" rel="internal">Mozilla technology</a></li><li><span>1.5.</span> <a href="#Feedback" rel="internal">Feedback</a></li></ol></li></ol></div></div><div class="pageText" id="pageText">
+<div id="section_1"><span id="Welcome_to_the_Mozilla_Developer_Network_(MDN)"></span><h2 class="editable"><img align="left" style="width: 139px; height: 160px;" alt="MDN_1a_150x172.png" class="internal lwrap" src="https://developer.mozilla.org/@api/deki/files/4317/=MDN_1a_150x172.png?size=thumb" /><strong><span style="font-size: large;"><span>Welcome to the Mozilla Developer Network (MDN)</span></span></strong></h2>
+<p><span style="font-size: small;">You may have noticed a few changes.&nbsp; Don't worry, everything you love about MDC is still here.&nbsp; We just wanted to introduce a new name that better represents our current developer communities and all the great products and services people work on.&nbsp; <br />
+&nbsp;<br />
+We now have a network of diverse developer communities that cover the Web, Mobile, Add-ons, Applications and Labs.&nbsp; The Mozilla Developer Network is a way to unify them under a single identity and provide a platform for future programs and campaigns to address the needs of every developer.&nbsp; We have big plans for the MDN and will be introducing more exciting changes in the coming months, so stay tuned.<br />
+</span></p>
+<table cellspacing="0" cellpadding="0" border="0" style="table-layout:fixed; width:100%;"> <tbody> <tr> <td width="100%" valign="top"> <div style="margin-right:20px;"> <div style="border: 1px solid rgb(216, 216, 216); background-color: rgb(255, 255, 204); text-align: center; margin-left: 3em; margin-right: 3em; margin-bottom: 1em; padding: 2px; -moz-box-shadow: 2px 2px 3px;"><span style="font-size: large; padding-left: 5px; padding-right: 5px; "><strong>What is <a rel="internal" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a>? </strong></span> <span style="font-size: medium; padding-left: 5px; padding-right: 5px; "> Find out what the latest in web standards means for you and what Mozilla is doing to help developers build the future of the open web today.</span></div> 
+<script type="text/javascript">/*<![CDATA[*/
+        $(function() {
+            var $items = $('.vtab>ul>li');
+            $items.click(function() {
+                $items.removeClass('selected');
+                $(this).addClass('selected');
+
+                var index = $items.index($(this));
+                $('.vtab>div').hide().eq(index).show();
+            }).eq(0).click();
+        });
+    /*]]>*/</script>
+<div class="vtab">
+<ul> <li class="selected">Web</li> <li>Add-ons</li> <li>Mobile</li> <li>Applications</li> <li>Labs</li>
+</ul>
+<div>
+<table cellspacing="3" cellpadding="1" border="0" style="width: 100%; table-layout: fixed;"> <tbody> <tr> <td valign="top" class="tab-content-box"> <p><span style="font-size: large;"><strong><span style="font-size: medium;">Web developers should check out the <a title="http://hacks.mozilla.org/" class=" external" rel="external nofollow" href="http://hacks.mozilla.org" target="_blank">Hacks blog</a>.</span><br /> </strong></span></p> <p>Find out more about the latest web standards like <a rel="internal" href="https://developer.mozilla.org/en/HTML/HTML5">HTML5</a> and get a preview of what's coming up in future versions of Firefox.&nbsp;</p> <p>Learn more about the great <a class=" external" title="http://hacks.mozilla.org/2010/02/firefox-46-features/" rel="external nofollow" href="http://hacks.mozilla.org/2010/02/firefox-46-features/" target="_blank">developer features in Firefox 3.6</a> and why the latest version of <a class=" external" title="http://hacks.mozilla.org/category/firebug/" rel="external nofollow" href="http://hacks.mozilla.org/category/firebug/" target="_blank">Firebug</a> continues to make web developers happy.&nbsp; There are <a class=" external" title="http://hacks.mozilla.org/demos/" rel="external nofollow" href="http://hacks.mozilla.org/demos/" target="_blank">cool demos</a> and plenty of <a class=" external" title="http://hacks.mozilla.org/articles/" rel="external nofollow" href="http://hacks.mozilla.org/articles/" target="_blank">articles</a> for anyone that wants to keep up with the open web.</p> </td> <td valign="top" class="tab-content-box">
+          <div id="id_SHYoL4aX"></div>
+        </td> </tr> <tr> <td valign="bottom" class="tab-content-box" colspan="2">&nbsp; <p><img align="left" src="http://mozillalinks.org/wp/wp-content/uploads/2008/01/mozilla_logo.png" style="width: 123px; height: 120px;" class="lwrap" alt="" /></p> <p><span style="font-size: large;">Follow <a target="_blank" href="http://twitter.com/mozhacks" rel="external
+            nofollow" title="http://twitter.com/mozhacks" class="external">@mozhacks on Twitter</a></span> for the latest in web development.</p> <p><span style="font-size: large;">Subscribe to <a title="http://bit.ly/abouthacks" class=" link-https" rel="external nofollow" href="http://bit.ly/abouthacks" target="_blank">about:hacks</a></span>, the web developer newsletter.</p> </td> </tr> </tbody>
+</table>
+</div><div>
+<table cellspacing="3" cellpadding="1" border="0" style="width: 100%; table-layout: fixed;"> <tbody> <tr> <td valign="top" class="tab-content-box"> <p><strong><span style="font-size: medium;">Need help with Add-on development? Check out the <a class=" link-https" title="https://addons.mozilla.org/en-US/developers" rel="external nofollow" href="https://addons.mozilla.org/en-US/developers" target="_blank">AMO Developer Hub</a>.</span></strong></p> <p>Find the <a title="https://addons.mozilla.org/en-US/developers/docs/how-to" class=" link-https" rel="external nofollow" href="https://addons.mozilla.org/en-US/developers/docs/how-to" target="_blank">resources</a> you will need to get started and learn from other developers by participating in the <a title="https://forums.addons.mozilla.org/" class=" link-https" rel="external nofollow" href="https://forums.addons.mozilla.org/" target="_blank">forums</a>.</p> <p>There are also interesting <a title="https://addons.mozilla.org/en-US/developers/docs/case-studies" class=" link-https" rel="external nofollow" href="https://addons.mozilla.org/en-US/developers/docs/case-studies" target="_blank">case studies</a> that show you how people turned their ideas into successful Add-ons.</p> </td> <td valign="top" class="tab-content-box">
+          <div id="id_KAixiGXk"></div>
+        </td> </tr> <tr> <td valign="bottom" class="tab-content-box" colspan="2">&nbsp; <p><img align="left" src="https://addons.mozilla.org/img/amo2009/illustrations/logo-add-ons-half.png" style="width: 152px; height: 123px;" class="lwrap" alt="" /></p> <p><span style="font-size: large;">Follow <a target="_blank" href="http://twitter.com/mozamo" rel="external nofollow" title="http://twitter.com/mozamo" class="external">@mozamo on Twitter</a></span> for the latest updates on AMO.</p> <p><span style="font-size: large;">Subscribe to <a title="https://addons.mozilla.org/en-US/developers/community/newsletter" class=" link-https" rel="external nofollow" href="https://addons.mozilla.org/en-US/developers/community/newsletter" target="_blank">about:addons</a></span>, the Firefox Add-ons newsletter.</p> <p>&nbsp;</p> </td> </tr> </tbody>
+</table>
+</div><div>
+<table cellspacing="3" cellpadding="1" border="0" style="width: 100%; table-layout: fixed;"> <tbody> <tr> <td valign="top" class="tab-content-box"> <p><span style="font-size: medium;"><strong>It's time to make your move with <a title="http://www.mozilla.com/en-US/mobile/developers/" class=" external" rel="external nofollow" href="http://www.mozilla.com/en-US/mobile/developers/" target="_blank">Firefox for mobile</a>.&nbsp; </strong></span></p> <p>With Firefox available today on the <a title="http://www.mozilla.com/en-US/mobile/maemo/" class=" external" rel="external nofollow" href="http://www.mozilla.com/en-US/mobile/maemo/" target="_blank">Maemo</a> platform and our upcoming plans for Android, now is the best time to get started with Firefox for mobile.</p> <p>Get access to the <a rel="internal" href="https://developer.mozilla.org/En/Mobile">resources you need</a> to build rich mobile apps using open technologies like HTML5, CSS and JavaScript.&nbsp; D<span style="font-size: small;">evelop new <a class=" link-https" title="https://wiki.mozilla.org/Mobile/Fennec/Extensions" rel="external nofollow" href="https://wiki.mozilla.org/Mobile/Fennec/Extensions" target="_blank">mobile Add-ons </a>for Firefox and create i</span><span style="font-size: small;">nnovative user experiences</span> for the only Web browser in the world that supports that kind of customization.</p> </td> <td valign="top" class="tab-content-box">
+          <div id="id_rEfeNwMd"></div>
+        </td> </tr> <tr> <td valign="bottom" colspan="2" class="tab-content-box">&nbsp; <p><img align="left" src="http://missmobile.files.wordpress.com/2010/01/maemo-image.png?w=300&amp;h=186" style="width: 212px; height: 144px;" class="lwrap" alt="" /></p> <p><span style="font-size: large;">Follow <a class="external" title="http://twitter.com/mozmobile" rel="external
+            nofollow" href="http://twitter.com/mozmobile" target="_blank">@mozmobile on Twitter</a></span> to keep up.</p> <p><span style="font-size: large;">Join our mobile fans on </span><a title="http://facebook.com/firefoxformobile" class=" external" rel="external nofollow" href="http://facebook.com/firefoxformobile" target="_blank"><span style="font-size: large;">Facebook</span></a> and get social.</p> <p><span style="font-size: large;">Subscribe to <a target="_blank" href="http://list-manage.com/subscribe?u=168bf22f976f5a68fe5770d19&amp;id=f76d3a9899" rel="external nofollow" class=" link-https" title="http://list-manage.com/subscribe?u=168bf22f976f5a68fe5770d19&amp;id=f76d3a9899">about:mobile</a></span>, the Firefox Mobile newsletter.</p> </td> </tr> </tbody>
+</table>
+</div><div>
+<table cellspacing="3" cellpadding="1" border="0" style="width: 100%; table-layout: fixed;"> <tbody> <tr> <td valign="top" class="tab-content-box"> <p><span style="font-size: medium;"><strong>Looking for </strong></span><strong><span style="font-size: large;"><a rel="internal" href="https://developer.mozilla.org/En/Participating_in_the_Mozilla_project"><span style="font-size: medium;">Mozilla development</span></a></span></strong><span style="font-size: medium;"><strong> resources?&nbsp; </strong></span></p> <p>Whether you want to hack on Firefox or build other applications &quot;<a class=" external" title="http://www.mozilla.org/projects/powered-by.html" rel="external nofollow" href="http://www.mozilla.org/projects/powered-by.html" target="_blank">powered by Mozilla</a>&quot;,&nbsp; there are docs for that.</p> <p>Keep up with Firefox development on the <a title="https://wiki.mozilla.org/Main_Page" class=" link-https" rel="external nofollow" href="https://wiki.mozilla.org/Main_Page" target="_blank">Mozilla wiki</a> or dig through <a rel="internal" href="https://developer.mozilla.org/En/Developer_Guide">documentation</a> in our developer guide to learn more about the technologies and tools behind Mozilla-based applications.&nbsp;</p> </td> <td valign="top" class="tab-content-box">
+          <div id="id_GhjNjLjL"></div>
+        </td> </tr> <tr> <td valign="bottom" colspan="2" class="tab-content-box"> <p><img align="left" style="width: 137px; height: 132px;" class="internal lwrap" alt="firefox-512.png" src="https://developer.mozilla.org/@api/deki/files/4316/=firefox-512.png" /></p> <p><span style="font-size: large;">Follow <a class="external" title="http://twitter.com/planetmozilla" rel="external nofollow" href="http://twitter.com/planetmozilla" target="_blank">@planetmozilla on Twitter</a></span> for the latest from Mozilla.</p> <p><span style="font-size: large;">Subscribe to <a target="_blank" href="http://list-manage.com/subscribe.phtml?id=3be22ac12d" rel="external nofollow" class=" link-https" title="http://list-manage.com/subscribe.phtml?id=3be22ac12d">about:mozilla</a></span>, the Mozilla community newsletter.</p> </td> </tr> </tbody>
+</table>
+</div><div>
+<table cellspacing="3" cellpadding="1" border="0" style="width: 100%; table-layout: fixed;"> <tbody> <tr> <td valign="top" class="tab-content-box"> <p><strong><span style="font-size: medium;">Interested in shaping the future of the Web?</span></strong></p> <p><a class=" external" rel="external nofollow" href="http://mozillalabs.com/" title="http://mozillalabs.com/" target="_blank">Mozilla Labs</a> is a virtual lab where you can join us to create, experiment, build and play with new Web innovations and technologies.&nbsp; Our community's contributors come from a diverse range of backgrounds but all share a common interest in exploring the Web.&nbsp;</p> <p>To get started, check out our <a class=" external" rel="external nofollow" href="http://mozillalabs.com/projects/" title="http://mozillalabs.com/projects/" target="_blank">projects</a> and then <a class=" external" rel="external nofollow" href="http://mozillalabs.com/get-involved/" title="http://mozillalabs.com/get-involved/" target="_blank">get involved</a> by <a class=" external" rel="external nofollow" href="http://mozillalabs.com/discussions/" title="http://mozillalabs.com/discussions/" target="_blank">joining our discussion groups</a>, <a class=" external" rel="external nofollow" href="http://design-challenge.mozillalabs.com/" title="http://design-challenge.mozillalabs.com/" target="_blank">participating in design challenges</a>, <a class=" external" rel="external nofollow" href="http://hg.mozilla.org/labs" title="http://hg.mozilla.org/labs" target="_blank">hacking on source code</a> or <a class=" link-https" rel="external nofollow" href="https://bugzilla.mozilla.org/enter_bug.cgi?product=Mozilla%20Labs" title="https://bugzilla.mozilla.org/enter_bug.cgi?product=Mozilla%20Labs" target="_blank">submitting feedback</a>.</p> </td> <td valign="top" class="tab-content-box">
+          <div id="id_c2GMm7dk"></div>
+        </td> </tr> <tr> <td valign="bottom" colspan="2" class="tab-content-box">&nbsp; <p><img align="left" src="http://creative.mozilla.org/images/designs/0/119/119_lg.jpg" style="width: 144px; height: 131px;" class="lwrap" alt="" /></p> <p><span style="font-size: large;">Follow <a class="external" title="http://twitter.com/mozlabs" rel="external nofollow" href="http://twitter.com/mozlabs" target="_blank">@mozlabs on Twitter</a></span> for the latest updates on our projects</p> </td> </tr> </tbody>
+</table>
+</div></div> <table cellspacing="3" cellpadding="1" border="0" style="width:100%; table-layout: fixed; margin-top: 2.5em;"> <tbody> <tr> <td width="50%" valign="top" rowspan="2" class="sidebar-box"> <div id="section_2"><span id="Documentation"></span><h3 class="editable">Documentation</h3> <dl> <dt><a rel="internal" href="https://developer.mozilla.org/en/Web_Development">Web development</a></dt> <dd>Resources for web developers.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/Accessibility">Accessibility</a></dt> <dd>How to develop for users with disabilities.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/Web_Standards">Web standards</a></dt> <dd>The how and why of using open web standards in development.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/Security">Security</a></dt> <dd>Documentation about web security.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/Project:en/How_to_Help">Help document Mozilla and web standards</a></dt> <dd>Documentation about how to help us produce excellent developer documentation.</dd> </dl> <div style="text-align:right;"><a rel="internal" href="https://developer.mozilla.org/En/Documentation_hot_links">More documentation</a></div> <dl> <dt></dt> </dl> </div></td> <td width="50%" valign="top" class="sidebar-box"> <div id="section_3"><span id="Developer_tools"></span><h3 class="editable">Developer tools</h3> <dl> <dt><a rel="internal" href="https://developer.mozilla.org/en/DOM_Inspector">DOM&nbsp;Inspector</a></dt> <dd>Inspect and browse the content of the DOM.</dd> <dt><a title="https://addons.mozilla.org/en-US/firefox/addon/1843" class=" link-https" rel="external nofollow" href="https://addons.mozilla.org/en-US/firefox/addon/1843" target="_blank">Firebug</a></dt> <dd>Debugger for web sites.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/Venkman">Venkman</a></dt> <dd>Powerful JavaScript debugger.</dd> </dl> <div style="text-align:right;"><a rel="internal" href="https://developer.mozilla.org/en/Tools">More tools</a></div> </div></td> </tr> <tr> <td valign="top" class="sidebar-box">
+          <div id="id_99wctTcr"></div>
+        </td> </tr> </tbody> </table> </div> </td> <td width="260px" valign="top"> <div class="sidebar-box"> <div id="section_4"><span id="Quick_reference"></span><h3 class="editable">Quick reference</h3> <dl> <dt><a rel="internal" href="https://developer.mozilla.org/en/HTML">HTML</a></dt> <dd>Hypertext Markup Language; the core technology of the web.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/CSS_Reference">CSS Reference</a></dt> <dd>Cascading Style Sheets.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/JavaScript">JavaScript</a></dt> <dd>The scripting language that powers modern web applications.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/DOM">DOM</a></dt> <dd>The Document Object Model describes the layout and content of web pages.</dd> </dl> <div style="text-align:right;"><a rel="internal" href="https://developer.mozilla.org/En/Documentation_hot_links">More references</a></div> </div></div> <div class="sidebar-box"> <div id="section_5"><span id="Mozilla_technology"></span><h3 class="editable">Mozilla technology</h3> <dl> <dt><a rel="internal" href="https://developer.mozilla.org/En/Developing_add-ons">Developing add-ons</a></dt> <dd>Creating extensions, themes, and plug-ins for Firefox and Thunderbird.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/En/Mobile">Developing for mobile</a></dt> <dd>Developing add-ons and content for Firefox mobile.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/En/Participating_in_the_Mozilla_project">Participating in the Mozilla project</a></dt> <dd>Everything from filing bugs to fixing them.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/En/Using_Mozilla_code_in_other_projects">Using Mozilla code in other projects</a></dt> <dd>How to use Mozilla technologies in your own projects.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/Localization">Localization</a></dt> <dd>Making Mozilla-based applications and add-ons localizable.</dd> <dt><a rel="internal" href="https://developer.mozilla.org/en/QA">Quality Assurance</a></dt> <dd>How to help with Mozilla Quality Assurance.</dd> </dl> </div></div> <div class="sidebar-box"> <div id="section_6"><span id="Feedback"></span><h3 class="editable">Feedback</h3> <p>Were you able to find what you are looking for?&nbsp; Do you have ideas for making the MDN website better?&nbsp; <a class=" external" title="http://mdn.uservoice.com/forums/51389-mdn-website-feedback" rel="external nofollow" href="http://mdn.uservoice.com/forums/51389-mdn-website-feedback" target="_blank">Give us your feedback</a>.</p> </div></div> </td> </tr> </tbody>
+</table>
+<p></p></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="https://developer.mozilla.org/en">https://developer.mozilla.org/en</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/ca">Catal&agrave;</a></li><li><a rel="internal" href="https://developer.mozilla.org/cs">Če&scaron;tina</a></li><li><a rel="internal" href="https://developer.mozilla.org/de">Deutsch</a></li><li><strong>English</strong></li><li><a rel="internal" href="https://developer.mozilla.org/es">Espa&ntilde;ol</a></li><li><a rel="internal" href="https://developer.mozilla.org/fr">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/it">Italiano</a></li><li><a rel="internal" href="https://developer.mozilla.org/hu">Magyar</a></li><li><a rel="internal" href="https://developer.mozilla.org/nl">Nederlands</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl">Polski</a></li><li><a rel="internal" href="https://developer.mozilla.org/pt">Portugu&ecirc;s</a></li><li><a rel="internal" href="https://developer.mozilla.org/fi">Suomi</a></li><li><a rel="internal" href="https://developer.mozilla.org/tr">T&uuml;rk&ccedil;e</a></li><li><a rel="internal" href="https://developer.mozilla.org/ru">Русский</a></li><li><a rel="internal" href="https://developer.mozilla.org/fa">فارسی</a></li><li><a rel="internal" href="https://developer.mozilla.org/ko">한국어</a></li><li><a rel="internal" href="https://developer.mozilla.org/cn">中文 (中国)</a></li><li><a rel="internal" href="https://developer.mozilla.org/zh_tw">中文 (台湾)</a></li><li><a rel="internal" href="https://developer.mozilla.org/ja">日本語</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en&action=history" title="02:06, 29 Apr 2010">02:06, 29 Apr 2010</a> by <a href="/User:tinymar1" class="link-user" rel="internal">tinymar1</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"></div><div><a href="/index.php?title=Special:Tags&pageId=117"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 36278;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=117">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki02 in 0.25 secs. -->
+<!-- (GET)/deki/site/settings: 0.013602018356323 -->
+<!-- (GET)/deki/users/=Anonymous: 0.028820037841797 -->
+<!-- /deki/pages/39779/contents: 0.010471820831299 -->
+<!-- /deki/pages/39779: 0.0051839351654053 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.022678136825562 -->
+<!-- /deki/pages/117/contents: 0.008120059967041 -->
+<!-- /deki/pages/117: 0.020025968551636 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.03411602973938 -->
+<!-- (GET)/deki/pages/117/info: 0.0066981315612793 -->
+<!-- (GET)/deki/users/=Sheppy: 0.01145601272583 -->
+<!-- (GET)/deki/pages/117/tags: 0.0065538883209229 -->
+<!-- (GET)/deki/license: 0.0065209865570068 -->
+<!-- (GET)/deki/license: 0.014766931533813 -->
+<!-- Total: 0.18901395797729-->
+<!-- Real: 0.17424702644348-->
+<script type="text/javascript">/*<![CDATA[*/$(function(){
+            var feed = new google.feeds.Feed("http://hacks.mozilla.org/feed/");
+            feed.setNumEntries(5);
+            feed.load(function(result) {
+              var container = document.getElementById("id_SHYoL4aX");
+              if (!result.error) {
+                var header = container.appendChild(document.createElement("h3"));
+                var headerLink = header.appendChild(document.createElement("a"));
+                headerLink.href = result.feed.link;
+                headerLink.innerHTML = result.feed.title; 
+                headerLink.setAttribute("class", "external");
+                var entryList = container.appendChild(document.createElement("ul"));
+                for (var i = 0; i < result.feed.entries.length; i++) {
+                  entryListItem = entryList.appendChild(document.createElement("li"));
+                  var entryLink = entryListItem.appendChild(document.createElement("a"));
+                  entryLink.href = result.feed.entries[i].link;
+                  entryLink.innerHTML = result.feed.entries[i].title;
+                  entryLink.setAttribute("class", "external");
+                }
+              } else {
+                container.innerHTML = result.error.message;
+              }
+            });
+          });/*]]>*/</script><script type="text/javascript">/*<![CDATA[*/$(function(){
+            var feed = new google.feeds.Feed("http://blog.mozilla.com/addons/category/developers/feed/");
+            feed.setNumEntries(5);
+            feed.load(function(result) {
+              var container = document.getElementById("id_KAixiGXk");
+              if (!result.error) {
+                var header = container.appendChild(document.createElement("h3"));
+                var headerLink = header.appendChild(document.createElement("a"));
+                headerLink.href = result.feed.link;
+                headerLink.innerHTML = result.feed.title; 
+                headerLink.setAttribute("class", "external");
+                var entryList = container.appendChild(document.createElement("ul"));
+                for (var i = 0; i < result.feed.entries.length; i++) {
+                  entryListItem = entryList.appendChild(document.createElement("li"));
+                  var entryLink = entryListItem.appendChild(document.createElement("a"));
+                  entryLink.href = result.feed.entries[i].link;
+                  entryLink.innerHTML = result.feed.entries[i].title;
+                  entryLink.setAttribute("class", "external");
+                }
+              } else {
+                container.innerHTML = result.error.message;
+              }
+            });
+          });/*]]>*/</script><script type="text/javascript">/*<![CDATA[*/$(function(){
+            var feed = new google.feeds.Feed("http://friendfeed.com/firefoxmobile?format=atom");
+            feed.setNumEntries(5);
+            feed.load(function(result) {
+              var container = document.getElementById("id_rEfeNwMd");
+              if (!result.error) {
+                var header = container.appendChild(document.createElement("h3"));
+                var headerLink = header.appendChild(document.createElement("a"));
+                headerLink.href = result.feed.link;
+                headerLink.innerHTML = result.feed.title; 
+                headerLink.setAttribute("class", "external");
+                var entryList = container.appendChild(document.createElement("ul"));
+                for (var i = 0; i < result.feed.entries.length; i++) {
+                  entryListItem = entryList.appendChild(document.createElement("li"));
+                  var entryLink = entryListItem.appendChild(document.createElement("a"));
+                  entryLink.href = result.feed.entries[i].link;
+                  entryLink.innerHTML = result.feed.entries[i].title;
+                  entryLink.setAttribute("class", "external");
+                }
+              } else {
+                container.innerHTML = result.error.message;
+              }
+            });
+          });/*]]>*/</script><script type="text/javascript">/*<![CDATA[*/$(function(){
+            var feed = new google.feeds.Feed("http://planet.mozilla.org/atom.xml");
+            feed.setNumEntries(5);
+            feed.load(function(result) {
+              var container = document.getElementById("id_GhjNjLjL");
+              if (!result.error) {
+                var header = container.appendChild(document.createElement("h3"));
+                var headerLink = header.appendChild(document.createElement("a"));
+                headerLink.href = result.feed.link;
+                headerLink.innerHTML = result.feed.title; 
+                headerLink.setAttribute("class", "external");
+                var entryList = container.appendChild(document.createElement("ul"));
+                for (var i = 0; i < result.feed.entries.length; i++) {
+                  entryListItem = entryList.appendChild(document.createElement("li"));
+                  var entryLink = entryListItem.appendChild(document.createElement("a"));
+                  entryLink.href = result.feed.entries[i].link;
+                  entryLink.innerHTML = result.feed.entries[i].title;
+                  entryLink.setAttribute("class", "external");
+                }
+              } else {
+                container.innerHTML = result.error.message;
+              }
+            });
+          });/*]]>*/</script><script type="text/javascript">/*<![CDATA[*/$(function(){
+            var feed = new google.feeds.Feed("http://mozillalabs.com/feed/atom");
+            feed.setNumEntries(5);
+            feed.load(function(result) {
+              var container = document.getElementById("id_c2GMm7dk");
+              if (!result.error) {
+                var header = container.appendChild(document.createElement("h3"));
+                var headerLink = header.appendChild(document.createElement("a"));
+                headerLink.href = result.feed.link;
+                headerLink.innerHTML = result.feed.title; 
+                headerLink.setAttribute("class", "external");
+                var entryList = container.appendChild(document.createElement("ul"));
+                for (var i = 0; i < result.feed.entries.length; i++) {
+                  entryListItem = entryList.appendChild(document.createElement("li"));
+                  var entryLink = entryListItem.appendChild(document.createElement("a"));
+                  entryLink.href = result.feed.entries[i].link;
+                  entryLink.innerHTML = result.feed.entries[i].title;
+                  entryLink.setAttribute("class", "external");
+                }
+              } else {
+                container.innerHTML = result.error.message;
+              }
+            });
+          });/*]]>*/</script><script type="text/javascript">/*<![CDATA[*/$(function(){
+            var feed = new google.feeds.Feed("https://developer.mozilla.org/devnews/?feed=atom");
+            feed.setNumEntries(5);
+            feed.load(function(result) {
+              var container = document.getElementById("id_99wctTcr");
+              if (!result.error) {
+                var header = container.appendChild(document.createElement("h3"));
+                var headerLink = header.appendChild(document.createElement("a"));
+                headerLink.href = result.feed.link;
+                headerLink.innerHTML = result.feed.title; 
+                headerLink.setAttribute("class", "external");
+                var entryList = container.appendChild(document.createElement("ul"));
+                for (var i = 0; i < result.feed.entries.length; i++) {
+                  entryListItem = entryList.appendChild(document.createElement("li"));
+                  var entryLink = entryListItem.appendChild(document.createElement("a"));
+                  entryLink.href = result.feed.entries[i].link;
+                  entryLink.innerHTML = result.feed.entries[i].title;
+                  entryLink.setAttribute("class", "external");
+                }
+              } else {
+                container.innerHTML = result.error.message;
+              }
+            });
+          });/*]]>*/</script>
+</body>
+</html>

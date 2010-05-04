@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=22238" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=22238" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>Core JavaScript 1.5 Reference - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 22238;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li class="last"><a href="index.html" class="deki-ns current">Core JavaScript 1.5 Reference</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en/Core_JavaScript_1.5_Reference" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15Reference">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=22238" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#About_this_Reference" rel="internal">About this Reference</a></li><li><span>2.</span> <a href="#Global_Objects" rel="internal">Global Objects</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>2.1.</span> <a href="#Standard_global_objects_(By_type)" rel="internal">Standard global objects (By type)</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>2.1.1.</span> <a href="#Basic_Data_types" rel="internal">Basic Data types
+</a></li><li><span>2.1.2.</span> <a href="#Static" rel="internal">Static</a></li><li><span>2.1.3.</span> <a href="#Errors" rel="internal">Errors</a></li></ol></li><li><span>2.2.</span> <a href="#Standard_global_objects_(Alphabetical)" rel="internal">Standard global objects (Alphabetical)</a></li><li><span>2.3.</span> <a href="#LiveConnect" rel="internal">LiveConnect</a></li></ol></li><li><span>3.</span> <a href="#Global_Properties" rel="internal">Global Properties</a></li><li><span>4.</span> <a href="#Global_Functions" rel="internal">Global Functions</a></li><li><span>5.</span> <a href="#Functions_and_function_scope" rel="internal">Functions and function scope</a></li><li><span>6.</span> <a href="#Statements" rel="internal">Statements</a></li><li><span>7.</span> <a href="#Operators" rel="internal">Operators</a></li><li><span>8.</span> <a href="#Comments" rel="internal">Comments</a></li><li><span>9.</span> <a href="#LiveConnect_Class_Reference" rel="internal">LiveConnect Class Reference</a></li><li><span>10.</span> <a href="#E4X_(extension)" rel="internal">E4X (extension)</a></li><li><span>11.</span> <a href="#Appendix_A_-_Reserved_Words" rel="internal">Appendix A - Reserved Words</a></li><li><span>12.</span> <a href="#Appendix_B_-_Deprecated_Features" rel="internal">Appendix B - Deprecated Features</a></li></ol></div>	<div class="suggestchannels">
+<div>
+<h5>Discuss in IRC</h5>
+<ul class="suggestchannels">      <li><a class="link-irc" rel="external nofollow" href="irc://irc.mozilla.org/js" title="irc://irc.mozilla.org/js" target="_blank">#js</a></li>           
+</ul>
+</div>	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+            <h1 id="title">Core JavaScript 1.5 Reference</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#About_this_Reference" rel="internal">About this Reference</a></li><li><span>2.</span> <a href="#Global_Objects" rel="internal">Global Objects</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>2.1.</span> <a href="#Standard_global_objects_(By_type)" rel="internal">Standard global objects (By type)</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>2.1.1.</span> <a href="#Basic_Data_types" rel="internal">Basic Data types
+</a></li><li><span>2.1.2.</span> <a href="#Static" rel="internal">Static</a></li><li><span>2.1.3.</span> <a href="#Errors" rel="internal">Errors</a></li></ol></li><li><span>2.2.</span> <a href="#Standard_global_objects_(Alphabetical)" rel="internal">Standard global objects (Alphabetical)</a></li><li><span>2.3.</span> <a href="#LiveConnect" rel="internal">LiveConnect</a></li></ol></li><li><span>3.</span> <a href="#Global_Properties" rel="internal">Global Properties</a></li><li><span>4.</span> <a href="#Global_Functions" rel="internal">Global Functions</a></li><li><span>5.</span> <a href="#Functions_and_function_scope" rel="internal">Functions and function scope</a></li><li><span>6.</span> <a href="#Statements" rel="internal">Statements</a></li><li><span>7.</span> <a href="#Operators" rel="internal">Operators</a></li><li><span>8.</span> <a href="#Comments" rel="internal">Comments</a></li><li><span>9.</span> <a href="#LiveConnect_Class_Reference" rel="internal">LiveConnect Class Reference</a></li><li><span>10.</span> <a href="#E4X_(extension)" rel="internal">E4X (extension)</a></li><li><span>11.</span> <a href="#Appendix_A_-_Reserved_Words" rel="internal">Appendix A - Reserved Words</a></li><li><span>12.</span> <a href="#Appendix_B_-_Deprecated_Features" rel="internal">Appendix B - Deprecated Features</a></li></ol></div></div><div class="pageText" id="pageText">
+<div class="note"><a rel="internal" href="reorg.html">Undergoing reorganization</a></div>
+<div id="section_1"><span id="About_this_Reference"></span><h2 class="editable"><a rel="internal" href="About.html">About this Reference</a></h2>
+<ul> <li><a rel="internal" href="About.html">What you should already know</a></li> <li><a rel="internal" href="About.html">Formatting conventions</a></li> <li><a rel="internal" href="About.html">JavaScript history</a></li> <li><a rel="internal" href="About.html">Where to find JavaScript information</a></li>
+</ul>
+</div><div id="section_2"><span id="Global_Objects"></span><h2 class="editable"><a rel="internal" href="Global_Objects.html">Global Objects</a></h2>
+<p>The term &quot;global objects&quot; here is not to be confused with the <em>global object</em>. Here, global objects refer to <em>objects in the global scope</em>. The global object itself can be accessed by <a rel="internal" href="Operators/Special_Operators/this_Operator.html"><code>this</code></a> in the global scope.  
+<p>&nbsp;</p>
+<span id="Standard_global_objects_(By_type)"></span><h3>Standard global objects (By type)</h3>
+<span id="Basic_Data_types"></span><h4>Basic Data types<a rel="internal" href="Global_Objects/Array.html"><br />
+</a></h4>
+
+<ul> <li><a rel="internal" href="Global_Objects/Boolean.html">Boolean</a><a rel="internal" href="Global_Objects/Math.html"><br /> </a></li> <li><a rel="internal" href="Global_Objects/Number.html">Number</a></li> <li><a rel="internal" href="Global_Objects/String.html">String</a></li> <li><a rel="internal" href="Global_Objects/Array.html">Array</a></li> <li><a rel="internal" href="Global_Objects/Object.html">Object</a></li> <li><a rel="internal" href="Global_Objects/Function.html">Function</a></li> <li><a rel="internal" href="Global_Objects/RegExp.html">RegExp</a></li> <li><a rel="internal" href="Global_Objects/Date.html">Date</a> (no literal equivalent as with the others in this category)</li>
+</ul>
+<span id="Static"></span><h4>Static</h4>
+<ul> <li><a rel="internal" href="Global_Objects/Math.html">Math</a></li>
+</ul>
+<span id="Errors"></span><h4>Errors</h4>
+<ul> <li><a rel="internal" href="Global_Objects/Error.html">Error</a></li> <li><a rel="internal" href="Global_Objects/EvalError.html">EvalError</a></li> <li><a rel="internal" href="Global_Objects/RangeError.html">RangeError</a></li> <li><a rel="internal" href="Global_Objects/ReferenceError.html">ReferenceError</a></li> <li><a rel="internal" href="Global_Objects/SyntaxError.html">SyntaxError</a></li> <li><a rel="internal" href="Global_Objects/TypeError.html">TypeError</a></li> <li><a rel="internal" href="Global_Objects/URIError.html">URIError</a><a class="internal" rel="internal" href="https://developer.mozilla.org/en/DOM/Storage#Storage"><br /> </a></li>
+</ul>
+<p>
+<span id="Standard_global_objects_(Alphabetical)"></span><h3>Standard global objects (Alphabetical)</h3>
+</p>
+<ul> <li><a rel="internal" href="Global_Objects/Array.html">Array</a></li> <li><a rel="internal" href="Global_Objects/Boolean.html">Boolean</a></li> <li><a rel="internal" href="Global_Objects/Date.html">Date</a></li> <li><a rel="internal" href="Global_Objects/Error.html">Error</a></li> <li><a rel="internal" href="Global_Objects/EvalError.html">EvalError</a></li> <li><a rel="internal" href="Global_Objects/Function.html">Function</a></li> <li><a rel="internal" href="Global_Objects/Math.html">Math</a></li> <li><a rel="internal" href="Global_Objects/Number.html">Number</a></li> <li><a rel="internal" href="Global_Objects/Object.html">Object</a></li> <li><a rel="internal" href="Global_Objects/RangeError.html">RangeError</a></li> <li><a rel="internal" href="Global_Objects/ReferenceError.html">ReferenceError</a></li> <li><a rel="internal" href="Global_Objects/RegExp.html">RegExp</a></li> <li><a rel="internal" href="Global_Objects/String.html">String</a></li> <li><a rel="internal" href="Global_Objects/SyntaxError.html">SyntaxError</a></li> <li><a rel="internal" href="Global_Objects/TypeError.html">TypeError</a></li> <li><a rel="internal" href="Global_Objects/URIError.html">URIError</a><a class="internal" rel="internal" href="https://developer.mozilla.org/en/DOM/Storage#Storage"><br /> </a></li>
+</ul>
+ 
+<span id="LiveConnect"></span><h3><a rel="internal" href="https://developer.mozilla.org/en/LiveConnect">LiveConnect</a></h3>
+
+<p><span class="lang lang-en">
+<div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p style="margin: 4px 0px 4px 0px;">Non-standard</p>
+</div>
+</span> Functionality from the following global objects is provided by <a rel="internal" href="https://developer.mozilla.org/en/LiveConnect">LiveConnect</a> and is not a <a rel="internal" href="https://developer.mozilla.org/en/Web_Standards">standardized</a> part of <a rel="internal" href="https://developer.mozilla.org/en/ECMAScript">ECMAScript</a>.</p>
+<ul> <li><a rel="internal" href="Global_Objects/java.html">java</a></li> <li><a rel="internal" href="Global_Objects/JavaArray.html">JavaArray</a></li> <li><a rel="internal" href="Global_Objects/JavaClass.html">JavaClass</a></li> <li><a rel="internal" href="Global_Objects/JavaObject.html">JavaObject</a></li> <li><a rel="internal" href="Global_Objects/JavaPackage.html">JavaPackage</a></li> <li><a rel="internal" href="Global_Objects/netscape.html">netscape</a></li> <li><a rel="internal" href="Global_Objects/Packages.html">Packages</a></li> <li><a rel="internal" href="Global_Objects/sun.html">sun</a></li>
+</ul>
+<p>Other objects in the global scope are either <a rel="internal" href="https://developer.mozilla.org/en/Core_JavaScript_1.5_Guide/Working_with_Objects#Creating_New_Objects"> created by the user script</a> or provided by the host application. The host objects available in <a rel="internal" href="https://developer.mozilla.org/en/Gecko">Gecko</a>-based browsers are documented in the <a rel="internal" href="https://developer.mozilla.org/en/Gecko_DOM_Reference">Gecko DOM Reference</a>.</p>
+For more information about the distinction between the <a rel="internal" href="https://developer.mozilla.org/en/DOM">DOM</a> and core <a rel="internal" href="https://developer.mozilla.org/en/JavaScript">JavaScript</a>, see <a rel="internal" href="https://developer.mozilla.org/en/The_DOM_and_JavaScript">The DOM and JavaScript</a> article.</p>
+</div><div id="section_3"><span id="Global_Properties"></span><h2 class="editable"><a rel="internal" href="Global_Properties.html">Global Properties</a></h2>
+<p>This section lists the JavaScript properties not associated with any object. In the ECMAScript specification, these properties are referred to as properties of the <em>global object</em>.</p>
+<ul> <li><a rel="internal" href="Global_Properties/Infinity.html">Infinity</a></li> <li><a rel="internal" href="Global_Properties/NaN.html">NaN</a></li> <li><a rel="internal" href="Global_Properties/undefined.html">undefined</a></li>
+</ul>
+</div><div id="section_4"><span id="Global_Functions"></span><h2 class="editable"><a rel="internal" href="Global_Functions.html">Global Functions</a></h2>
+<ul>
+<p>This chapter contains JavaScript functions not associated with any object. In the ECMAScript specification, these functions are referred to as methods of the global object. To reduce redundancy, the constructors are not listed here, but can be found at <a rel="internal" href="index.html">Global Objects</a>.</p>
+<p>
+<li><a rel="internal" href="Global_Functions/decodeURI.html">decodeURI</a></li>
+</p>
+<dl>  
+<li><a rel="internal" href="Global_Functions/decodeURIComponent.html">decodeURIComponent</a></li>
+  
+<li><a rel="internal" href="Global_Functions/encodeURI.html">encodeURI</a></li>
+  
+<li><a rel="internal" href="Global_Functions/encodeURIComponent.html">encodeURIComponent</a></li>
+  
+<li><a rel="internal" href="Global_Functions/eval.html">eval</a></li>
+  
+<li><a rel="internal" href="Global_Functions/isFinite.html">isFinite</a></li>
+  
+<li><a rel="internal" href="Global_Functions/isNaN.html">isNaN</a></li>
+  
+<li><a rel="internal" href="Global_Functions/parseFloat.html">parseFloat</a></li>
+  
+<li><a rel="internal" href="Global_Functions/parseInt.html">parseInt</a></li>
+ </dl></ul> </div><div id="section_5"><span id="Functions"></span><span id="Functions_and_function_scope"></span><h2 class="editable"><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Functions_and_function_scope">Functions</a> and function scope</h2> <p></p> <ul> <li><a rel="internal" href="https://developer.mozilla.org/En/Core_JavaScript_1.5_Reference/Functions_and_function_scope/arguments">arguments</a></li> </ul> </div><div id="section_6"><span id="Statements"></span><h2 class="editable"><a rel="internal" href="Statements.html">Statements</a></h2> <ul>
+<p>
+<li><a rel="internal" href="Statements/block.html">block</a></li>
+</p>
+<dl>  
+<li><a rel="internal" href="Statements/break.html">break</a></li>
+  
+<li><a rel="internal" href="Statements/const.html">const</a></li>
+  
+<li><a rel="internal" href="Statements/continue.html">continue</a></li>
+  
+<li><a rel="internal" href="Statements/do...while.html">do...while</a></li>
+  
+<li><a rel="internal" href="Statements/export.html">export</a></li>
+  
+<li><a rel="internal" href="Statements/for.html">for</a></li>
+  
+<li><a rel="internal" href="Statements/for...in.html">for...in</a></li>
+  
+<li><a rel="internal" href="Statements/for_each...in.html">for each...in</a></li>
+  
+<li><a rel="internal" href="Statements/function.html">function</a></li>
+  
+<li><a rel="internal" href="Statements/if...else.html">if...else</a></li>
+  
+<li><a rel="internal" href="Statements/import.html">import</a></li>
+  
+<li><a rel="internal" href="Statements/label.html">label</a></li>
+  
+<li><a rel="internal" href="Statements/let.html">let</a></li>
+  
+<li><a rel="internal" href="Statements/return.html">return</a></li>
+  
+<li><a rel="internal" href="Statements/switch.html">switch</a></li>
+  
+<li><a rel="internal" href="Statements/throw.html">throw</a></li>
+  
+<li><a rel="internal" href="Statements/try...catch.html">try...catch</a></li>
+  
+<li><a rel="internal" href="Statements/var.html">var</a></li>
+  
+<li><a rel="internal" href="Statements/while.html">while</a></li>
+  
+<li><a rel="internal" href="Statements/with.html">with</a></li>
+  </dl></ul> </div><div id="section_7"><span id="Operators"></span><h2 class="editable"><a rel="internal" href="Operators.html">Operators</a></h2> <p>
+<dl> <dt><a rel="internal" href="Operators/Arithmetic_Operators.html">Arithmetic Operators</a> </dt> <dd>
+<p>(<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>++</code>, <code>--</code>, unary <code>-</code>)</p>
+
+</dd> <dt><a rel="internal" href="Operators/Assignment_Operators.html">Assignment Operators</a></dt> <dd>
+<p>(<code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>&gt;&gt;=</code>, <code>&lt;&lt;=</code>, <code>&gt;&gt;&gt;=</code>, <code>&amp;=</code>, <code>|=</code>, <code>^=</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Bitwise_Operators.html">Bitwise Operators</a> </dt><dd>
+<p>(<code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&gt;&gt;&gt;</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Comparison_Operators.html">Comparison Operators</a> </dt> <dd>
+<p>(<code>==</code>, <code>!=</code>, <code>===</code>, <code>!==</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Logical_Operators.html">Logical Operators</a> </dt> <dd>
+<p>(<code>&amp;&amp;</code>, <code>||</code>, <code>!</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/String_Operators.html">String Operators</a> </dt> <dd>
+<p>(<code>+</code> and <code>+=</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Member_Operators.html">Member Operators</a> </dt> <dd>
+<p>(<code>object.property</code> and <code>object[&quot;property&quot;]</code>)</p>
+
+</dd> <dt>Special Operators</dt>
+
+<dd> <dl> <dt><a rel="internal" href="Operators/Special_Operators/Conditional_Operator.html">Conditional Operator</a></dt> <dd>
+<p>(<code><em>condition</em>&nbsp;? <em>ifTrue</em>&nbsp;: <em>ifFalse</em></code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/Comma_Operator.html">Comma Operator</a></dt> <dd>
+<p>(<code>,</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/delete_Operator.html">delete Operator</a></dt> <dd>
+<p>(<code>delete</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/function_Operator.html">function Operator</a></dt> <dd>
+<p>(<code>function</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/get_Operator.html">get Operator</a></dt> <dd>
+<p>(<code>get</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/in_Operator.html">in Operator</a></dt> <dd>
+<p>(<code>in</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/instanceof_Operator.html">instanceof Operator</a></dt> <dd>
+<p>(<code>instanceof</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/let_Operator.html" class="new ">let Operator</a></dt> <dd>
+<p>(<code>let</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/new_Operator.html">new Operator</a></dt> <dd>
+<p>(<code>new</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/set_Operator.html">set Operator</a> </dt><dd>
+<p>(<code>set</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/this_Operator.html">this Operator</a> </dt> <dd>
+<p>(<code>this</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/typeof_Operator.html">typeof Operator</a></dt> <dd>
+<p>(<code>typeof</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/void_Operator.html">void Operator</a></dt> <dd>
+<p>(<code>void</code>)</p>
+
+</dd> <dt> <a rel="internal" href="Operators/Special_Operators/yield_Operator.html" class="new ">yield Operator</a></dt> <dd>
+<p>(<code>yield</code>)</p>
+
+</dd> </dl></dd> <dt><a rel="internal" href="Operators/Operator_Precedence.html">Operator Precedence</a></dt> <dd> Operator precedence defines the order in which operators are evaluated. </dd> </dl>
+</p> </div><div id="section_8"><span id="Comments"></span><h2 class="editable">Comments</h2> <ul> <li><a rel="internal" href="Comments/comment.html">Code comments</a> (<code>//</code> and <code>/* */</code>)</li> </ul> </div><div id="section_9"><span id="LiveConnect_Class_Reference"></span><h2 class="editable"><a rel="internal" href="LiveConnect.html">LiveConnect Class Reference</a></h2> <p><span class="lang lang-en">
+<div style="overflow:hidden; border: 1px solid #FFB752; background-color: #FEE3BC; font-weight: bold; text-align: center; padding: 0px 10px 0px 10px; margin: 10px 0px 10px 0px;">
+<p style="margin: 4px 0px 4px 0px;">Non-standard</p>
+</div>
+</span></p> <ul> <li><a rel="internal" href="LiveConnect/JSException.html">JSException</a></li> <li><a rel="internal" href="LiveConnect/JSObject.html">JSObject</a></li> </ul> </div><div id="section_10"><span id="E4X"></span><span id="E4X_(extension)"></span><h2 class="editable"><a rel="internal" href="https://developer.mozilla.org/en/E4X">E4X (extension)</a></h2> <p>Global statements:</p> <ul> <li><a class="internal" rel="internal" href="https://developer.mozilla.org/En/E4X/Processing_XML_with_E4X#Handling_namespaces">default XML namespace</a>&nbsp;</li> </ul> <p>Global functions:</p> <ul> <li><a rel="internal" href="https://developer.mozilla.org/En/E4X%3aisXMLName" class="new internal">isXMLName()</a></li> </ul> <p>Global constructors:</p> <ul> <li><a rel="internal" href="https://developer.mozilla.org/En/E4X%3aNamespace" class="new internal">Namespace()</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/E4X%3aQName" class="new internal">QName()</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/E4X%3aXML" class="new internal">XML()</a></li> <li><a rel="internal" href="https://developer.mozilla.org/En/E4X%3aXMLList" class="new internal">XMLList()</a></li> </ul> </div><div id="section_11"><span id="Appendix_A_-_Reserved_Words"></span><h2 class="editable"><a rel="internal" href="Reserved_Words.html">Appendix A - Reserved Words</a></h2> </div><div id="section_12"><span id="Appendix_B_-_Deprecated_Features"></span><h2 class="editable"><a rel="internal" href="Deprecated_Features.html">Appendix B - Deprecated Features</a></h2> <p></p> <p></p></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="index.html">https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/es/Referencia_de_JavaScript_1.5">Espa&ntilde;ol</a></li><li><a rel="internal" href="https://developer.mozilla.org/fr/R%c3%a9f%c3%a9rence_de_JavaScript_1.5_Core">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl/Dokumentacja_j%c4%99zyka_JavaScript_1.5">Polski</a></li><li><a rel="internal" href="https://developer.mozilla.org/ru/%d0%a1%d0%bf%d1%80%d0%b0%d0%b2%d0%be%d1%87%d0%bd%d0%b8%d0%ba_%d0%bf%d0%be_JavaScript_1.5">Русский</a></li><li><a rel="internal" href="https://developer.mozilla.org/ko/Core_JavaScript_1.5_Reference">한국어</a></li><li><a rel="internal" href="https://developer.mozilla.org/cn/Core_JavaScript_1.5_Reference">中文 (中国)</a></li><li><a rel="internal" href="https://developer.mozilla.org/ja/Core_JavaScript_1.5_Reference">日本語</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference&action=history" title="15:16, 7 Dec 2009">15:16, 7 Dec 2009</a> by <a href="/User:Dyhan81" class="link-user" rel="internal">Dyhan81</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"><a href="https://developer.mozilla.org/Special:Tags?tag=AJAX" title="AJAX">AJAX</a>, <a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript" title="JavaScript">JavaScript</a>, <a href="https://developer.mozilla.org/Special:Tags?tag=JavaScript+Reference" title="JavaScript Reference">JavaScript Reference</a></div><div><a href="/index.php?title=Special:Tags&pageId=22238"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 43207;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=22238">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki01 in 0.35 secs. -->
+<!-- (GET)/deki/site/settings: 0.0067260265350342 -->
+<!-- (GET)/deki/users/=Anonymous: 0.009005069732666 -->
+<!-- /deki/pages/39779/contents: 0.04105281829834 -->
+<!-- /deki/pages/39779: 0.0031459331512451 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0093309879302979 -->
+<!-- /deki/pages/22238/contents: 0.17195200920105 -->
+<!-- /deki/pages/22238: 0.025233030319214 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0081901550292969 -->
+<!-- (GET)/deki/pages/22238/info: 0.0050170421600342 -->
+<!-- (GET)/deki/pages/22238/tags: 0.0065760612487793 -->
+<!-- (GET)/deki/license: 0.0049679279327393 -->
+<!-- (GET)/deki/license: 0.0042908191680908 -->
+<!-- Total: 0.29548788070679-->
+<!-- Real: 0.2911970615387-->
+
+</body>
+</html>

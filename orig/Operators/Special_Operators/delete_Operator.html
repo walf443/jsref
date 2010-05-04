@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us" >
+ <head>
+    <script type="text/javascript">var _starttime = new Date().getTime();</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="robots" content="index,follow" />
+<link rel="shortcut icon" href="/skins/mozilla/Fox3/favicon.ico" />
+<link rel="alternate" type="application/rss+xml" title="What's new feed" href="/index.php?title=Special:Recentchanges&amp;feed=rss" />
+<link rel="alternate" type="application/rss+xml" title="Page and subpages changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;feedtype=subpagechanges&amp;pageid=33009" />
+<link rel="alternate" type="application/rss+xml" title="Page changes feed" href="/index.php?title=Special:Article&amp;type=feed&amp;pageid=33009" />
+<meta name="generator" content="MindTouch  9.08.3" />
+<link rel="search" type="application/opensearchdescription+xml" title="MDC Search" href="/deki/gui/opensearch.php?type=description" />    <title>delete Operator - MDC</title>
+    
+    <link rel="stylesheet" type="text/css" media="screen" href="/skins/common/css.php" /> <!--[if IE 7]><style type="text/css">@import "/skins/common/_ie7.css";</style><![endif]--><!--[if IE 6]><style type="text/css">@import "/skins/common/_ie.css";</style><![endif]-->    <script type="text/javascript" src="/skins/common/js.php?perms=LOGIN,BROWSE,READ,SUBSCRIBE"></script>
+        <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/css.php" title="Default Style" />
+        <link rel="stylesheet" type="text/css" media="print" href="/skins/mozilla/print.css" />
+    <link rel="stylesheet" type="text/css" media="screen,projection" href="/skins/mozilla/Fox3/ui-lightness/jquery-ui-1.7.2.custom.css" />
+    
+    <script type="text/javascript" src="/skins/mozilla/Fox3/jquery-ui-1.7.2.custom.min.js"></script>
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <!--[if lte IE 7]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie7.css" /><!endif]-->
+    <!--[if lte IE 6]><link rel="stylesheet" type="text/css" media="screen" href="/skins/mozilla/Fox3/ie6.css" /><![endif]-->
+
+    <script type="text/javascript">// <![CDATA[
+    if ('jQuery') { // None of this works without jQuery
+    
+      function siteToolsMenu() {
+        var sitetools = DekiWiki.$("#sitetools");
+        var toolslink = DekiWiki.$("#toolslink");
+        sitetools.hide().addClass("collapsed").insertAfter(toolslink);
+        toolslink.click(function() {
+          toolslink.toggleClass("menuopen").blur();
+          sitetools.toggle();
+          DekiWiki.$("#languages ul").hide();
+          return false;
+        });
+      }; // end siteToolsMenu
+		
+      function pageLanguageMenu() {
+        var langbox = DekiWiki.$("#languages");
+        var langhead = DekiWiki.$("#languages h5");
+        var langs = DekiWiki.$("#languages ul");
+        if (langbox) { // if the element exists
+          langs.hide();
+          langbox.toggleClass("collapsed");
+          langhead.click(function() {
+            langs.toggle();
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            langs.css({	
+              top: langhead.offset().top,
+              left: langhead.offset().left
+            });
+          });
+        };
+      }; // end pageLanguageMenu
+    
+      DekiWiki.$(document).ready(function() {
+        siteToolsMenu(); // render the site tools menu
+        pageLanguageMenu(); // render the languages menu
+        DekiWiki.$(document).click(function(e) {
+          var node = e.target;
+          while (node && !node.id) {
+            node = node.offsetParent;
+          };
+          if (!node || (node.id != 'languages' && node.id != 'sitetools' && node.id != 'toolslink')) {
+            DekiWiki.$("#sitetools").hide();
+            DekiWiki.$("#toolslink").removeClass("menuopen");
+            if (DekiWiki.$("#languages")) { // if the element exists
+              DekiWiki.$("#languages ul").hide();
+            };
+          };
+        });
+        if ( document.getElementById("menuPageOptions") ) {
+          menuOff("menuPageOptions");
+        };
+      }); // end dom ready
+			
+    }; // end if jQuery
+
+    // ]]></script>
+	
+  	<script type="text/javascript">
+
+		Deki.BaseHref = 'https://developer.mozilla.org';
+Deki.PageId = 33009;
+Deki.PageTitle = 'en/Core JavaScript 1.5 Reference/Operators/Special Operators/delete Operator';
+Deki.PathTpl = '/skins/mozilla';
+Deki.PathSkin = '/skins/mozilla/Fox3';
+Deki.PathCommon = '/skins/common';
+Deki.UserName = 'Anonymous';
+Deki.Today = '4 May 2010';
+Deki.EditorStyles = [];
+Deki.EditorStyles.push('/skins/mozilla/_editor.css');
+Deki.EditorStyles.push('/skins/mozilla/Fox3/_content.css');
+Deki.EditorStyles.push('/skins/common/custom_css.php');
+
+		window.onbeforeunload = function() {
+			if ( Deki.Editor && Deki.Editor.IsChanged() ) {
+				return "You have made changes to the content without saving your changes. Are you sure you want to exit this page?";
+			}
+		};
+
+		var aLt = new Array();aLt["attach-no-description"] = 'No description'; aLt["cancel"] = 'Cancel'; aLt["close"] = 'Close'; aLt["comment-delete"] = 'Are you sure you want to delete this comment?'; aLt["error"] = 'Error'; aLt["gallery-close"] = 'close'; aLt["gallery-next"] = 'next'; aLt["gallery-prev"] = 'prev'; aLt["internal-error"] = 'Sorry, but there was an internal problem - please try again soon.'; aLt["js-label_cancel"] = 'Cancel'; aLt["js-label_save"] = 'Save'; aLt["js-tooltip_cancel"] = 'Exit Without Saving Changes'; aLt["js-tooltip_save"] = 'Save and Exit (Alt+S)'; aLt["ldap-provide-credentials"] = 'Please provide external service login credentials.'; aLt["loading"] = 'Loading...'; aLt["menu-confirm-delete"] = 'Are you sure you want to delete this file?'; aLt["menu-delete-file"] = 'Delete'; aLt["menu-edit-description"] = 'Edit description'; aLt["menu-move-file"] = 'Move'; aLt["menu-previous-versions"] = 'Previous versions'; aLt["menu-view-original"] = 'View original'; aLt["print-end-notes"] = 'Endnotes'; aLt["ready"] = 'Ready'; aLt["remove-tag"] = 'Remove tag'; aLt["restore-tag"] = 'Restore tag'; aLt["save"] = 'Save'; aLt["submit"] = 'Submit'; aLt["wikibits-attach-another"] = 'Attach another file'; aLt["wikibits-attach-file"] = 'Attach File'; aLt["wikibits-cant-attach-editing"] = 'Sorry, you can\'t attach files while editing a page. Please close the editor first.'; aLt["wikibits-edit-section"] = 'Edit section'; aLt["wikibits-remove-file"] = 'Remove file';  var wfMsg = function (key) { return aLt[key] ? aLt[key] : 'MISSING: ' + key; };
+	//hook in menu clicking events to the document's body
+	YAHOO.util.Event.addListener(document, "click", function () { FileMenu.bodyClick(); DWMenu.BodyClick(); });
+	YAHOO.util.Event.onDOMReady(function () { new clientWindow });
+
+			
+	
+			YAHOO.util.Event.onDOMReady(function() {
+			tb_init("a.lightbox, area.lightbox, input.lightbox, a[rel='awesomebox']");//pass where to apply thickbox
+			imgLoader = new Image();// preload image
+			imgLoader.src = tb_pathToImage;
+		});
+
+		YAHOO.util.Event.onDOMReady(function() {
+			MTComments.HookBehavior();
+			showWebDavLinks();
+		});
+		</script>
+  <link type="text/css" rel="stylesheet" href="https://developer.mozilla.org/deki/scripts/res/syntax/SyntaxHighlighter.css" /><script type="text/javascript" src="https://developer.mozilla.org/deki/scripts/res/syntax/shCore.js"></script><script type="text/javascript" src="https://developer.mozilla.org/deki/scripts/res/syntax/shBrushJScript.js"></script><link href="/skins/common/custom_css.php" rel="stylesheet" type="text/css" /> 
+</head>
+
+<body class="yui-skin-sam en ">
+<ul id="nav-access">
+  <li><a href="#pageContent">Skip to the main content</a></li>
+  <li><a href="#searchInput">Skip to the site search</a></li>
+</ul>
+
+
+	<div class="globalWrap">
+		<div class="header">
+			<div class="siteLogo">
+		    <h4><a href="/" title="Go to the main page"><img src="/skins/mozilla/Fox3/img/mdc-logo.png" alt="Mozilla Developer Center" /></a></h4>
+			</div>
+			
+      <div class="siteNav">
+        <ul>
+                  <li class="siteTools"><a href="#sitetools" id="toolslink">Site tools</a></li>
+          <li class="siteHelp"><a href="http://developer.mozilla.org/Project:en/Using_the_Mozilla_Developer_Center">Help</a></li>
+        </ul>
+        
+        		<div class="userAuth">				
+	 		<a href="/index.php?title=Special:Userlogin&register=true" class="userLogin">Register</a> | <a href="/index.php?title=Special:Userlogin&returntotitle=en%2FCore+JavaScript+1.5+Reference%2FOperators%2FSpecial+Operators%2Fdelete+Operator" class="userLogin">Log in</a>		</div>
+	      </div>
+      
+      <p id="moztab"><a href="http://www.mozilla.com" title="Go to mozilla.com">Mozilla.com</a></p>
+			
+				
+	<div class="siteSearch">
+		<form action="/Special:Search">
+			<fieldset class="search">
+	 			<input id="searchInput" class="inputText" name="search" type="text" value="" />
+				<input type="hidden" name="type" value="fulltext" />
+		    <input type="submit" name="go" class="inputSubmit" value="Search" />
+		  </fieldset>
+		</form>
+	</div>
+							
+              <div class="hierarchy">
+          <ol class="dw-hierarchy deki-hierarchy"><li class="first"><a href="https://developer.mozilla.org/" class="deki-ns">MDC</a></li>
+<li><a href="https://developer.mozilla.org/en" class="deki-ns">MDN</a></li>
+<li><a href="../../index.html" class="deki-ns">Core JavaScript 1.5 Reference</a></li>
+<li><a href="../../Operators.html" class="deki-ns">Operators</a></li>
+<li><a href="../../Operators/Special_Operators.html" class="deki-ns">Special Operators</a></li>
+<li class="last"><a href="../../Operators/Special_Operators/delete_Operator.html" class="deki-ns current">delete Operator</a></li></ol>        </div>
+      		
+      <ul id="sitetools" class="menu">
+      	<li class="siteRecentchanges"><a href="/Special:Recentchanges" title="Recent changes">Recent changes</a></li>
+	<li class="siteListRss"><a href="/Special:ListRss" title="RSS feeds">RSS feeds</a></li>
+	<li class="siteListusers"><a href="/User:" title="Users">Users</a></li>
+	<li class="siteListTemplates"><a href="/Template:" title="Templates">Templates</a></li>
+	<li class="siteSitemap"><a href="/Special:Sitemap" title="Sitemap">Sitemap</a></li>
+	<li class="sitePopularpages"><a href="/Special:Popularpages" title="Popular pages">Popular pages</a></li>
+	<li class="siteAbout"><a href="/Special:About" title="About MDC">About MDC</a></li>
+</ul>
+		</div><!-- end header -->
+		
+    
+    <div class="body">
+      <noscript><div id="noscript"><p>Some features of this site require JavaScript.</p></div></noscript>
+
+          <div class="pageBar">				
+        <ul class="pageTools">
+                  <li class="pagePrint"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator&action=print" title="Print this page or save a PDF" onclick="return Print.open('/index.php?title=en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator&action=print');">Print page</a></li>
+                  <li class="pageHistory"><a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator&action=history" title="Page history">History</a></li>
+          <li class="pageEdit"><a href="#" title="Edit page" onclick="return false" class="disabled"><span></span>Edit page</a></li>
+        	<li class="pageTalk"><a href="/Talk:en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator" onclick="menuOff('menuPageOptions');">Talk page</a></li>
+          <li class="pageMore"><a href="#menuPageOptions" title="More options for this page" id="moreopts" onclick="return menuPosition('menuPageOptions', this, 0, 0);">More options</a></li>        
+        </ul>
+      </div>
+    					
+    <div id="pageContent" class="pageContent PageDW-enCoreJavaScript15ReferenceOperatorsSpecialOperatorsdeleteOperator">
+	  <div style="background-color:red; color:white; text-align:center;"><strong>MDC is currently experiencing technical issues resulting in very slow performance. Please be assured we're working on it.</strong></div>
+    	
+      <div id="article-nav">
+              <div id="deki-page-alerts" class="disabled">
+				<div class="toggle">
+					<a href="/index.php?title=Special:PageAlerts&id=33009" class="off">
+						<span>Page Notifications</span>
+						<span class="status">Off</span>
+					</a>
+				</div></div><br />
+          <div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>4.1.</span> <a href="#Deleting_array_elements" rel="internal">Deleting array elements</a></li></ol></li><li><span>5.</span> <a href="#Cross-browser_issues" rel="internal">Cross-browser issues</a></li></ol></div>	<div class="suggestchannels">
+	</div>
+        <ul class="page-anchors">
+          <li class="anchor-tags"><a href="#page-tags" title="Jump to tags for this article">Tags</a></li>
+          <li class="anchor-files"><a href="#page-files" title="Jump to files for this article">Files</a></li>
+        </ul>
+      </div>
+    				
+          <div class="pageTitle">
+            <h1 id="title">delete Operator</h1>
+      </div>
+    				
+      <div id="page-update" class="pageStatus  hastoc">
+ 			   			</div>
+
+	 		<div id="page-top"><div id="pageToc"><div class="pageToc"><h5>Table of contents</h5><ol style="list-style-type:none; margin-left:0px; padding-left:0px;"><li><span>1.</span> <a href="#Summary" rel="internal">Summary</a></li><li><span>2.</span> <a href="#Syntax" rel="internal">Syntax</a></li><li><span>3.</span> <a href="#Parameters" rel="internal">Parameters</a></li><li><span>4.</span> <a href="#Description" rel="internal">Description</a><ol style="list-style-type:none; margin-left:0px; padding-left:15px;"><li><span>4.1.</span> <a href="#Deleting_array_elements" rel="internal">Deleting array elements</a></li></ol></li><li><span>5.</span> <a href="#Cross-browser_issues" rel="internal">Cross-browser issues</a></li></ol></div></div><div class="pageText" id="pageText">
+<div id="section_1"><span id="Summary"></span><h2 class="editable">Summary</h2>
+<p>The delete operator deletes a property of an object, or an element at a specified index in an array.</p>
+<table class="fullwidth-table" style="width: auto;"> <tbody> <tr> <td colspan="2" class="header">Operator</td> </tr> <tr> <td>Implemented in:</td> <td>JavaScript 1.2, NES3.0</td> </tr> <tr> <td>ECMA Version:</td> <td>ECMA-262</td> </tr> </tbody>
+</table>
+</div><div id="section_2"><span id="Syntax"></span><h2 class="editable">Syntax</h2>
+<pre class="eval">
+delete <em>expression</em>
+</pre>
+<p>where <em>expression</em> should evaluate to a property reference, e.g.:</p>
+<pre class="eval">
+delete <em>variableName</em>
+delete <em>objectExpression.property</em>
+delete <em>objectExpression</em>[&quot;<em>property</em>&quot;]
+delete <em>objectExpression</em>[<em>index</em>]
+delete <em>property</em> // legal only within a with statement
+</pre>
+<p>If <em>expression</em> does not evaluate to a property, <code>delete</code> does nothing.</p>
+</div><div id="section_3"><span id="Parameters"></span><h2 class="editable">Parameters</h2>
+<dl> <dt><code>objectName</code></dt> <dd>The name of an object.</dd>
+</dl>
+<dl> <dt><code>property</code></dt> <dd>The property to delete.</dd>
+</dl>
+<dl> <dt><code>index</code></dt> <dd>An integer representing the array index to delete.</dd>
+</dl>
+</div><div id="section_4"><span id="Description"></span><h2 class="editable">Description</h2>
+<p>The fifth form is legal only within a <code>with</code> statement, to delete a property from an object.</p>
+<p>You can use the <code>delete</code> operator to delete variables declared implicitly but not those declared with the <code>var</code> or the <code>function</code> statement.</p>
+<p>If the <code>delete</code> operator succeeds, it removes the property from the object entirely, although this might reveal a similarly named property on a prototype of the object.</p>
+<p>Some object properties cannot be deleted. In the ECMA 262 specification these are marked as <em>DontDelete</em>.</p>
+<p>The <code>delete</code> operator returns false only if the property exists and cannot be deleted. It returns true in all other cases.</p>
+
+          <pre name="code" class="js">x = 42;        // assigns as property of global object
+var y = 43;    // declares as variable
+myobj = new Number();
+myobj.h = 4;    // create property h
+myobj.k = 5;    // create property k
+
+delete x;       // returns true (can delete if declared implicitly)
+delete y;       // returns false (cannot delete if declared with var, property is DontDelete)
+delete Math.PI; // returns false (cannot delete most predefined properties, declared DontDelete)
+delete myobj.h; // returns true (can delete user-defined properties)
+with(myobj) { 
+  delete k;    // returns true (equivalent to delete myobj.k)
+} 
+delete myobj;   // returns true (can delete if declared implicitly, equivalent to x)</pre>
+        
+<p>You cannot delete a property on an object that it inherits from a prototype (although you can delete it directly on the prototype).</p>
+
+          <pre name="code" class="js">function Foo(){}
+ Foo.prototype.bar = 42;
+ var foo = new Foo();
+ delete foo.bar;           // but doesn't do anything
+ alert(foo.bar);           // alerts 42, property inherited
+ delete Foo.prototype.bar; // deletes property on prototype
+ alert(foo.bar);           // alerts &quot;undefined&quot;, property no longer inherited</pre>
+        
+<div id="section_5"><span id="Deleting_array_elements"></span><h3 class="editable">Deleting array elements</h3>
+<p>When you delete an array element, the array length is not affected. For example, if you delete a[3], a[4] is still a[4] and a[3] is undefined. This holds even if you delete the last element of the array (<code>delete a[a.length-1]</code>).</p>
+<p>When the <code>delete</code> operator removes an array element, that element is no longer in the array. In the following example, trees[3] is removed with <code>delete</code>.</p>
+
+          <pre name="code" class="js">var trees = [&quot;redwood&quot;,&quot;bay&quot;,&quot;cedar&quot;,&quot;oak&quot;,&quot;maple&quot;];
+delete trees[3];
+if (3 in trees) {
+   // this does not get executed
+}</pre>
+        
+<p>If you want an array element to exist but have an undefined value, use the <code>undefined</code> value instead of the <code>delete</code> operator. In the following example, trees[3] is assigned the value undefined, but the array element still exists:</p>
+
+          <pre name="code" class="js">var trees = [&quot;redwood&quot;,&quot;bay&quot;,&quot;cedar&quot;,&quot;oak&quot;,&quot;maple&quot;];
+trees[3]=undefined;
+if (3 in trees) {
+   // this gets executed
+}</pre>
+        
+</div></div><div id="section_6"><span id="Cross-browser_issues"></span><h2 class="editable">Cross-browser issues</h2>
+<p>Although ECMAScript makes iteration order of objects implementation-dependent, it may appear that all major browsers support an iteration order based on the earliest added property coming first (at least for properties not on the prototype). However, in the case of Internet Explorer, when one uses <code>delete</code> on a property, some confusing behavior results, preventing other browsers from using simple objects like object literals as ordered associative arrays. In Explorer, while the property <em>value</em> is indeed set to undefined, if one later adds back a property with the same name, the property will be iterated in its <em>old</em> position--not at the end of the iteration sequence as one might expect after having deleted the property and then added it back.</p>
+<p>So if you want to simulate an ordered associative array in a cross-browser environment, you are forced to either use two separate arrays (one for the keys and the other for the values), or build an array of single-property objects, etc.</p>
+<p></p></div></div></div><div class="printfooter" id="printfooter"><hr />
+<p>Retrieved from "<a href="../../Operators/Special_Operators/delete_Operator.html">https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator</a>"</p>
+</div>
+	 				
+	 			 		  <div id="languages">
+	 		    <h5>Languages</h5>
+          <ul><li><a rel="internal" href="https://developer.mozilla.org/fr/R%c3%a9f%c3%a9rence_de_JavaScript_1.5_Core/Op%c3%a9rateurs/Op%c3%a9rateurs_sp%c3%a9ciaux/L'op%c3%a9rateur_delete">Fran&ccedil;ais</a></li><li><a rel="internal" href="https://developer.mozilla.org/pl/Dokumentacja_j%c4%99zyka_JavaScript_1.5/Operatory/Operatory_specjalne/Operator_delete">Polski</a></li></ul>				</div>
+									
+
+					
+				<p class="pageLastchange">Page last modified <a href="/index.php?title=en/Core_JavaScript_1.5_Reference/Operators/Special_Operators/delete_Operator&action=history" title="05:20, 14 Jan 2010">05:20, 14 Jan 2010</a> by <a href="/User:Sevenspade" class="link-user" rel="internal">Sevenspade</a></p>
+    
+      </div><!-- end #pageContent -->
+      				
+            <div id="page-tags">
+        <strong class="tag-label">Tags:</strong> <div id="deki-page-tags"><div class="pageTagList"><div class="item taglist"></div><div><a href="/index.php?title=Special:Tags&pageId=33009"class="disabled" onclick="return false;"" id="deki-page-tags-toggleview">Edit tags</a></div></div></div>      </div>
+				
+      <div id="page-files" class="pageSection">
+        <h3 class="secTitle">Files <span class="unweight" id="fileCount">(0)</span></h3>
+              <div class="fileList">
+          <div id="pageFiles"><div class="nofiles">&nbsp;</div></div>        </div>
+      </div>
+			
+		
+
+  
+    </div><!-- end div.body -->
+
+      <div id="siteFooter">
+      <p id="license">Content is available under<a href="/Project:Copyrights"> these licenses</a></p>
+      <p id="footabout"><a href='/Project:en/About'>About MDC</a></p>
+      <div class="poweredBy"><a href="http://www.mindtouch.com" title="Powered by MindTouch Standard 2009">Powered by <span class="product">MindTouch Standard 2009</span></a></div>    
+          </div><!-- end #siteFooter -->
+  
+	</div><!-- end div.globalWrap -->
+
+<div id="popupMessage"></div> 
+<script type="text/javascript">var _endtime = new Date().getTime(); var _size = 23119;</script>
+<div id="popupMask">&nbsp;</div>
+
+<div id="popupContainer" class="inlinedialogue">
+	<div class="id-top"><div class="id-topinner">&nbsp;</div></div>
+	<div id="popupInner">
+		<div id="popupTitleBar" class="id-title"><div class="id-titleinner"><div id="popupTitle"></div></div></div>
+		<div class="id-body"><div class="id-bodyinner">
+		  <iframe src="/skins/common/loading.html" style="width:100%;height:100%;background-color:transparent;" scrolling="auto" frameborder="0" id="popupFrame" name="popupFrame" width="100%" height="100%"></iframe>
+		</div></div>
+	</div>
+</div>
+
+<ul onclick="menuBubble=true;" class="menu" id="menuPageOptions">
+<li class="pageBacklinks"><a href="/index.php?title=Special:Article&type=backlinks&pageid=33009">Pages that link here</a></li></ul>
+
+
+			
+<div class="ui-msg-wrap" id="MTMessage" style="display: none;">
+	<div class="ui-msg ui-errormsg" id="MTMessageStyle">
+		<div class="ui-msg-opt">
+			<ul>
+				<li><a href="#" class="dismiss" onclick="return MTMessage.Hide();">dismiss message</a></li>
+				<li><a href="#" class="details" id="MTMessageDetailsLink" onclick="return MTMessage.ShowDetails(this);">view details</a></li>
+			</ul>
+			<div class="ui-msg-autoclose">
+				<span id="MTMessageUnpaused" style="display: inline;">Message will close by itself in <span id="MTMessageTimer"></span> seconds</span>
+				<span id="MTMessagePaused" style="display: none;">Message timer has been stopped</span>
+			</div>
+		</div>
+		<div class="ui-msg-header" id="MTMessageHeader"></div>
+		<div class="ui-msg-desc" id="MTMessageDesc"></div>
+		<div class="ui-msg-desc" id="MTMessageDetails" style="display: none;">
+			<p>Viewing Details:</p>
+		</div>
+	</div>
+</div><div id="menuFiller"></div><div id="bodyHeight"></div>
+<!-- Served by pm-dekiwiki01 in 0.24 secs. -->
+<!-- (GET)/deki/site/settings: 0.004580020904541 -->
+<!-- (GET)/deki/users/=Anonymous: 0.0088479518890381 -->
+<!-- /deki/pages/39779/contents: 0.033654928207397 -->
+<!-- /deki/pages/39779: 0.00331711769104 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0079379081726074 -->
+<!-- /deki/pages/33009/contents: 0.084011077880859 -->
+<!-- /deki/pages/33009: 0.024458885192871 -->
+<!-- (GET)/deki/pagesubservice/subscriptions: 0.0096490383148193 -->
+<!-- (GET)/deki/pages/33009/info: 0.0049970149993896 -->
+<!-- (GET)/deki/pages/33009/tags: 0.0071980953216553 -->
+<!-- (GET)/deki/license: 0.0043809413909912 -->
+<!-- (GET)/deki/license: 0.0044848918914795 -->
+<!-- Total: 0.19751787185669-->
+<!-- Real: 0.19303297996521-->
+<script type="text/javascript">/*<![CDATA[*/$(function(){dp.SyntaxHighlighter.HighlightAll('code');});/*]]>*/</script>
+</body>
+</html>
