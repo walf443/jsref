@@ -8,7 +8,7 @@ use File::Slurp;
 use LWP::UserAgent;
 use URI::Encode;
 
-my $prefix = 'https://developer.mozilla.org/ja/Core_JavaScript_1.5_Reference';
+my $prefix = 'https://developer.mozilla.org/en/Core_JavaScript_1.5_Reference';
 my @queue = ( 'index' );
 my %fetched;
 
@@ -44,11 +44,13 @@ sub handle_link {
     
     my $relative = ( $fn =~ m{/} ) ? dirname($fn) . "/" : '';
     $relative =~ s{[^/]+}{..}g;
+
+    $keyword && $keyword =~ s{#.*$}{};
+    $keyword = URI::Encode::uri_decode($keyword) if $keyword;
+    $keyword && $keyword =~ s{^/}{};
+
     return $relative . 'index' unless $keyword;
 
-    $keyword =~ s{#.*$}{};
-    $keyword = URI::Encode::uri_decode($keyword);
-    $keyword =~ s{^/}{};
     if ( $keyword && ! $fetched{$keyword} ) {
         push @queue, $keyword;
     }
