@@ -19,7 +19,6 @@ configure_requires 'File::Slurp';
 requires 'File::ShareDir';
 
 install_script 'jsref';
-do 'tidy.pl';
 mkdir 'doc';
 install_share 'doc';
 
