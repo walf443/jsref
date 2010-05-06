@@ -12,6 +12,7 @@ readme_from 'jsref';
 distribution_type 'script';
 
 no_index directory => 'orig';
+no_index directory => 'tools';
 
 requires_external_bin 'w3m';
 configure_requires 'Module::Install::ReadmeFromPod';
