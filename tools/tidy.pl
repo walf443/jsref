@@ -15,7 +15,19 @@ my $scraper = scraper {
     process '#pageText', 'pageText' => 'HTML';
 };
 
-my $mt = Text::MicroTemplate::build_mt(join "\n", <DATA>);
+my $mt = Text::MicroTemplate::build_mt(<<'...');
+<? my $res = shift ?>
+<html>
+<head><?= $res->{title} ?></head>
+<body>
+<?= Text::MicroTemplate::encoded_string($res->{pageText} || "") ?>
+<div class="Footer">
+      <p id="license">Content is available under <a href="https://developer.mozilla.org/Project:Copyrights">these licenses</a></p>
+      <p id="footabout"><a href="https://developer.mozilla.org/Project:ja/About">abount MDC</a></p>
+</div>
+</body>
+</html>
+...
 
 find(
     {
@@ -43,17 +55,4 @@ find(
     },
     'orig',
 );
-
-__END__
-<? my $res = shift ?>
-<html>
-<head><?= $res->{title} ?></head>
-<body>
-<?= Text::MicroTemplate::encoded_string($res->{pageText} || "") ?>
-<div class="Footer">
-      <p id="license">Content is available under <a href="https://developer.mozilla.org/Project:Copyrights">these licenses</a></p>
-      <p id="footabout"><a href="https://developer.mozilla.org/Project:ja/About">abount MDC</a></p>
-</div>
-</body>
-</html>
 
